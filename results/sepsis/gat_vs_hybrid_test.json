@@ -1,0 +1,22 @@
+{
+  "decision_rule": "GAT must exceed hybrid AUROC and at least match hybrid accuracy.",
+  "robust_metrics_comparison": {
+    "hybrid_auroc": 0.8477386388345293,
+    "hybrid_accuracy": 0.8782608695652174,
+    "hybrid_f1": 0.9032258064516128,
+    "gat_auroc": 0.6818957621589201,
+    "gat_accuracy": 0.4169146825396825,
+    "gat_f1": 0.5884534441837812,
+    "gat_beats_hybrid": false
+  },
+  "compiled_metrics_comparison": {
+    "hybrid_auroc": 0.9795772765246451,
+    "hybrid_accuracy": 0.9779265873015873,
+    "hybrid_f1": 0.9733483709273184,
+    "gat_auroc": 0.6818957621589201,
+    "gat_accuracy": 0.4169146825396825,
+    "gat_f1": 0.5884534441837812,
+    "gat_beats_hybrid": false
+  },
+  "final_decision": "keep_hybrid_visuals"
+}

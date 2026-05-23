@@ -1,0 +1,103 @@
+{
+  "disease": "alzheimers",
+  "architecture_source": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\v11_alz_transfer_results.json",
+  "baseline_protocol": "strict leave-one-cohort-out by batch_label, fold-local preprocessing, pooled OOF metrics",
+  "architecture_metrics": {
+    "accuracy": 0.9052525252525253,
+    "auroc": 0.9437088685626698,
+    "f1": 0.9001076433502393
+  },
+  "baselines": {
+    "logistic_regression": {
+      "protocol": "leave_one_group_out",
+      "groups": [
+        "GSE1297",
+        "GSE28146",
+        "GSE5281"
+      ],
+      "n_scored": 222,
+      "folds": [
+        {
+          "held_out_group": "GSE1297",
+          "n_val": 31,
+          "accuracy": 0.6129032258064516,
+          "auroc": 0.797979797979798,
+          "f1": 0.625,
+          "f1_macro": 0.6125
+        },
+        {
+          "held_out_group": "GSE28146",
+          "n_val": 30,
+          "accuracy": 0.7333333333333333,
+          "auroc": 0.7159090909090909,
+          "f1": 0.8461538461538461,
+          "f1_macro": 0.4230769230769231
+        },
+        {
+          "held_out_group": "GSE5281",
+          "n_val": 161,
+          "accuracy": 0.7204968944099379,
+          "auroc": 0.8577197887542716,
+          "f1": 0.6853146853146853,
+          "f1_macro": 0.7169590186349963
+        }
+      ],
+      "pooled_metrics": {
+        "accuracy": 0.7072072072072072,
+        "auroc": 0.8276990185387132,
+        "f1": 0.7136563876651982,
+        "f1_macro": 0.7070586085791428
+      }
+    },
+    "random_forest": {
+      "protocol": "leave_one_group_out",
+      "groups": [
+        "GSE1297",
+        "GSE28146",
+        "GSE5281"
+      ],
+      "n_scored": 222,
+      "folds": [
+        {
+          "held_out_group": "GSE1297",
+          "n_val": 31,
+          "accuracy": 0.6774193548387096,
+          "auroc": 0.7121212121212122,
+          "f1": 0.75,
+          "f1_macro": 0.6477272727272727
+        },
+        {
+          "held_out_group": "GSE28146",
+          "n_val": 30,
+          "accuracy": 0.7333333333333333,
+          "auroc": 0.7698863636363636,
+          "f1": 0.8461538461538461,
+          "f1_macro": 0.4230769230769231
+        },
+        {
+          "held_out_group": "GSE5281",
+          "n_val": 161,
+          "accuracy": 0.7267080745341615,
+          "auroc": 0.8550792171481827,
+          "f1": 0.7962962962962963,
+          "f1_macro": 0.6906009783368274
+        }
+      ],
+      "pooled_metrics": {
+        "accuracy": 0.7207207207207207,
+        "auroc": 0.8019880882476303,
+        "f1": 0.7987012987012987,
+        "f1_macro": 0.671409472880061
+      }
+    }
+  },
+  "best_baseline": {
+    "name": "logistic_regression",
+    "metrics": {
+      "accuracy": 0.7072072072072072,
+      "auroc": 0.8276990185387132,
+      "f1": 0.7136563876651982,
+      "f1_macro": 0.7070586085791428
+    }
+  }
+}

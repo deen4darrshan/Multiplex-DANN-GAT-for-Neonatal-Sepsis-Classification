@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: 11in 8.5in;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 11in;
+            height: 8.5in;
+            color: #000;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quad-container {
+            width: 10.5in;
+            height: 8.1in;
+            border: 2px solid #000;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-rows: auto minmax(0, 1fr) minmax(0, 1fr);
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .header {
+            grid-column: 1 / 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 15px;
+            border-bottom: 2px solid #000;
+            background-color: #f4f6fc;
+            height: 0.8in;
+            box-sizing: border-box;
+        }
+
+        .header .title {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #0d2b52;
+            line-height: 1.1;
+        }
+
+        .header .project-id {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #0d2b52;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .quadrant {
+            padding: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-sizing: border-box;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .quadrant.q1,
+        .quadrant.q2 {
+            border-bottom: 2px solid #000;
+        }
+
+        .quadrant.q1,
+        .quadrant.q3 {
+            border-right: 2px solid #000;
+        }
+
+        .title-bar {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 6px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            display: flex;
+            flex-grow: 1;
+            gap: 12px;
+            min-height: 0;
+        }
+
+        .bullets {
+            flex: 1.5;
+            margin: 0;
+            padding-left: 18px;
+            font-size: 12.5pt !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            line-height: 1.15;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .bullets li {
+            margin-bottom: 4px;
+        }
+
+        .image-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #bbb;
+            padding: 4px;
+            background: #fafafa;
+            min-width: 0;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: calc(100% - 14px);
+            object-fit: contain;
+        }
+
+        .caption {
+            font-size: 9pt;
+            margin-top: 2px;
+            font-style: italic;
+            color: #333;
+            text-align: center;
+            flex-shrink: 0;
+            line-height: 1.1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quad-container">
+        <div class="header">
+            <div class="title">Multiplex Hypergraph Deep Learning for Explainable Neonatal Sepsis Diagnosis</div>
+            <div class="project-id">HS-BCOM-390-T3</div>
+        </div>
+
+        <div class="quadrant q1">
+            <div class="title-bar">Q1: Engineering Problem & Objectives</div>
+            <div class="content">
+                <ul class="bullets">
+                    <li>Neonatal sepsis is a leading cause of newborn mortality, but gold-standard blood cultures take
+                        24–48 hours.</li>
+                    <li>Early empirical antibiotics fuel antimicrobial resistance.</li>
+                    <li>Previous models on high-dimensional gene expression suffer from batch effects across cohorts.
+                    </li>
+                    <li><b>Objective:</b> Engineer a robust, explainable graph neural network (GNN) for transcriptomic
+                        classification without shortcut learning.</li>
+                </ul>
+                <div class="image-box">
+                    <img src="../ACSEF_Final_Submission/final_visuals/07_sepsis_cohort_policy_flow.png"
+                        alt="Sepsis Cohort Flow">
+                    <div class="caption">Sepsis cohort data pipeline policy flow</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quadrant q2">
+            <div class="title-bar">Q2. Project Design</div>
+            <div class="content" style="flex-direction: row;">
+                <div class="image-box" style="flex: 1;">
+                    <img src="../ACSEF_Final_Submission/final_visuals/05_3d_graph_topology.png" alt="3D Graph Topology">
+                    <div class="caption">Gene interaction network structural prior</div>
+                </div>
+                <ul class="bullets" style="flex: 1.3;">
+                    <li>Harmonized GSE25504 and GSE69686 databases (N=319) preserving biological signal using ComBat.
+                    </li>
+                    <li>Constructed a 3-relation multiplex hypergraph (KEGG, STRING, Co-expression) over top 2,000
+                        varying genes.</li>
+                    <li>Implemented a hybrid HGCN-MLP with learned relation attention and a gene-scoring mask.</li>
+                    <li>Applied Domain-Adversarial (DANN) training to suppress cohort confounding.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quadrant q3">
+            <div class="title-bar">Q3: Data Analysis & Results</div>
+            <div class="content" style="flex-direction: row;">
+                <ul class="bullets" style="flex: 1.2;">
+                    <li>Internal 5-fold CV achieved AUROC 0.980, F1 0.973 on neonatal data.</li>
+                    <li>External validation (GSE26440, N=104) confirmed generalizability with AUROC 0.986.</li>
+                    <li>Outperformed logistic regression baselines (AUROC 0.913 internally).</li>
+                    <li>Pure-GNN ablation collapsed to chance, proving non-linear MLP integration is critical.</li>
+                </ul>
+                <div class="image-box" style="flex: 1;">
+                    <img src="../ACSEF_Final_Submission/final_visuals/04_sepsis_roc_evidence_panel.png"
+                        alt="ROC Evidence Panel">
+                    <div class="caption">Model ROC curve performance vs. baselines</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quadrant q4">
+            <div class="title-bar">Q4: Interpretation & Conclusions</div>
+            <div class="content">
+                <ul class="bullets">
+                    <li>Feature attribution identified top genes (TNFAIP6, S100A12) with established innate immune
+                        roles.</li>
+                    <li>The framework successfully scaled to Alzheimer's Disease (N=222; AUROC 0.944).</li>
+                    <li>Generalized flawlessly to Osteogenesis Imperfecta predicting accurately over baselines.</li>
+                    <li><b>Conclusion:</b> Designed an explainable, scalable system for translational genomics bridging
+                        cohort gaps.</li>
+                </ul>
+                <div class="image-box">
+                    <img src="../ACSEF_Final_Submission/final_visuals/01_cross_disease_metric_scorecard.png"
+                        alt="Cross Disease Metrics">
+                    <div class="caption">Metric scorecard tracking generalized scaling</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

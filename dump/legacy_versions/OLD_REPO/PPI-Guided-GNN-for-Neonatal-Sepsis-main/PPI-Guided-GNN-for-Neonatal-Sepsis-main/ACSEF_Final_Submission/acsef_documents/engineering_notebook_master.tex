@@ -1,0 +1,356 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,frame=single}
+\title{ACSEF Master Engineering Notebook: General\_Sepsis\_V11}
+\author{ISEF Project Workspace}
+\date{2026-03-03}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{End-to-End Problem Framing and Rationale}
+This notebook consolidates engineering evidence for a general sepsis model that enforces strict healthy-control cohort policy, fold-safe graph construction, and external pediatric holdout evaluation. Primary new result is General\_Sepsis\_V11, while prior neonatal and cross-disease assets are retained as context.
+\section{Data Acquisition and Curation Decisions with Timestamps}
+Cohort selection was executed in Step 01 with deterministic filters and fallback logic.
+\begin{itemize}
+\item Generated at: 2026-03-03T08:06:16.025761
+\item Active train datasets: GSE134347, GSE54514, GSE57065
+\item Holdout dataset: GSE26378
+\item GSE95233 fallback triggered: True
+\item Selected genes: 2000
+\end{itemize}
+\section{Mathematical Derivations}
+\subsection{ComBat Batch Harmonization}
+For gene $g$ and sample $i$, ComBat models expression as $x_{gi} = \alpha_g + \mathbf{z}_i^\top\beta_g + \gamma_{g,b(i)} + \delta_{g,b(i)}\epsilon_{gi}$, where $b(i)$ is batch and $\mathbf{z}_i$ includes biological covariate (condition). Empirical Bayes shrinks $\gamma,\delta$ across genes.
+\subsection{Multiplex Hypergraph Message Passing}
+Each relation $r \in \{\mathrm{KEGG},\mathrm{STRING},\mathrm{CoExpr}\}$ defines hyperedge incidence $H^{(r)}$. Two HypergraphConv blocks produce relation-specific embeddings $h^{(r)}$, then relation attention computes $\alpha^{(r)} = \mathrm{softmax}(W_a[h^{(1)}\Vert h^{(2)}\Vert h^{(3)}])$ and $h = \sum_r \alpha^{(r)} h^{(r)}$.
+\subsection{GRL / DANN Objective}
+Training minimizes $\mathcal{L} = \mathcal{L}_{\mathrm{sepsis}} + \lambda_{\mathrm{dann}}\mathcal{L}_{\mathrm{domain}}$, with gradient reversal layer applying $-\alpha$ multiplier on domain branch gradients.
+\subsection{Metrics and Confidence Intervals}
+Primary metrics are AUROC, Accuracy, F1, Precision, Recall. 95\% bootstrap confidence intervals are computed by resampling predictions with replacement.
+\section{Results Snapshot}
+\begin{itemize}
+\item CV AUROC: 0.8477, Accuracy: 0.8783, F1: 0.9032
+\item External AUROC: 0.9907, Accuracy: 0.7961, F1: 0.8865
+\item Hard gates all passed: False
+\end{itemize}
+\section{Import and Function Inventories}
+\subsection{Root Sepsis Scripts}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+01\_id\_mapping.py & GEOparse, numpy, os, pandas & extract\_symbol, get\_first\_gene, main, process\_gse \\
+02\_merge\_combat.py & combat.pycombat.pycombat, matplotlib.pyplot, numpy, os, pandas, sklearn.decomposition.PCA & assign\_platform\_batch, main, parse\_conditions, run\_pca\_safe \\
+03\_graph\_construction.py & gzip, mygene, networkx, os, pandas & load\_string\_network, main, map\_proteins\_to\_genes \\
+04\_create\_graphs.py & collections.Counter, numpy, os, pandas, pickle, torch, torch\_geometric.data.Data, torch\_geometric.data.InMemoryDataset & create\_edge\_index, create\_gene\_index\_mapping, create\_patient\_graphs, load\_data, main \\
+04\_create\_graphs\_enhanced.py & collections.Counter, networkx, numpy, os, pandas, pickle, torch, torch\_geometric.data.Data & compute\_degree\_centrality, compute\_gene\_variance, create\_edge\_index, create\_gene\_index\_mapping, create\_patient\_graphs\_3d, load\_data, main \\
+04\_create\_graphs\_expanded.py & collections.Counter, gzip, mygene, networkx, numpy, os, pandas, pickle, torch, torch\_geometric.data.Data & compute\_degree\_centrality, create\_edge\_index, create\_gene\_index\_mapping, create\_patient\_graphs\_3d, filter\_network\_to\_genes, load\_data, load\_string\_raw, main, map\_proteins\_to\_genes, select\_top\_variance\_genes \\
+04\_create\_graphs\_variance\_filtered.py & collections.Counter, networkx, numpy, os, pandas, pickle, torch, torch\_geometric.data.Data & compute\_degree\_centrality, create\_edge\_index, create\_gene\_index\_mapping, create\_patient\_graphs\_3d, filter\_network\_to\_genes, load\_data, main, select\_top\_variance\_genes \\
+05\_baseline\_models.py & matplotlib.pyplot, numpy, os, pandas, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.classification\_report, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler, xgboost & load\_data, main, train\_evaluate\_cv \\
+05\_train\_baselines.py & numpy, os, pandas, pickle, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler & load\_and\_flatten\_graphs, main, train\_baseline \\
+05\_train\_baselines\_varying\_features.py & joblib, numpy, os, pandas, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler & get\_top\_variance\_features, load\_data, main, train\_cv \\
+06\_train\_gnn.py & numpy, os, pandas, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GATConv, torch\_geometric.nn.GCNConv, torch\_geometric.nn.global\_mean\_pool & \_\_init\_\_, evaluate, forward, load\_graphs, main, train\_cv, train\_epoch \\
+06\_train\_gnn\_optimized.py & numpy, os, pandas, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GATConv, torch\_geometric.nn.GCNConv, torch\_geometric.nn.global\_mean\_pool, torch\_geometric.utils.dropout\_edge & \_\_init\_\_, evaluate, forward, load\_graphs, main, train\_cv, train\_epoch \\
+06a\_train\_gcn.py & torch, torch.nn, torch.nn.functional, torch\_geometric.nn.GCNConv, torch\_geometric.nn.global\_mean\_pool, torch\_geometric.utils.dropout\_edge & evaluate, main, train\_cv, train\_epoch \\
+06b\_train\_gat.py & numpy, os, pandas, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GATConv, torch\_geometric.nn.global\_mean\_pool, tqdm.tqdm & \_\_init\_\_, evaluate, forward, load\_graphs, main, train\_cv, train\_epoch \\
+06c\_train\_gat\_expanded.py & numpy, os, pandas, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GATConv, torch\_geometric.nn.global\_mean\_pool, torch\_geometric.utils.dropout\_edge, tqdm.tqdm & \_\_init\_\_, evaluate, forward, load\_graphs, main, train\_cv, train\_epoch \\
+07\_verification\_sanity\_check.py & numpy, os, pandas, pickle, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sklearn.model\_selection.cross\_val\_score & load\_data, main, run\_baseline \\
+09\_data\_rescue\_expansion.py & os, pandas, re & main, parse\_age \\
+download\_data.py & gzip, os, requests, shutil & download\_file, main \\
+download\_data\_v2.py & gseapy, os, requests, shutil & download\_file \\
+download\_data\_v3.py & os, requests, shutil & download\_url, main \\
+download\_geoparse.py & GEOparse, os & - \\
+download\_remaining.py & GEOparse, os & - \\
+draw\_v11\_topology.py & matplotlib.lines.Line2D, matplotlib.patheffects, matplotlib.pyplot, networkx, numpy, os, pandas & - \\
+investigate\_gse26440\_age.py & pandas, re & main, parse\_age \\
+verify\_env.py & gseapy, matplotlib, mygene, networkx, numpy, pandas, requests, scanpy, scipy, seaborn, sklearn, torch, torch\_geometric & - \\
+\end{longtable}
+\subsection{CH\_DANN\_Plan/scripts}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+CH\_DANN\_Plan/scripts/10\_rebuild\_and\_train\_a1.py & GEOparse, combat.pycombat.pycombat, gseapy, json, mygene, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, \_build\_entrez\_to\_symbol\_map, \_extract\_symbol\_from\_assignment, \_find\_gene\_column, \_get\_curated\_pathways, augment\_data, build\_kegg\_hyperedges, build\_patient\_graphs, evaluate, extract\_multiplatform\_gse, find\_optimal\_threshold, forward, main, merge\_and\_combat, parse\_conditions, train\_epoch, train\_fold, variance\_filter \\
+CH\_DANN\_Plan/scripts/10\_train\_hgcn\_a1.py & gseapy, json, numpy, os, pandas, pickle, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, \_build\_string\_fallback, \_get\_curated\_pathways, augment\_data, build\_kegg\_hyperedges, build\_patient\_graphs, evaluate, forward, load\_data, main, split\_train\_external, train\_epoch, train\_fold, variance\_filter \\
+CH\_DANN\_Plan/scripts/11\_train\_hgcn\_v3.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, build\_graphs, build\_hypergraph, forward, load\_data, main, optimal\_threshold, run\_experiment, train\_one\_fold, variance\_filter \\
+CH\_DANN\_Plan/scripts/12\_train\_hybrid\_v4.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, build\_hyperedges, forward, load\_and\_prepare, main, make\_data\_list, opt\_threshold, run\_experiment, run\_fold \\
+CH\_DANN\_Plan/scripts/13\_train\_v5\_lobo\_dann.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler, sys, time, torch, torch.autograd.Function, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, backward, build\_hyperedges, forward, get\_dann\_lambda, load\_and\_prepare, main, make\_data\_list, mean\_auroc, opt\_threshold, run\_5fold, run\_lobo, run\_lr\_baselines, std\_auroc, train\_fold \\
+CH\_DANN\_Plan/scripts/14\_train\_v6\_simple\_split.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.train\_test\_split, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, build\_hyperedges, forward, load\_data, main, make\_data\_list, opt\_threshold, train\_run \\
+CH\_DANN\_Plan/scripts/15\_train\_v7\_fixed\_cv.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedGroupKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, build\_hyperedges, compute\_metrics, evaluate\_model, forward, load\_data, main, make\_data\_list, opt\_threshold, train\_fold \\
+CH\_DANN\_Plan/scripts/16\_train\_v8\_gnn\_guided.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedGroupKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, build\_hyperedges, compute\_metrics, evaluate\_model, forward, load\_data, main, make\_data\_list, opt\_threshold, train\_fold \\
+CH\_DANN\_Plan/scripts/17\_train\_v9\_residual\_fusion.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedGroupKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment, build\_hyperedges, compute\_metrics, evaluate\_model, forward, load\_data, main, make\_data\_list, opt\_threshold, train\_fold \\
+CH\_DANN\_Plan/scripts/18\_train\_v10\_multiplex.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, scipy.stats.rankdata, scipy.stats.spearmanr, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedGroupKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment\_multiplex, build\_coexpr\_hyperedges, build\_kegg\_hyperedges, build\_string\_hyperedges, collate\_multiplex, compute\_metrics, forward, load\_data, main, make\_data\_list, make\_loader, merge, opt\_threshold, to, train\_fold \\
+CH\_DANN\_Plan/scripts/19\_train\_v11\_multiplex\_dann.py & gseapy, json, numpy, os, pandas, scipy.stats.rankdata, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment\_multiplex, backward, build\_coexpr\_hyperedges, build\_kegg\_hyperedges, build\_string\_hyperedges, collate\_multiplex, compute\_metrics, forward, load\_data, main, make\_data\_list, make\_loader, merge, opt\_threshold, to, train\_fold \\
+CH\_DANN\_Plan/scripts/20\_evaluate\_v11\_gse26440.py & importlib, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.metrics.accuracy\_score, sklearn.metrics.classification\_report, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sys, time, torch, torch.nn.functional, warnings & main \\
+CH\_DANN\_Plan/scripts/21\_train\_v12\_pure\_hgcn.py & gseapy, json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, scipy.stats.rankdata, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sys, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.HypergraphConv, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, augment\_multiplex, backward, build\_coexpr\_hyperedges, build\_kegg\_hyperedges, build\_string\_hyperedges, collate\_multiplex, compute\_metrics, forward, load\_data, main, make\_data\_list, make\_loader, merge, opt\_threshold, to, train\_fold \\
+CH\_DANN\_Plan/scripts/22\_explain\_v11.py & importlib, json, matplotlib.pyplot, numpy, os, pandas, seaborn, sys, torch, torch.nn.functional, warnings & \_\_init\_\_, build\_coexpr\_hyperedges, build\_kegg\_hyperedges, build\_string\_hyperedges, extract\_biomarkers, forward, forward\_with\_mask, integrated\_gradients \\
+CH\_DANN\_Plan/scripts/22\_train\_v11\_alzheimers\_transfer.py & \_\_future\_\_.annotations, argparse, gseapy, json, numpy, os, scipy.stats.rankdata, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.nn.HypergraphConv, typing.Dict, typing.List, typing.Optional, typing.Sequence, typing.Tuple, warnings & \_\_init\_\_, assign\_pseudo\_domains, backward, build\_coexpr\_hyperedges, build\_kegg\_hyperedges, class\_weights\_from\_labels, collate\_multiplex, compute\_metrics, edge\_index\_to\_hyperedge, forward, load\_alz\_samples, load\_gene\_list, main, make\_batches, merge, parse\_args, safe\_empty\_hyperedge, set\_seed, to, train\_one\_fold \\
+CH\_DANN\_Plan/scripts/23\_prepare\_alz\_true\_domains.py & GEOparse, \_\_future\_\_.annotations, argparse, collections.Counter, numpy, os, pandas, re, scipy.stats.median\_abs\_deviation, torch, torch\_geometric.data.Data, typing.Dict, typing.List, typing.Sequence, typing.Tuple & build\_static\_edge\_index, extract\_status, main, make\_probe\_to\_gene, normalize\_status, parse\_args, process\_one\_gse, zscore\_per\_sample \\
+CH\_DANN\_Plan/scripts/24\_evaluate\_alz\_brain\_loco.py & \_\_future\_\_.annotations, argparse, importlib.util, json, numpy, os, re, time, torch, types.SimpleNamespace, typing.Dict, typing.List & build\_train\_args, load\_v11\_module, main, parse\_args, safe\_name \\
+CH\_DANN\_Plan/scripts/25\_evaluate\_alz\_brain\_seed\_stability.py & \_\_future\_\_.annotations, argparse, importlib.util, json, numpy, os, sklearn.model\_selection.StratifiedKFold, time, torch, types.SimpleNamespace, typing.Dict, typing.List & build\_train\_args, ci95, load\_v11\_module, main, parse\_args, parse\_seed\_list \\
+CH\_DANN\_Plan/scripts/26\_build\_publication\_summary.py & \_\_future\_\_.annotations, argparse, json, matplotlib.pyplot, numpy, os, pandas, pathlib.Path, seaborn, typing.Dict, typing.List, typing.Tuple & build\_loco\_table, build\_seed\_table, fmt, load\_json, main, markdown\_table, maybe\_load\_json, parse\_args, plot\_lineage, plot\_loco, plot\_seed\_stability, to\_metric\_row \\
+\end{longtable}
+\subsection{Sepsis\_GNN\_V2/scripts}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+Sepsis\_GNN\_V2/scripts/01\_combat\_correction.py & combat.pycombat.pycombat, matplotlib, matplotlib.pyplot, numpy, os, pandas, scipy.stats.ttest\_ind, sklearn.decomposition.PCA, sys, warnings & assign\_batches, load\_datasets, main, parse\_condition, plot\_pca, run\_combat \\
+Sepsis\_GNN\_V2/scripts/02\_build\_graphs.py & gzip, mygene, numpy, os, pandas, pickle, scipy.stats.median\_abs\_deviation, sys, torch, torch\_geometric.data.Data & build\_gene\_edges, compute\_graph\_features, create\_patient\_graphs, load\_combat\_data, load\_string\_network, main, map\_ensp\_to\_genes, variance\_filter \\
+Sepsis\_GNN\_V2/scripts/03\_baselines.py & json, numpy, os, pandas, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler & main \\
+Sepsis\_GNN\_V2/scripts/04\_train\_gnn.py & copy, json, numpy, os, pandas, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sys, torch, torch.nn, torch.nn.LayerNorm, torch.nn.Linear, torch.nn.functional, torch.optim.lr\_scheduler.CosineAnnealingWarmRestarts, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GCNConv, torch\_geometric.nn.TransformerConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool & \_\_init\_\_, evaluate, forward, load\_transfer\_weights, main, run\_experiment, train\_epoch \\
+Sepsis\_GNN\_V2/scripts/05\_external\_validation.py & importlib, json, matplotlib, matplotlib.pyplot, numpy, os, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.classification\_report, sklearn.metrics.f1\_score, sklearn.metrics.precision\_recall\_curve, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sys, torch, torch.nn.functional, torch\_geometric.loader.DataLoader & main, plot\_roc\_curves, predict \\
+Sepsis\_GNN\_V2/scripts/06\_explainability.py & importlib, json, matplotlib, matplotlib.pyplot, numpy, os, pickle, scipy.stats.hypergeom, sys, torch, torch.nn.functional, torch\_geometric.loader.DataLoader & aggregate\_explanations, explain\_with\_gradients, go\_enrichment, main, plot\_gene\_importance \\
+\end{longtable}
+\subsection{gnn\_optimized}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+gnn\_optimized/01\_build\_graphs.py & collections.Counter, gzip, mygene, networkx, numpy, os, pandas, pickle, torch, torch\_geometric.data.Data & build\_filtered\_network, create\_patient\_graphs, load\_string\_network, main, map\_proteins\_to\_genes, select\_top\_variance\_genes \\
+gnn\_optimized/02\_train\_gcn.py & datetime.datetime, numpy, os, pandas, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GCNConv, torch\_geometric.nn.global\_mean\_pool, torch\_geometric.utils.dropout\_edge, tqdm.tqdm & \_\_init\_\_, add\_feature\_noise, evaluate, forward, load\_graphs, main, train\_epoch, train\_fold \\
+gnn\_optimized/03\_train\_graphsage.py & datetime.datetime, numpy, os, pickle, sklearn.metrics.accuracy\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.SAGEConv, torch\_geometric.nn.global\_mean\_pool, torch\_geometric.utils.dropout\_edge, tqdm.tqdm & \_\_init\_\_, add\_feature\_noise, evaluate, forward, load\_graphs, main, train\_epoch, train\_fold \\
+\end{longtable}
+\subsection{Osteogenesis imperfecta/scripts}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+Osteogenesis imperfecta/scripts/00\_download\_data.py & os, requests, shutil & download, main \\
+Osteogenesis imperfecta/scripts/01\_prepare\_expression.py & gzip, io, numpy, os, pandas, requests & load\_gse160207, load\_gse163812, main, parse\_gse163812\_metadata \\
+Osteogenesis imperfecta/scripts/02\_combat\_correction.py & combat.pycombat.pycombat, matplotlib, matplotlib.pyplot, numpy, os, pandas, sklearn.decomposition.PCA, warnings & main, plot\_pca \\
+Osteogenesis imperfecta/scripts/03\_build\_graphs.py & gzip, mygene, numpy, os, pandas, pickle, scipy.stats.median\_abs\_deviation, torch, torch\_geometric.data.Data & build\_gene\_edges, compute\_graph\_features, create\_graphs, load\_string\_network, main, map\_ensp\_to\_genes, variance\_filter \\
+Osteogenesis imperfecta/scripts/04\_baselines.py & json, matplotlib, matplotlib.pyplot, numpy, os, pandas, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler & main, plot\_roc \\
+Osteogenesis imperfecta/scripts/05\_train\_gnn.py & copy, json, matplotlib, matplotlib.pyplot, numpy, os, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, torch, torch.nn, torch.nn.functional, torch\_geometric.loader.DataLoader, torch\_geometric.nn.GCNConv, torch\_geometric.nn.TransformerConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool & \_\_init\_\_, evaluate, forward, main, plot\_roc, run\_cv, train\_epoch \\
+Osteogenesis imperfecta/scripts/06\_summarize\_results.py & datetime.datetime, json, os & best\_acc, load\_json, main \\
+Osteogenesis imperfecta/scripts/07\_prepare\_multicohort\_real.py & gzip, numpy, os, pandas, re, requests & clean\_symbol, ensure\_file, load\_gse160207, load\_gse163812, load\_gse180838, load\_gse186141, main, parse\_series\_matrix, postprocess\_expr \\
+Osteogenesis imperfecta/scripts/08\_run\_real\_external\_eval.py & combat.pycombat.pycombat, gzip, json, matplotlib, matplotlib.pyplot, mygene, numpy, os, pandas, pickle, scipy.stats.median\_abs\_deviation, shutil, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.TransformerConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool & \_\_init\_\_, bin\_metrics, build\_topology, compute\_structural\_features, create\_graphs, ensure\_string\_file, forward, load\_multicohort\_data, load\_or\_build\_ensp\_mapping, load\_string\_edges, main, plot\_holdout\_roc, predict\_graphs, run\_combat\_train, run\_gat\_internal\_external, run\_lr\_internal\_external, train\_gat\_fold \\
+Osteogenesis imperfecta/scripts/09\_prepare\_expanded\_real.py & gzip, numpy, os, pandas, re, requests & clean\_symbol, ensure\_mouse\_files, load\_mouse\_dataset, main, parse\_mouse\_metadata, postprocess\_expr \\
+Osteogenesis imperfecta/scripts/10\_tune\_5fold\_combined.py & combat.pycombat.pycombat, gzip, json, matplotlib, matplotlib.pyplot, mygene, numpy, os, pandas, pickle, scipy.stats.median\_abs\_deviation, shutil, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedKFold, sklearn.preprocessing.StandardScaler, sklearn.svm.SVC, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.TransformerConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, build\_graph\_topology, build\_graphs, cv\_metrics, ensure\_string, eval\_gat\_cv, eval\_tabular, forward, load\_data, load\_or\_build\_mapping, load\_string\_edges, main, pred\_probs, run\_combat, structural\_feats \\
+Osteogenesis imperfecta/scripts/11\_human\_grouped5\_eval.py & gzip, json, matplotlib, matplotlib.pyplot, mygene, numpy, os, pandas, pickle, scipy.stats.median\_abs\_deviation, shutil, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedGroupKFold, sklearn.preprocessing.StandardScaler, sklearn.svm.SVC, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.loader.DataLoader, torch\_geometric.nn.TransformerConv, torch\_geometric.nn.global\_max\_pool, torch\_geometric.nn.global\_mean\_pool, warnings & \_\_init\_\_, build\_graphs, build\_topology, ensure\_string, forward, graph\_feats, load\_human\_data, load\_or\_build\_mapping, load\_string\_edges, metrics, predict\_probs, run \\
+Osteogenesis imperfecta/scripts/12\_human\_grouped5\_tune\_fast.py & json, matplotlib, matplotlib.pyplot, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.ensemble.ExtraTreesClassifier, sklearn.ensemble.GradientBoostingClassifier, sklearn.ensemble.RandomForestClassifier, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedGroupKFold, sklearn.preprocessing.StandardScaler, sklearn.svm.SVC & eval\_cfg, make\_model, metric\_pack \\
+Osteogenesis imperfecta/scripts/13\_human\_grouped5\_lr\_only\_tuning.py & json, matplotlib, matplotlib.pyplot, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedGroupKFold, sklearn.preprocessing.StandardScaler & eval\_lr, metric\_pack \\
+Osteogenesis imperfecta/scripts/14\_human\_grouped5\_l2\_lr\_tuning.py & json, numpy, os, pandas, scipy.stats.median\_abs\_deviation, sklearn.linear\_model.LogisticRegression, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedGroupKFold, sklearn.preprocessing.StandardScaler & main, metric\_pack \\
+\end{longtable}
+\subsection{ACSEF\_Final\_Submission/scripts}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+ACSEF\_Final\_Submission/scripts/01\_run\_robust\_xai\_biomarkers.py & copy, datetime.datetime, gseapy, gzip, json, math, matplotlib, matplotlib.pyplot, mygene, numpy, os, pandas, random, sklearn.decomposition.PCA, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.train\_test\_split, sklearn.preprocessing.StandardScaler, time, torch, torch.nn, torch.nn.functional, torch\_geometric.data.Data, torch\_geometric.nn.HypergraphConv, warnings & \_\_init\_\_, \_collect\_ensembl\_proteins, \_grl, append\_relation, build\_kegg\_hyperedges, build\_string\_hyperedges\_chunked, collate\_multiplex, compute\_coexpr\_hyperedges, eval\_model, forward, integrated\_gradients, log, main, make\_batches, merge, np\_mad, rank\_transform\_row, single\_forward, to, train\_model \\
+ACSEF\_Final\_Submission/scripts/02\_compile\_metrics\_and\_make\_figures.py & datetime.datetime, json, matplotlib, matplotlib.pyplot, numpy, os, pandas & fig\_architecture\_flowchart, fig\_external\_validation, fig\_osteogenesis\_scaling, fig\_roc\_comparisons, log, main, make\_compiled\_metrics, make\_interactive\_html, read\_json, safe\_float, sanitize\_for\_json, write\_model\_justification, write\_osteogenesis\_scaling\_doc \\
+ACSEF\_Final\_Submission/scripts/03\_build\_publication\_assets.py & - & - \\
+ACSEF\_Final\_Submission/scripts/04\_generate\_print\_poster\_draft.py & matplotlib, matplotlib.patches.Rectangle, matplotlib.pyplot, os, shutil, textwrap & \_block, \_copy\_raw\_images, \_draw\_image\_panel, build\_poster \\
+ACSEF\_Final\_Submission/scripts/05\_generate\_general\_sepsis\_v11\_publication.py & \_\_future\_\_.annotations, csv, datetime.datetime, json, matplotlib, matplotlib.pyplot, pandas, pathlib.Path, shutil, typing.Dict, typing.List & build\_poster, extract\_summary, load\_json, main, panel, pd\_read, sync\_figures, write\_claim\_traceability, write\_figure\_manifest \\
+\end{longtable}
+\subsection{General\_Sepsis\_V11/scripts}
+\begin{longtable}{p{0.34\textwidth}p{0.31\textwidth}p{0.31\textwidth}}
+\textbf{File} & \textbf{Imports} & \textbf{Functions} \\ \hline
+General\_Sepsis\_V11/scripts/01\_download\_and\_preprocess.py & GEOparse, \_\_future\_\_.annotations, argparse, collections.Counter, collections.defaultdict, combat.pycombat.pycombat, dataclasses.dataclass, datetime.datetime, json, logging, numpy, os, pandas, pathlib.Path, re, sys, typing.Dict, typing.List, typing.Optional, typing.Tuple & \_mk\_sample\_id, build\_probe\_to\_gene\_map, compute\_mad, detect\_gene\_column, extract\_expression\_matrix, init\_logger, load\_gse, main, normalize\_gene\_symbol, parse\_args, parse\_gene\_assignment, robust\_combat, select\_gse134347\_fallback, select\_gse26378\_holdout, select\_gse54514, select\_gse57065, select\_gse95233\_strict, set\_seed, summarize\_records \\
+General\_Sepsis\_V11/scripts/02\_build\_graphs.py & \_\_future\_\_.annotations, argparse, datetime.datetime, gseapy, gzip, json, logging, mygene, numpy, os, pandas, pathlib.Path, sys, typing.Dict, typing.Iterable, typing.List, typing.Optional, typing.Sequence, typing.Set, typing.Tuple & build\_symbol\_to\_proteins, init\_logger, invert\_symbol\_protein\_map, load\_gene\_list, load\_kegg\_pathways, main, parse\_args, safe\_coexpression\_rankcorr, stream\_string\_edges \\
+General\_Sepsis\_V11/scripts/03\_train\_v11\_general\_sepsis.py & \_\_future\_\_.annotations, argparse, copy, dataclasses.dataclass, datetime.datetime, json, logging, math, numpy, pandas, pathlib.Path, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.model\_selection.StratifiedGroupKFold, sys, torch, torch.nn, torch.nn.functional, torch\_geometric.nn.HypergraphConv, typing.Dict, typing.List, typing.Optional, typing.Sequence, typing.Tuple & \_\_init\_\_, backward, build\_coexpr\_hyperedge, build\_splits, class\_weights, collate\_multiplex, compute\_mad, compute\_metrics, empty\_hyperedge, filter\_kegg\_pathways, filter\_string\_edges, forward, init\_logger, iter\_batches, main, maybe\_number, parse\_args, pathways\_to\_hyperedge, select\_fold\_genes, set\_seed, string\_edges\_to\_hyperedge, tile\_hyperedge, to \\
+General\_Sepsis\_V11/scripts/04\_evaluate.py & \_\_future\_\_.annotations, argparse, copy, dataclasses.dataclass, datetime.datetime, json, logging, math, numpy, pandas, pathlib.Path, sklearn.linear\_model.LogisticRegression, sklearn.linear\_model.SGDClassifier, sklearn.metrics.accuracy\_score, sklearn.metrics.confusion\_matrix, sklearn.metrics.f1\_score, sklearn.metrics.precision\_recall\_curve, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.neural\_network.MLPClassifier, sklearn.preprocessing.StandardScaler, sys, torch, torch.nn, torch.nn.functional, torch\_geometric.nn.HypergraphConv, typing.Dict, typing.List, typing.Optional, typing.Sequence, typing.Tuple & \_\_init\_\_, backward, bootstrap\_ci, build\_coexpr\_hyperedge, collate\_infer, compute\_metrics, empty\_hyperedge, filter\_kegg\_pathways, filter\_string\_edges, forward, init\_logger, main, optimal\_threshold, paired\_permutation\_test\_auc, parse\_args, pathways\_to\_hyperedge, run\_external\_holdout, run\_leakage\_checks, run\_sklearn\_baselines, safe\_curve\_arrays, set\_seed, string\_to\_hyperedge, tile\_hyperedge, to \\
+General\_Sepsis\_V11/scripts/05\_build\_master\_notebook.py & \_\_future\_\_.annotations, argparse, ast, datetime.datetime, json, matplotlib, matplotlib.backends.backend\_pdf.PdfPages, matplotlib.pyplot, pathlib.Path, subprocess, typing.Dict, typing.List, typing.Tuple & esc, git\_log, list\_py\_files, main, parse\_args, parse\_py\_inventory, recent\_logs, write\_pdf\_fallback, write\_tex \\
+General\_Sepsis\_V11/scripts/06\_metrics\_and\_plots.py & \_\_future\_\_.annotations, argparse, json, matplotlib, matplotlib.pyplot, mpl\_toolkits.mplot3d.Axes3D, networkx, numpy, pandas, pathlib.Path, shap, sklearn.linear\_model.LogisticRegression, sklearn.linear\_model.SGDClassifier, sklearn.metrics.accuracy\_score, sklearn.metrics.f1\_score, sklearn.metrics.precision\_recall\_curve, sklearn.metrics.precision\_score, sklearn.metrics.recall\_score, sklearn.metrics.roc\_auc\_score, sklearn.metrics.roc\_curve, sklearn.neural\_network.MLPClassifier, sklearn.preprocessing.StandardScaler, typing.Dict, typing.List, typing.Optional, typing.Sequence, typing.Tuple & compute\_metrics, ensure\_dirs, main, optimal\_threshold, parse\_args, plot\_3d\_gnn\_topology, plot\_attention\_heatmap, plot\_auroc\_dataset\_heatmap, plot\_metric\_heatmap, plot\_pr\_overlay, plot\_roc\_overlay, run\_shap\_analysis, safe\_group\_metrics, y\_map \\
+\end{longtable}
+\section{Changelog Derived from Git and Logs}
+\subsection{Recent Git Commits}
+\begin{itemize}
+\item f1aa731|2026-03-02 20:13:24 -0800|Add remaining results/logs and remove ISEF\_GNNs submodule
+\item d9e3b8d|2026-03-02 20:04:34 -0800|Add v11 sepsis scripts and ACSEF publication assets
+\item df7f07a|2026-02-24 22:17:56 -0800|Add simplified V11 GNN topology visual
+\item 6a9940e|2026-02-24 21:47:41 -0800|Render poster panels with real figures and add raw image gallery folder
+\item 0671fbc|2026-02-24 20:31:25 -0800|Add ACSEF final submission package and poster layout draft
+\item a3b353c|2026-02-24 19:12:53 -0800|Add ACSEF master prompt and finalize V11 explainability updates
+\item 5c35f58|2026-02-24 18:34:54 -0800|Add OI pipeline, docs, and publication assets
+\item 39b8988|2026-02-21 16:31:43 -0800|Add V12 pure HGCN ablation script and update final report
+\item a2e8f32|2026-02-21 14:41:02 -0800|Add V11 DANN Multiplex evaluation and final report
+\item 655e2c1|2026-02-13 18:43:02 -0800|feat: Add comprehensive project summary and updated plans
+\item 9575ebb|2026-02-05 17:49:03 -0800|GNN pipeline for neonatal sepsis classification - GCN + baselines
+\end{itemize}
+\subsection{Recent Execution Logs}
+\begin{itemize}
+\item 2026-03-02\_04\_evaluate.log | modified=2026-03-02T21:43:30.319421
+\item 2026-03-03\_01\_download\_and\_preprocess.log | modified=2026-03-03T08:06:16.018489
+\item 2026-03-03\_02\_build\_graphs.log | modified=2026-03-03T08:06:45.122574
+\item 2026-03-03\_03\_train\_v11\_general\_sepsis.log | modified=2026-03-03T08:27:26.442733
+\item 2026-03-03\_04\_evaluate.log | modified=2026-03-03T08:28:01.573015
+\item xai\_pipeline\_2026-02-24.log | modified=2026-02-24T19:48:02.871734
+\end{itemize}
+\section{Failure Analysis with Root Cause and Fix Evidence}
+\begin{itemize}
+\item Step 01 initial failure: \texttt{pycombat} raised DataFrame comparison error in mod handling. Root cause: passing DataFrame covariate object. Fix: pass list covariate (\texttt{condition.tolist()}).
+\item Step 02 initial failure: metadata column mismatch (\texttt{index} vs \texttt{sample\_id}). Root cause: reset index naming. Fix: normalize metadata columns and add compatibility fallback in downstream scripts.
+\end{itemize}
+\section{Overhaul Execution Trace}
+Detailed step-by-step execution log: \texttt{C:/Users/terry/Downloads/Projects/ISEF/General\_Sepsis\_V11/results/overhaul\_execution\_log.md}
+\lstinputlisting{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/results/overhaul_execution_log.md}}
+\section{Figure and Table Appendix with Captions and Citations}
+\begin{itemize}
+\item Poster package: \texttt{ACSEF\_Final\_Submission/acsef\_documents/publication\_package/general\_sepsis\_v11\_poster.pdf}
+\item Figure manifest: \texttt{.../general\_sepsis\_v11\_figure\_manifest.md}
+\item Claim traceability: \texttt{.../general\_sepsis\_v11\_claim\_traceability.csv}
+\end{itemize}
+\section{Full Code Appendix (\texttt{\textbackslash lstinputlisting})}
+\subsection{Root Sepsis Scripts}
+\subsubsection{01\_id\_mapping.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/01_id_mapping.py}}
+\subsubsection{02\_merge\_combat.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/02_merge_combat.py}}
+\subsubsection{03\_graph\_construction.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/03_graph_construction.py}}
+\subsubsection{04\_create\_graphs.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/04_create_graphs.py}}
+\subsubsection{04\_create\_graphs\_enhanced.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/04_create_graphs_enhanced.py}}
+\subsubsection{04\_create\_graphs\_expanded.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/04_create_graphs_expanded.py}}
+\subsubsection{04\_create\_graphs\_variance\_filtered.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/04_create_graphs_variance_filtered.py}}
+\subsubsection{05\_baseline\_models.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/05_baseline_models.py}}
+\subsubsection{05\_train\_baselines.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/05_train_baselines.py}}
+\subsubsection{05\_train\_baselines\_varying\_features.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/05_train_baselines_varying_features.py}}
+\subsubsection{06\_train\_gnn.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/06_train_gnn.py}}
+\subsubsection{06\_train\_gnn\_optimized.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/06_train_gnn_optimized.py}}
+\subsubsection{06a\_train\_gcn.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/06a_train_gcn.py}}
+\subsubsection{06b\_train\_gat.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/06b_train_gat.py}}
+\subsubsection{06c\_train\_gat\_expanded.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/06c_train_gat_expanded.py}}
+\subsubsection{07\_verification\_sanity\_check.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/07_verification_sanity_check.py}}
+\subsubsection{09\_data\_rescue\_expansion.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/09_data_rescue_expansion.py}}
+\subsubsection{download\_data.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/download_data.py}}
+\subsubsection{download\_data\_v2.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/download_data_v2.py}}
+\subsubsection{download\_data\_v3.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/download_data_v3.py}}
+\subsubsection{download\_geoparse.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/download_geoparse.py}}
+\subsubsection{download\_remaining.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/download_remaining.py}}
+\subsubsection{draw\_v11\_topology.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/draw_v11_topology.py}}
+\subsubsection{investigate\_gse26440\_age.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/investigate_gse26440_age.py}}
+\subsubsection{verify\_env.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/verify_env.py}}
+\subsection{CH\_DANN\_Plan/scripts}
+\subsubsection{CH\_DANN\_Plan/scripts/10\_rebuild\_and\_train\_a1.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/10_rebuild_and_train_a1.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/10\_train\_hgcn\_a1.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/10_train_hgcn_a1.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/11\_train\_hgcn\_v3.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/11_train_hgcn_v3.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/12\_train\_hybrid\_v4.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/12_train_hybrid_v4.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/13\_train\_v5\_lobo\_dann.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/13_train_v5_lobo_dann.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/14\_train\_v6\_simple\_split.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/14_train_v6_simple_split.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/15\_train\_v7\_fixed\_cv.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/15_train_v7_fixed_cv.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/16\_train\_v8\_gnn\_guided.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/16_train_v8_gnn_guided.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/17\_train\_v9\_residual\_fusion.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/17_train_v9_residual_fusion.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/18\_train\_v10\_multiplex.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/18_train_v10_multiplex.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/19\_train\_v11\_multiplex\_dann.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/19_train_v11_multiplex_dann.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/20\_evaluate\_v11\_gse26440.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/20_evaluate_v11_gse26440.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/21\_train\_v12\_pure\_hgcn.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/21_train_v12_pure_hgcn.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/22\_explain\_v11.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/22_explain_v11.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/22\_train\_v11\_alzheimers\_transfer.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/22_train_v11_alzheimers_transfer.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/23\_prepare\_alz\_true\_domains.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/23_prepare_alz_true_domains.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/24\_evaluate\_alz\_brain\_loco.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/24_evaluate_alz_brain_loco.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/25\_evaluate\_alz\_brain\_seed\_stability.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/25_evaluate_alz_brain_seed_stability.py}}
+\subsubsection{CH\_DANN\_Plan/scripts/26\_build\_publication\_summary.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/CH_DANN_Plan/scripts/26_build_publication_summary.py}}
+\subsection{Sepsis\_GNN\_V2/scripts}
+\subsubsection{Sepsis\_GNN\_V2/scripts/01\_combat\_correction.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Sepsis_GNN_V2/scripts/01_combat_correction.py}}
+\subsubsection{Sepsis\_GNN\_V2/scripts/02\_build\_graphs.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Sepsis_GNN_V2/scripts/02_build_graphs.py}}
+\subsubsection{Sepsis\_GNN\_V2/scripts/03\_baselines.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Sepsis_GNN_V2/scripts/03_baselines.py}}
+\subsubsection{Sepsis\_GNN\_V2/scripts/04\_train\_gnn.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Sepsis_GNN_V2/scripts/04_train_gnn.py}}
+\subsubsection{Sepsis\_GNN\_V2/scripts/05\_external\_validation.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Sepsis_GNN_V2/scripts/05_external_validation.py}}
+\subsubsection{Sepsis\_GNN\_V2/scripts/06\_explainability.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Sepsis_GNN_V2/scripts/06_explainability.py}}
+\subsection{gnn\_optimized}
+\subsubsection{gnn\_optimized/01\_build\_graphs.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/gnn_optimized/01_build_graphs.py}}
+\subsubsection{gnn\_optimized/02\_train\_gcn.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/gnn_optimized/02_train_gcn.py}}
+\subsubsection{gnn\_optimized/03\_train\_graphsage.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/gnn_optimized/03_train_graphsage.py}}
+\subsection{Osteogenesis imperfecta/scripts}
+\subsubsection{Osteogenesis imperfecta/scripts/00\_download\_data.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/00_download_data.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/01\_prepare\_expression.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/01_prepare_expression.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/02\_combat\_correction.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/02_combat_correction.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/03\_build\_graphs.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/03_build_graphs.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/04\_baselines.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/04_baselines.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/05\_train\_gnn.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/05_train_gnn.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/06\_summarize\_results.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/06_summarize_results.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/07\_prepare\_multicohort\_real.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/07_prepare_multicohort_real.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/08\_run\_real\_external\_eval.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/08_run_real_external_eval.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/09\_prepare\_expanded\_real.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/09_prepare_expanded_real.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/10\_tune\_5fold\_combined.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/10_tune_5fold_combined.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/11\_human\_grouped5\_eval.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/11_human_grouped5_eval.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/12\_human\_grouped5\_tune\_fast.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/12_human_grouped5_tune_fast.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/13\_human\_grouped5\_lr\_only\_tuning.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/13_human_grouped5_lr_only_tuning.py}}
+\subsubsection{Osteogenesis imperfecta/scripts/14\_human\_grouped5\_l2\_lr\_tuning.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/Osteogenesis imperfecta/scripts/14_human_grouped5_l2_lr_tuning.py}}
+\subsection{ACSEF\_Final\_Submission/scripts}
+\subsubsection{ACSEF\_Final\_Submission/scripts/01\_run\_robust\_xai\_biomarkers.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/ACSEF_Final_Submission/scripts/01_run_robust_xai_biomarkers.py}}
+\subsubsection{ACSEF\_Final\_Submission/scripts/02\_compile\_metrics\_and\_make\_figures.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/ACSEF_Final_Submission/scripts/02_compile_metrics_and_make_figures.py}}
+\subsubsection{ACSEF\_Final\_Submission/scripts/03\_build\_publication\_assets.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/ACSEF_Final_Submission/scripts/03_build_publication_assets.py}}
+\subsubsection{ACSEF\_Final\_Submission/scripts/04\_generate\_print\_poster\_draft.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/ACSEF_Final_Submission/scripts/04_generate_print_poster_draft.py}}
+\subsubsection{ACSEF\_Final\_Submission/scripts/05\_generate\_general\_sepsis\_v11\_publication.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/ACSEF_Final_Submission/scripts/05_generate_general_sepsis_v11_publication.py}}
+\subsection{General\_Sepsis\_V11/scripts}
+\subsubsection{General\_Sepsis\_V11/scripts/01\_download\_and\_preprocess.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/scripts/01_download_and_preprocess.py}}
+\subsubsection{General\_Sepsis\_V11/scripts/02\_build\_graphs.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/scripts/02_build_graphs.py}}
+\subsubsection{General\_Sepsis\_V11/scripts/03\_train\_v11\_general\_sepsis.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/scripts/03_train_v11_general_sepsis.py}}
+\subsubsection{General\_Sepsis\_V11/scripts/04\_evaluate.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/scripts/04_evaluate.py}}
+\subsubsection{General\_Sepsis\_V11/scripts/05\_build\_master\_notebook.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/scripts/05_build_master_notebook.py}}
+\subsubsection{General\_Sepsis\_V11/scripts/06\_metrics\_and\_plots.py}
+\lstinputlisting[language=Python]{\detokenize{C:/Users/terry/Downloads/Projects/ISEF/General_Sepsis_V11/scripts/06_metrics_and_plots.py}}
+\end{document}

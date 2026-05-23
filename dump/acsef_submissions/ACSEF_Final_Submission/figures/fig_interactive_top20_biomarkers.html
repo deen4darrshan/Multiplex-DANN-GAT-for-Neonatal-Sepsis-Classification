@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:100%;height:720px;"></div>
+  <script>
+    const rows = [{"gene": "OCIAD2", "score": -0.81846476, "direction": "Control_up"}, {"gene": "CD52", "score": -0.6979343, "direction": "Control_up"}, {"gene": "GLIPR1", "score": -0.5381994, "direction": "Control_up"}, {"gene": "LRRN3", "score": -0.4967259, "direction": "Control_up"}, {"gene": "GIMAP7", "score": -0.48543167, "direction": "Control_up"}, {"gene": "ITLN1", "score": -0.4839905, "direction": "Control_up"}, {"gene": "SULF2", "score": -0.4506805, "direction": "Control_up"}, {"gene": "HBM", "score": 0.43971, "direction": "Sepsis_up"}, {"gene": "RNASE2", "score": 0.44382703, "direction": "Sepsis_up"}, {"gene": "ANXA3", "score": 0.44967642, "direction": "Sepsis_up"}, {"gene": "ANKRD22", "score": 0.45379466, "direction": "Sepsis_up"}, {"gene": "NUCB1", "score": 0.49199983, "direction": "Sepsis_up"}, {"gene": "SERPINB1", "score": 0.5096576, "direction": "Sepsis_up"}, {"gene": "NKG7", "score": 0.53106457, "direction": "Sepsis_up"}, {"gene": "HP", "score": 0.5335384, "direction": "Sepsis_up"}, {"gene": "S100P", "score": 0.55174154, "direction": "Sepsis_up"}, {"gene": "RETN", "score": 0.629491, "direction": "Sepsis_up"}, {"gene": "STOM", "score": 0.6373005, "direction": "Sepsis_up"}, {"gene": "S100A12", "score": 0.65213895, "direction": "Sepsis_up"}, {"gene": "TNFAIP6", "score": 0.66437227, "direction": "Sepsis_up"}];
+    const y = rows.map(r => r.gene);
+    const x = rows.map(r => r.score);
+    const c = rows.map(r => r.score >= 0 ? "#d62728" : "#1f77b4");
+    const text = rows.map(r => r.direction);
+
+    const trace = {
+      x,
+      y,
+      type: "bar",
+      orientation: "h",
+      marker: {color: c},
+      text,
+      hovertemplate: "<b>%{y}</b><br>Attribution: %{x:.4f}<br>%{text}<extra></extra>",
+    };
+
+    Plotly.newPlot("chart", [trace], {
+      title: "Interactive Top-20 Biomarker Attributions",
+      xaxis: {title: "Integrated Gradients Attribution"},
+      yaxis: {title: "Gene"},
+      margin: {l: 120, r: 30, t: 60, b: 60},
+    });
+  </script>
+</body>
+</html>

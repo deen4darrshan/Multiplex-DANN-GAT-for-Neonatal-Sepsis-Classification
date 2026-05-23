@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-02-24T19:53:00.258176",
+  "naming_scheme": {
+    "final_model": "Multiplex-Hypergraph-DANN-MLP",
+    "pure_ablation": "Multiplex-Hypergraph-Pure-NoMLP",
+    "baseline_hgcn": "Pathway-HGCN-Classic",
+    "baseline_gcn": "Interaction-GCN-Baseline",
+    "baseline_gat": "Attention-GAT-Baseline"
+  },
+  "sepsis_benchmarks": [
+    {
+      "model_name": "Pathway-HGCN-Classic",
+      "source": "CH_DANN_Plan/results/a1_v2_summary.json",
+      "auroc_mean": 0.6841961313540261,
+      "accuracy_mean": 0.7020337301587302,
+      "f1_mean": 0.6291429519107578,
+      "evaluation_protocol": "5-fold stratified CV on rebuilt sepsis training cohorts"
+    },
+    {
+      "model_name": "Interaction-GCN-Baseline",
+      "source": "Sepsis_GNN_V2/results/gnn_results.json::GCN_Baseline",
+      "auroc_mean": 0.6705816140026666,
+      "accuracy_mean": 0.4137896825396825,
+      "f1_mean": 0.5852574391900235,
+      "evaluation_protocol": "5-fold CV on Sepsis_GNN_V2 baseline setting"
+    },
+    {
+      "model_name": "Attention-GAT-Baseline",
+      "source": "Sepsis_GNN_V2/results/gnn_results.json::GAT_Transfer",
+      "auroc_mean": 0.6818957621589201,
+      "accuracy_mean": 0.4169146825396825,
+      "f1_mean": 0.5884534441837812,
+      "evaluation_protocol": "5-fold CV on Sepsis_GNN_V2 transfer baseline setting"
+    },
+    {
+      "model_name": "Multiplex-Hypergraph-DANN-MLP",
+      "source": "CH_DANN_Plan/results/v11_multiplex_dann_results.json",
+      "auroc_mean": 0.9795772765246451,
+      "accuracy_mean": 0.9779265873015873,
+      "f1_mean": 0.9733483709273184,
+      "evaluation_protocol": "5-fold stratified CV (combined condition+batch key) on sepsis cohorts"
+    },
+    {
+      "model_name": "Multiplex-Hypergraph-DANN-MLP (Robust-XAI Rebuild)",
+      "source": "ACSEF_Final_Submission/results/xai_training_metrics.json",
+      "auroc_mean": 0.990990990990991,
+      "accuracy_mean": 0.921875,
+      "f1_mean": 0.9152542372881356,
+      "evaluation_protocol": "single stratified holdout used to stabilize integrated gradients run"
+    },
+    {
+      "model_name": "Multiplex-Hypergraph-Pure-NoMLP",
+      "source": "CH_DANN_Plan/V11_Multiplex_DANN_Final_Report.md",
+      "auroc_mean": 0.45,
+      "accuracy_mean": 0.5,
+      "f1_mean": null,
+      "evaluation_protocol": "reported collapse to random chance (~0.4-0.5 AUROC) in V12 ablation without MLP",
+      "reported_range": {
+        "auroc_min": 0.4,
+        "auroc_max": 0.5
+      }
+    }
+  ],
+  "external_validation_gse26440": {
+    "model_name": "Multiplex-Hypergraph-DANN-MLP",
+    "source": "CH_DANN_Plan/results/v11_gse26440_external_results.json",
+    "n_samples": 104,
+    "accuracy": 0.9519230769230769,
+    "auroc": 0.9855875831485587,
+    "f1": 0.9696969696969697,
+    "precision": 0.963855421686747,
+    "recall": 0.975609756097561,
+    "relation_attention": {
+      "KEGG": 0.019257323816418648,
+      "STRING": 0.024230824783444405,
+      "CoExpr": 0.9565118551254272
+    }
+  },
+  "rare_disease_scaling_osteogenesis_imperfecta": {
+    "source_files": [
+      "Osteogenesis imperfecta/results/human_grouped5_results.json",
+      "Osteogenesis imperfecta/results/human_grouped5_optimized_lr.json",
+      "Osteogenesis imperfecta/results/real_world_results.json",
+      "Osteogenesis imperfecta/results/human_grouped5_l2_lr_tuning.json"
+    ],
+    "human_grouped5_best_acc": 0.8235294117647058,
+    "human_grouped5_best_auc": 0.8021978021978022,
+    "human_grouped5_best_f1": 0.875,
+    "human_grouped5_gat_acc": 0.6176470588235294,
+    "external_mean_lr_acc": 0.375,
+    "external_mean_lr_auc": 0.5034226190476191,
+    "external_mean_gat_acc": 0.5416666666666667,
+    "external_mean_gat_auc": 0.7736607142857143,
+    "l2_tuned_best_acc": 0.8235294117647058,
+    "l2_tuned_best_auc": 0.8461538461538461
+  },
+  "caveats": [
+    "GCN and GAT baseline numbers come from Sepsis_GNN_V2 historical runs; protocols differ from V11.",
+    "V12 Pure-NoMLP values are reported as a random-chance range in archived report text.",
+    "Robust-XAI rebuild model is for explainability execution and may not exactly match archived V11 checkpoint state."
+  ]
+}

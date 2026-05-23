@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:100%;height:600px;"></div>
+  <script>
+    const data = {"x": [100, 30, 30, 100, 50, 1, 3, 0.1, 0.3, 8], "y": [0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058, 0.8235294117647058], "color": null, "title": "Top10 L2 LR Tuning (Human Grouped 5-fold)", "x_label": "C", "y_label": "Accuracy"};
+    const trace = {x: data.x, y: data.y, mode: 'markers', type: 'scatter', marker: {color: data.color || data.y}};
+    const layout = {title: data.title, xaxis: {title: data.x_label}, yaxis: {title: data.y_label}};
+    Plotly.newPlot('chart', [trace], layout);
+  </script>
+</body>
+</html>

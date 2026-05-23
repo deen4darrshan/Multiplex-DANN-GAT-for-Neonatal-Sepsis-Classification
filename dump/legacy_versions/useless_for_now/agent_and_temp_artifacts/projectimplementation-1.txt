@@ -1,0 +1,428 @@
+PPI-Guided Graph Neural Networks for Infant Infection Susceptibility
+
+Comprehensive Project Implementation & Dataset Specification for ISEF
+
+1. Transcriptomic Cohorts - UPDATED STRATEGY
+
+These datasets provide the raw gene expression numbers for individual patients.
+
+Combined Training Set: GSE25504 + GSE69686
+
+Role: Merged training dataset to increase statistical power.
+
+Total Sample Size: 320 (170 from GSE25504 + 150 from GSE69686).
+
+Why Combine:
+
+Same Disease: Both cohorts study neonatal sepsis using comparable microarray technology.
+
+Power Increase: N=320 provides ~2.5x the minimum sample size required to detect moderate effects (Cohen's d=0.5) with 80% power.
+
+Robustness: Combining cohorts smooths out hospital-specific idiosyncrasies, forcing the model to learn shared biological signals.
+
+Implementation Strategy:
+
+Harmonization & Batch Correction (Phase 1):
+
+Step 1: Download both datasets.
+
+Step 2: Map probe IDs to HUGO Gene Symbols separately.
+
+Step 3: Intersect genes (keep only genes present in both datasets).
+
+Step 4: Apply ComBat to remove technical differences.
+
+from combat.pycombat import pycombat
+import pandas as pd
+
+# Merge raw expression data
+combined_expr = pd.concat([GSE25504_expr, GSE69686_expr], axis=1)
+
+# Create batch labels
+batch = ['GSE25504'] * 170 + ['GSE69686'] * 150
+
+# Create biological covariates (Sepsis/Control) to protect signal
+covariates = pd.DataFrame({'Condition': labels})
+
+# Apply Correction
+corrected_data = pycombat(combined_expr, batch=batch, mod=covariates)
+
+
+Step 5: Verify with PCA. Corrected data should cluster by Sepsis vs. Control, not by Dataset Source.
+
+Training Protocol (Phase 2):
+
+5-Fold Cross-Validation: Split the 320 samples into 5 stratified folds.
+
+Train Split: ~256 samples per fold.
+
+Validation Split: ~64 samples per fold.
+
+Benefit: This sample size supports a model with ~4,000-5,000 parameters without severe overfitting.
+
+Feature Selection (Critical for N=320, P=20k):
+
+Stage 1: Variance Filtering: Keep top 5,000 most variable genes.
+
+Stage 2: PPI Intersection: Keep genes connected in STRING network.
+
+Stage 3: DE Pre-filtering (Optional): Keep genes with $p < 0.1$ (t-test).
+
+Goal: Input feature dimension $F \approx 1,500 - 2,000$ genes.
+
+Deliverables:
+
+Week 1, Day 6: PCA plot showing successful merging (Dataset 1 and 2 overlapping).
+
+Week 2, Day 10: CV Results on 320 samples.
+
+External Validation Set: GSE26440
+
+Role: True external validation (Generalization Test).
+
+Description: Pediatric Septic Shock (older children), N=130.
+
+Why:
+
+Tests if the model generalizes beyond the neonatal period.
+
+Strictly held out: Never seen during training, feature selection, or hyperparameter tuning.
+
+Implementation Strategy:
+
+Isolation: Keep strictly separate until the final evaluation phase.
+
+Preprocessing: Apply the exact same gene mapping and normalization scaling derived from the training set.
+
+Success Metrics:
+
+AUROC $\ge$ 0.70: Acceptable (drop expected due to age difference).
+
+AUROC $\ge$ 0.75: Excellent generalization.
+
+Note: If performance drops significantly (< 0.60), frame it as "biological specificity of neonatal sepsis" rather than model failure.
+
+Deliverables:
+
+Week 2, Day 12: Confusion Matrix and ROC Curve for Pediatric Sepsis.
+
+2. Interaction Networks (The "Graph Topology" - $A$, $E$)
+
+These databases determine how nodes (genes) are connected based on biological relationships.
+
+STRING Database (v12)
+
+Role: The primary skeleton of your patient-specific graphs.
+
+Why: Covers direct physical AND functional associations (pathways), crucial for immune response.
+
+Implementation Strategy:
+
+Download: 9606.protein.links.v12.0.txt.gz (Homo sapiens).
+
+Filtering Strategy (CRITICAL):
+
+Option A: High Confidence (combined_score > 700).
+
+Option B: Highest Confidence (combined_score > 900).
+
+Decision Protocol: Start with >900. If Largest Connected Component (LCC) has < 80% of expressed genes, relax to >700.
+
+Gene ID Mapping: Convert Ensembl Protein IDs to HGNC Gene Symbols using STRING alias file or mygene.
+
+Intersection: Only keep edges where BOTH nodes are present in your patient expression data.
+
+Deliverables:
+
+Week 1, Day 3: STRING network file (filtered), Network stats report.
+
+BioGRID (Consensus Layer)
+
+Role: Noise reduction through experimental validation.
+
+Why: Contains ONLY physically verified interactions (no predicted associations).
+
+Implementation Strategy:
+
+Download: BIOGRID-ORGANISM-Homo_sapiens-4.4.XXX.tab3.txt.
+
+Filtering: Keep only "Experimental System Type" = "physical".
+
+Consensus Graph Construction:
+
+Primary Graph: STRING $\cap$ BioGRID (Edges existing in BOTH).
+
+Rationale: Max confidence, min false positives.
+
+Backup: STRING only (if consensus is too sparse).
+
+Deliverables:
+
+Week 1, Day 3: Consensus graph edge list, Venn diagram of overlap.
+
+3. The "Translators" (ID Mapping & Harmonization)
+
+Required to merge raw Probe IDs (data) with Gene Symbols (networks).
+
+HGNC (HUGO Gene Nomenclature Committee)
+
+Role: Universal gene symbol authority.
+
+Tool: mygene Python library.
+
+Implementation:
+
+import mygene
+mg = mygene.MyGeneInfo()
+# Batch query
+probes = ['204639_at', '117_at']
+results = mg.querymany(probes, scopes='reporter', fields='symbol', species='human')
+
+
+Handling Edge Cases:
+
+Many-to-One: Average expression values.
+
+One-to-Many: Discard ambiguous probes.
+
+Platform-Specific Annotation Packages (Bioconductor)
+
+Datasets: hgu133plus2.db (Affymetrix), illuminaHumanv4.db (Illumina).
+
+Role: Backup dictionary when mygene fails.
+
+Deliverables:
+
+Week 1, Day 2: Mapping dictionary (CSV), Mapping statistics report.
+
+4. The "Judges" (Biological Interpretation & Validation)
+
+CRITICAL for ISEF Success: Proves your AI finds real biology.
+
+Gene Ontology (GO) & KEGG Pathways
+
+Role: Explain the "Why."
+
+Tool: gseapy (Python).
+
+Implementation:
+
+Input: Top 50-100 genes from GNNExplainer/Attention weights.
+
+Process: Run enrichment against GO_Biological_Process_2023 and KEGG_2021_Human.
+
+Success Metrics (p < 0.05):
+
+GO:0045087 (Innate Immune Response)
+
+GO:0043312 (Neutrophil Degranulation)
+
+hsa04620 (Toll-like Receptor Signaling)
+
+Visualization: Dot Plot (Gene ratio vs Pathway).
+
+Literature-Curated Sepsis Biomarker List
+
+Role: Ground truth verification.
+
+Dataset: Create a CSV biomarker_reference.csv.
+
+Biomarker List (Tier 1 - Must Include):
+
+CD64 (FCGR1A) - High-affinity IgG Fc receptor (PMID: 23283738)
+
+MMP9 - Matrix Metallopeptidase 9 (PMID: 25783525)
+
+S100A8 / S100A9 - Calprotectin (PMID: 26098424)
+
+ADM - Adrenomedullin (PMID: 27183547)
+
+IL6 - Interleukin 6
+
+TLR4 - Toll-Like Receptor 4
+
+MYD88 - Myeloid Differentiation Primary Response 88
+
+CXCL8 (IL8)
+
+MPO - Myeloperoxidase
+
+CEACAM8 (CD66b)
+
+Validation Workflow:
+
+Calculate overlap between GNN Top 50 Genes and Biomarker List.
+
+Win Condition: Model ranks CD64 or MMP9 in top 10-20.
+
+Bonus: Discovery of novel gene connected to CD64/MMP9.
+
+Deliverables:
+
+Week 3, Day 16: Biomarker overlap analysis, Venn diagram.
+
+5. Quality Control & Validation Metrics
+
+Graph Construction QC
+
+Nodes: 2,000 - 10,000 genes.
+
+Edges: 10,000 - 500,000.
+
+Largest Connected Component: >80% coverage.
+
+Biomarker Check: $\ge$ 7/10 known markers must be present in the graph.
+
+Model Performance Thresholds
+
+AUROC: $\ge$ 0.78 (Target for combined dataset).
+
+Sensitivity: $\ge$ 0.80 (Critical for clinical usage).
+
+GNN vs Baseline: GNN AUROC > Baseline (RF/LR) + 0.05.
+
+Statistical Validation
+
+Paired t-test: Compare GNN CV folds vs Baseline CV folds.
+
+McNemar's Test: For individual prediction comparison.
+
+Bootstrap: For 95% Confidence Intervals on AUROC.
+
+6. Complete Data Pipeline Summary
+
+Week 1: Data Engineering
+
+Day 1: Download GSE25504 (Neonatal), GSE69686 (Neonatal), GSE26440 (Pediatric).
+
+Day 2: Map Probes to Genes for all datasets.
+
+Day 3: Build PPI Network (STRING + BioGRID).
+
+Day 4: Normalize Expression (Log2 + Z-score).
+
+Day 5: Merge GSE25504 + GSE69686 and apply ComBat.
+
+Day 6: Verify batch correction with PCA.
+
+Day 7: Baseline Models on Combined Data.
+
+Week 2: Model Development
+
+Day 8: GCN Prototype on Combined Data.
+
+Day 9: GAT Implementation.
+
+Day 10: 5-Fold CV on 320 samples.
+
+Day 11: Hyperparameter Tuning.
+
+Day 12: External Validation on GSE26440 (Pediatric).
+
+Day 13: Ablation Study (PPI vs Random).
+
+Day 14: Results Synthesis.
+
+Week 3: Interpretation & Presentation
+
+Day 15: GNNExplainer (Top Genes).
+
+Day 16: Biomarker Validation (Overlap).
+
+Day 17: GO/KEGG Enrichment.
+
+Day 18: Visualization (ROC, Heatmaps).
+
+Day 19: Poster Design.
+
+Day 20: Abstract & Report.
+
+Day 21: Mock Judging.
+
+7. Final Deliverables & Specifications
+
+Baseline Model Specifications
+
+Random Forest Configuration:
+
+n_estimators: 100
+
+max_depth: 10
+
+class_weight: 'balanced'
+
+Feature input: Flat gene expression matrix (Top 2,000 variable genes)
+
+Logistic Regression Configuration:
+
+Penalty: L2 (Ridge), C: 0.1
+
+class_weight: 'balanced'
+
+XGBoost:
+
+n_estimators: 100, learning_rate: 0.1
+
+Data Availability & Reproducibility Statement
+
+Public Data Sources:
+
+GSE25504, GSE69686, GSE26440 (NCBI GEO)
+
+STRING v12, BioGRID (Public Domain/CC BY 4.0)
+
+Code Availability: GitHub repository + Zenodo DOI.
+
+Reproducibility: Random seeds set, environment dockerized.
+
+Final Deliverables Checklist
+
+Data Files:
+
+[ ] combined_training_data.csv (GSE25504 + GSE69686, ComBat corrected)
+
+[ ] external_validation_data.csv (GSE26440, processed)
+
+[ ] ppi_network.edgelist
+
+[ ] biomarker_reference.csv
+
+Code Repository:
+
+[ ] 01_data_merging_combat.py
+
+[ ] 02_graph_construction.py
+
+[ ] 03_train_gnn_cv.py
+
+[ ] 04_evaluate_external.py
+
+[ ] 05_interpret.py
+
+Figures:
+
+[ ] Fig 1: Study Overview (Merging Strategy)
+
+[ ] Fig 2: PCA (Before vs. After ComBat)
+
+[ ] Fig 3: ROC Curves (Training CV vs. External Pediatric)
+
+[ ] Fig 4: GNNExplainer Top Subgraph
+
+[ ] Fig 5: Biological Validation Dot Plot
+
+8. Troubleshooting Guide
+
+Batch Effect Persists: If PCA shows clusters by dataset after ComBat, check for "confounded design" (e.g., all Sepsis in one dataset). Note: Both our datasets have Sepsis+Control, so this should work.
+
+Pediatric Performance Low: If GSE26440 AUROC < 0.60, focus interpretation on age-specific immunity differences.
+
+9. Contingency Plans & Risk Mitigation
+
+Risk 1: External Validation Fails: Train ensemble models; use transfer learning.
+
+Risk 2: No Biological Signal: Use larger gene set (top 100); verify gene mapping.
+
+Risk 3: GNN doesn't beat baseline: Explore alternative graph structures (co-expression).
+
+Risk 4: Computational Limits: Filter to top 2,000 genes; use Colab Pro.

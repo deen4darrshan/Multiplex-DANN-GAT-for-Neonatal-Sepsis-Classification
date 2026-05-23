@@ -1,0 +1,96 @@
+{
+  "method": "V11 transfer to Alzheimer (multiplex HGCN + MLP + DANN)",
+  "dataset_path": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\data\\alz\\alz_brain_true_domains_2000.pt",
+  "n_samples": 222,
+  "n_genes": 2000,
+  "node_feature_dim": 1,
+  "n_classes": 2,
+  "n_domains": 3,
+  "class_counts_mapped": {
+    "0": 91,
+    "1": 131
+  },
+  "label_map_original_to_mapped": {
+    "0": 0,
+    "1": 1
+  },
+  "gene_count": 2000,
+  "kegg_hyperedges": 268,
+  "string_pair_hyperedges": 15000,
+  "coexpr_threshold": 0.7,
+  "max_coexpr_edges": 20000,
+  "domain_loss_weight": 0.0,
+  "n_folds": 5,
+  "seed": 42,
+  "folds": [
+    {
+      "fold": 1,
+      "n_train": 177,
+      "n_val": 45,
+      "n_coexpr_edges": 20000,
+      "acc": 0.9555555555555556,
+      "f1_macro": 0.9537037037037037,
+      "auroc_macro_ovr": 0.9878542510121457,
+      "attn_kegg": 0.6665052175521851,
+      "attn_string": 0.2082037478685379,
+      "attn_coexpr": 0.12529106438159943
+    },
+    {
+      "fold": 2,
+      "n_train": 177,
+      "n_val": 45,
+      "n_coexpr_edges": 20000,
+      "acc": 0.8888888888888888,
+      "f1_macro": 0.8803827751196172,
+      "auroc_macro_ovr": 0.9444444444444444,
+      "attn_kegg": 0.11414873600006104,
+      "attn_string": 0.6696844100952148,
+      "attn_coexpr": 0.21616686880588531
+    },
+    {
+      "fold": 3,
+      "n_train": 178,
+      "n_val": 44,
+      "n_coexpr_edges": 20000,
+      "acc": 0.8863636363636364,
+      "f1_macro": 0.8814016172506738,
+      "auroc_macro_ovr": 0.9401709401709402,
+      "attn_kegg": 0.06364700943231583,
+      "attn_string": 0.7035982012748718,
+      "attn_coexpr": 0.23275484144687653
+    },
+    {
+      "fold": 4,
+      "n_train": 178,
+      "n_val": 44,
+      "n_coexpr_edges": 20000,
+      "acc": 0.9545454545454546,
+      "f1_macro": 0.9520697167755992,
+      "auroc_macro_ovr": 0.9807692307692307,
+      "attn_kegg": 0.6447582244873047,
+      "attn_string": 0.13067622482776642,
+      "attn_coexpr": 0.22456558048725128
+    },
+    {
+      "fold": 5,
+      "n_train": 178,
+      "n_val": 44,
+      "n_coexpr_edges": 20000,
+      "acc": 0.8409090909090909,
+      "f1_macro": 0.8367779544250133,
+      "auroc_macro_ovr": 0.858974358974359,
+      "attn_kegg": 0.1592223197221756,
+      "attn_string": 0.7691286206245422,
+      "attn_coexpr": 0.07164910435676575
+    }
+  ],
+  "mean_acc": 0.9052525252525253,
+  "std_acc": 0.044101755061564794,
+  "mean_f1_macro": 0.9008671534549215,
+  "std_f1_macro": 0.04542982681146394,
+  "mean_auroc_macro_ovr": 0.942442645074224,
+  "std_auroc_macro_ovr": 0.045841605018220974,
+  "best_fold": "fold_1",
+  "best_acc": 0.9555555555555556,
+  "elapsed_minutes": 2.922276755174001
+}

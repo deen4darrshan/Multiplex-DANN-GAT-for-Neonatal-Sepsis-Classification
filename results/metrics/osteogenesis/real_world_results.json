@@ -1,0 +1,144 @@
+{
+  "holdouts": {
+    "GSE160207": {
+      "n_train": 22,
+      "n_external": 12,
+      "train_labels": {
+        "OI": 14,
+        "Control": 8
+      },
+      "external_labels": {
+        "OI": 7,
+        "Control": 5
+      },
+      "n_genes_train_common": 14641,
+      "n_nodes_graph": 548,
+      "n_edges_graph": 1263,
+      "gat_internal": {
+        "auc_mean": 0.90625,
+        "acc_mean": 0.5,
+        "f1_mean": 0.3875
+      },
+      "gat_external": {
+        "auc": 0.657142857142857,
+        "accuracy": 0.5833333333333334,
+        "f1": 0.7368421052631579
+      },
+      "lr_internal": {
+        "auc_mean": 1.0,
+        "acc_mean": 1.0,
+        "f1_mean": 1.0
+      },
+      "lr_external": {
+        "auc": 0.7428571428571429,
+        "accuracy": 0.4166666666666667,
+        "f1": 0.0
+      }
+    },
+    "GSE163812": {
+      "n_train": 26,
+      "n_external": 8,
+      "train_labels": {
+        "OI": 17,
+        "Control": 9
+      },
+      "external_labels": {
+        "Control": 4,
+        "OI": 4
+      },
+      "n_genes_train_common": 14600,
+      "n_nodes_graph": 515,
+      "n_edges_graph": 2858,
+      "gat_internal": {
+        "auc_mean": 0.9375,
+        "acc_mean": 0.5357142857142857,
+        "f1_mean": 0.375
+      },
+      "gat_external": {
+        "auc": 0.8125,
+        "accuracy": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "lr_internal": {
+        "auc_mean": 1.0,
+        "acc_mean": 1.0,
+        "f1_mean": 1.0
+      },
+      "lr_external": {
+        "auc": 0.8125,
+        "accuracy": 0.5,
+        "f1": 0.0
+      }
+    },
+    "GSE180838": {
+      "n_train": 28,
+      "n_external": 6,
+      "train_labels": {
+        "OI": 17,
+        "Control": 11
+      },
+      "external_labels": {
+        "OI": 4,
+        "Control": 2
+      },
+      "n_genes_train_common": 14971,
+      "n_nodes_graph": 465,
+      "n_edges_graph": 1708,
+      "gat_internal": {
+        "auc_mean": 0.9333333333333333,
+        "acc_mean": 0.5357142857142857,
+        "f1_mean": 0.39015151515151514
+      },
+      "gat_external": {
+        "auc": 0.625,
+        "accuracy": 0.3333333333333333,
+        "f1": 0.0
+      },
+      "lr_internal": {
+        "auc_mean": 1.0,
+        "acc_mean": 1.0,
+        "f1_mean": 1.0
+      },
+      "lr_external": {
+        "auc": 0.375,
+        "accuracy": 0.3333333333333333,
+        "f1": 0.0
+      }
+    },
+    "GSE186141": {
+      "n_train": 26,
+      "n_external": 8,
+      "train_labels": {
+        "OI": 15,
+        "Control": 11
+      },
+      "external_labels": {
+        "OI": 6,
+        "Control": 2
+      },
+      "n_genes_train_common": 14976,
+      "n_nodes_graph": 471,
+      "n_edges_graph": 1225,
+      "gat_internal": {
+        "auc_mean": 0.9722222222222222,
+        "acc_mean": 0.5416666666666666,
+        "f1_mean": 0.38181818181818183
+      },
+      "gat_external": {
+        "auc": 1.0,
+        "accuracy": 0.75,
+        "f1": 0.8571428571428571
+      },
+      "lr_internal": {
+        "auc_mean": 1.0,
+        "acc_mean": 1.0,
+        "f1_mean": 1.0
+      },
+      "lr_external": {
+        "auc": 0.08333333333333333,
+        "accuracy": 0.25,
+        "f1": 0.0
+      }
+    }
+  }
+}

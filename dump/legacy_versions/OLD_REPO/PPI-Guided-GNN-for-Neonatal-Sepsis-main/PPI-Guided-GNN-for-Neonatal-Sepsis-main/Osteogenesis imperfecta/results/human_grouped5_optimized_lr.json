@@ -1,0 +1,35 @@
+{
+  "setup": {
+    "validation": "human_only",
+    "cv": "StratifiedGroupKFold(n_splits=5)",
+    "group_column": "GroupID",
+    "model": "LogisticRegression",
+    "top_k_genes_per_fold": 12000,
+    "C": 10.0,
+    "threshold_tuned_on_oof": 0.19,
+    "samples": 34
+  },
+  "metrics": {
+    "accuracy": 0.8235294117647058,
+    "auc": 0.8021978021978022,
+    "f1": 0.875
+  },
+  "label_counts": {
+    "OI": 21,
+    "Control": 13
+  },
+  "dataset_counts": {
+    "Control": {
+      "GSE160207": 5,
+      "GSE163812": 4,
+      "GSE180838": 2,
+      "GSE186141": 2
+    },
+    "OI": {
+      "GSE160207": 7,
+      "GSE163812": 4,
+      "GSE180838": 4,
+      "GSE186141": 6
+    }
+  }
+}

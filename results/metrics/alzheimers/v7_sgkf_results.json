@@ -1,0 +1,59 @@
+{
+  "method": "StratifiedGroupKFold (LOBO)",
+  "n_folds": 4,
+  "seed": 42,
+  "epochs": 150,
+  "folds": [
+    {
+      "fold": 1,
+      "held_out": "GSE25504_Illu",
+      "auroc": 0.9558652729384437,
+      "acc": 0.963855421686747,
+      "f1": 0.9629629629629629,
+      "prec": 1.0,
+      "rec": 0.9285714285714286,
+      "n_val": 83,
+      "skipped": false
+    },
+    {
+      "fold": 2,
+      "held_out": "GSE25504_Affy",
+      "auroc": 1.0,
+      "acc": 1.0,
+      "f1": 1.0,
+      "prec": 1.0,
+      "rec": 1.0,
+      "n_val": 5,
+      "skipped": false
+    },
+    {
+      "fold": 3,
+      "held_out": "GSE25504_NCode",
+      "auroc": 0.9445614035087719,
+      "acc": 0.9146341463414634,
+      "f1": 0.8679245283018868,
+      "prec": 0.8214285714285714,
+      "rec": 0.92,
+      "n_val": 82,
+      "skipped": false
+    },
+    {
+      "fold": 4,
+      "held_out": "GSE69686",
+      "auroc": 0.6764705882352942,
+      "acc": 0.6711409395973155,
+      "f1": 0.6620689655172414,
+      "prec": 0.5925925925925926,
+      "rec": 0.75,
+      "n_val": 149,
+      "skipped": false
+    }
+  ],
+  "mean_auroc": 0.8942243161706274,
+  "std_auroc": 0.12741527698067284,
+  "mean_acc": 0.8874076269063814,
+  "std_acc": 0.12848528243131555,
+  "best_fold": "Fold 2/4 \u2014 Test on GSE25504_Affy",
+  "best_auroc": 1.0,
+  "total_time_min": 14.973341544469198
+}

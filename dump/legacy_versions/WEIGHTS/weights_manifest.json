@@ -1,0 +1,326 @@
+[
+  {
+    "disease": "sepsis",
+    "group": "acsef_submission",
+    "architecture_guess": "multiplex_hgcn_dann",
+    "weight_file": "multiplex_hyper_dann_mlp_acsef.pt",
+    "source_path": "ACSEF_Final_Submission/models/multiplex_hyper_dann_mlp_acsef.pt",
+    "weights_path": "WEIGHTS/sepsis/acsef_submission/multiplex_hyper_dann_mlp_acsef.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "sepsis",
+    "group": "ch_dann_sepsis_lineage",
+    "architecture_guess": "hgcn",
+    "weight_file": "hgcn_v2_best.pt",
+    "source_path": "CH_DANN_Plan/models/hgcn_v2_best.pt",
+    "weights_path": "WEIGHTS/sepsis/ch_dann_sepsis_lineage/hgcn_v2_best.pt",
+    "size_mb": "0.06"
+  },
+  {
+    "disease": "sepsis",
+    "group": "ch_dann_sepsis_lineage",
+    "architecture_guess": "hgcn",
+    "weight_file": "hgcn_v2_fold1.pt",
+    "source_path": "CH_DANN_Plan/models/hgcn_v2_fold1.pt",
+    "weights_path": "WEIGHTS/sepsis/ch_dann_sepsis_lineage/hgcn_v2_fold1.pt",
+    "size_mb": "0.06"
+  },
+  {
+    "disease": "sepsis",
+    "group": "ch_dann_sepsis_lineage",
+    "architecture_guess": "hgcn",
+    "weight_file": "hgcn_v2_fold2.pt",
+    "source_path": "CH_DANN_Plan/models/hgcn_v2_fold2.pt",
+    "weights_path": "WEIGHTS/sepsis/ch_dann_sepsis_lineage/hgcn_v2_fold2.pt",
+    "size_mb": "0.06"
+  },
+  {
+    "disease": "sepsis",
+    "group": "ch_dann_sepsis_lineage",
+    "architecture_guess": "hgcn",
+    "weight_file": "hgcn_v2_fold3.pt",
+    "source_path": "CH_DANN_Plan/models/hgcn_v2_fold3.pt",
+    "weights_path": "WEIGHTS/sepsis/ch_dann_sepsis_lineage/hgcn_v2_fold3.pt",
+    "size_mb": "0.06"
+  },
+  {
+    "disease": "sepsis",
+    "group": "ch_dann_sepsis_lineage",
+    "architecture_guess": "hgcn",
+    "weight_file": "hgcn_v2_fold4.pt",
+    "source_path": "CH_DANN_Plan/models/hgcn_v2_fold4.pt",
+    "weights_path": "WEIGHTS/sepsis/ch_dann_sepsis_lineage/hgcn_v2_fold4.pt",
+    "size_mb": "0.06"
+  },
+  {
+    "disease": "sepsis",
+    "group": "ch_dann_sepsis_lineage",
+    "architecture_guess": "hgcn",
+    "weight_file": "hgcn_v2_fold5.pt",
+    "source_path": "CH_DANN_Plan/models/hgcn_v2_fold5.pt",
+    "weights_path": "WEIGHTS/sepsis/ch_dann_sepsis_lineage/hgcn_v2_fold5.pt",
+    "size_mb": "0.06"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_loco_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_loco_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_loco_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_loco_GSE1297.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_loco_GSE1297.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_loco_GSE1297.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_loco_GSE28146.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_loco_GSE28146.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_loco_GSE28146.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_loco_GSE5281.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_loco_GSE5281.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_loco_GSE5281.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_seed_123_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_seed_123_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_seed_123_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_seed_21_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_seed_21_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_seed_21_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_seed_42_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_seed_42_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_seed_42_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_seed_77_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_seed_77_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_seed_77_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_seed_7_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_seed_7_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_seed_7_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "unknown",
+    "weight_file": "v11_alz_brain_true_domains_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_true_domains_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_true_domains_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "multiplex_hgcn_dann",
+    "weight_file": "v11_alz_brain_true_domains_nodann_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_brain_true_domains_nodann_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_brain_true_domains_nodann_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "transfer_model",
+    "weight_file": "v11_alz_transfer_best.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_transfer_best.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_transfer_best.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "transfer_model",
+    "weight_file": "v11_alz_transfer_fold_1.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_transfer_fold_1.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_transfer_fold_1.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "transfer_model",
+    "weight_file": "v11_alz_transfer_fold_2.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_transfer_fold_2.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_transfer_fold_2.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "transfer_model",
+    "weight_file": "v11_alz_transfer_fold_3.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_transfer_fold_3.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_transfer_fold_3.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "transfer_model",
+    "weight_file": "v11_alz_transfer_fold_4.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_transfer_fold_4.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_transfer_fold_4.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "alzheimers",
+    "group": "ch_dann_transfer",
+    "architecture_guess": "transfer_model",
+    "weight_file": "v11_alz_transfer_fold_5.pt",
+    "source_path": "CH_DANN_Plan/models/v11_alz_transfer_fold_5.pt",
+    "weights_path": "WEIGHTS/alzheimers/ch_dann_transfer/v11_alz_transfer_fold_5.pt",
+    "size_mb": "2.23"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_best.pt",
+    "source_path": "General_Sepsis_V11/models/gat_internal_ablation/general_sepsis_v11_best.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_best.pt",
+    "size_mb": "1.72"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold1.pt",
+    "source_path": "General_Sepsis_V11/models/gat_internal_ablation/general_sepsis_v11_fold1.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold1.pt",
+    "size_mb": "1.71"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold2.pt",
+    "source_path": "General_Sepsis_V11/models/gat_internal_ablation/general_sepsis_v11_fold2.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold2.pt",
+    "size_mb": "1.71"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold3.pt",
+    "source_path": "General_Sepsis_V11/models/gat_internal_ablation/general_sepsis_v11_fold3.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold3.pt",
+    "size_mb": "1.71"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_best.pt",
+    "source_path": "General_Sepsis_V11/models/general_sepsis_v11_best.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_best.pt",
+    "size_mb": "2.11"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold1.pt",
+    "source_path": "General_Sepsis_V11/models/general_sepsis_v11_fold1.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold1.pt",
+    "size_mb": "2.10"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold2.pt",
+    "source_path": "General_Sepsis_V11/models/general_sepsis_v11_fold2.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold2.pt",
+    "size_mb": "2.11"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold3.pt",
+    "source_path": "General_Sepsis_V11/models/general_sepsis_v11_fold3.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold3.pt",
+    "size_mb": "2.11"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold4.pt",
+    "source_path": "General_Sepsis_V11/models/general_sepsis_v11_fold4.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold4.pt",
+    "size_mb": "2.85"
+  },
+  {
+    "disease": "sepsis",
+    "group": "general_sepsis_v11",
+    "architecture_guess": "unknown",
+    "weight_file": "general_sepsis_v11_fold5.pt",
+    "source_path": "General_Sepsis_V11/models/general_sepsis_v11_fold5.pt",
+    "weights_path": "WEIGHTS/sepsis/general_sepsis_v11/general_sepsis_v11_fold5.pt",
+    "size_mb": "2.85"
+  },
+  {
+    "disease": "osteogenesis",
+    "group": "oi_graph_models",
+    "architecture_guess": "gat",
+    "weight_file": "gat_v2_best.pt",
+    "source_path": "Osteogenesis imperfecta/models/gat_v2_best.pt",
+    "weights_path": "WEIGHTS/osteogenesis/oi_graph_models/gat_v2_best.pt",
+    "size_mb": "1.33"
+  },
+  {
+    "disease": "osteogenesis",
+    "group": "oi_graph_models",
+    "architecture_guess": "gcn",
+    "weight_file": "gcn_best.pt",
+    "source_path": "Osteogenesis imperfecta/models/gcn_best.pt",
+    "weights_path": "WEIGHTS/osteogenesis/oi_graph_models/gcn_best.pt",
+    "size_mb": "0.07"
+  }
+]

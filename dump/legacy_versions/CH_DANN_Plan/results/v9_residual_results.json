@@ -1,0 +1,66 @@
+{
+  "method": "Residual Fusion (MLP + beta*GNN)",
+  "architecture": "output = MLP(expr) + beta * GNN_readout(expr)",
+  "early_stopping": "accuracy",
+  "n_folds": 4,
+  "seed": 42,
+  "epochs": 150,
+  "folds": [
+    {
+      "fold": 1,
+      "held_out": "GSE25504_Illu",
+      "auroc": 0.8240418118466899,
+      "acc": 0.8674698795180723,
+      "f1": 0.8493150684931506,
+      "prec": 1.0,
+      "rec": 0.7380952380952381,
+      "n_val": 83,
+      "beta": 0.08964618295431137,
+      "skipped": false
+    },
+    {
+      "fold": 2,
+      "held_out": "GSE25504_Affy",
+      "auroc": 1.0,
+      "acc": 1.0,
+      "f1": 1.0,
+      "prec": 1.0,
+      "rec": 1.0,
+      "n_val": 5,
+      "beta": 0.10011503100395203,
+      "skipped": false
+    },
+    {
+      "fold": 3,
+      "held_out": "GSE25504_NCode",
+      "auroc": 0.9298245614035088,
+      "acc": 0.9146341463414634,
+      "f1": 0.8679245283018868,
+      "prec": 0.8214285714285714,
+      "rec": 0.92,
+      "n_val": 82,
+      "beta": 0.08456990122795105,
+      "skipped": false
+    },
+    {
+      "fold": 4,
+      "held_out": "GSE69686",
+      "auroc": 0.6527573529411765,
+      "acc": 0.6711409395973155,
+      "f1": 0.6524822695035462,
+      "prec": 0.5974025974025974,
+      "rec": 0.71875,
+      "n_val": 149,
+      "beta": 0.0918046236038208,
+      "skipped": false
+    }
+  ],
+  "mean_acc": 0.8633112413642128,
+  "std_acc": 0.12069028178065075,
+  "mean_auroc": 0.8516559315478438,
+  "std_auroc": 0.1308047032001069,
+  "mean_beta": 0.09153393469750881,
+  "best_fold": "Fold 2/4 \u2014 Test on GSE25504_Affy",
+  "best_acc": 1.0,
+  "total_time_min": 18.937159593900045
+}

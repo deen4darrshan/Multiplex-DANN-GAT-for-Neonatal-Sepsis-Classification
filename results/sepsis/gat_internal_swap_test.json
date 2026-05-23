@@ -1,0 +1,30 @@
+{
+  "test": "internal_swap_hybrid_branch_to_gat",
+  "decision_rule": "GAT-internal must exceed hybrid AUROC and at least match hybrid accuracy.",
+  "current_hybrid_metrics": {
+    "accuracy": 0.6811594202898551,
+    "auroc": 0.8477386388345293,
+    "f1": 0.6978021978021978
+  },
+  "gat_internal_swap_metrics": {
+    "accuracy": 0.9884057971014493,
+    "auroc": 1.0,
+    "f1": 0.9907834101382489
+  },
+  "gat_internal_beats_hybrid": true,
+  "final_decision": "replace_with_gat_internal",
+  "ablation_training_config": {
+    "seed": 42,
+    "epochs": 40,
+    "patience": 10,
+    "batch_size": 16,
+    "hidden_dim": 128,
+    "dropout": 0.5,
+    "lr": 0.001,
+    "weight_decay": 0.0005,
+    "lambda_dann": 0.1,
+    "feature_select_top_k": 800,
+    "smoke": false
+  },
+  "note": "This compares the same hybrid+DANN pipeline with internal graph propagation swapped to GAT-style relation layers."
+}

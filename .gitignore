@@ -1,0 +1,51 @@
+# Data files (keep structure, ignore large artifacts)
+data/raw/
+data/processed/
+*.gz
+*.soft
+*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs (keep structure but not content)
+logs/
+results/logs/
+
+# PyTorch models (keep structure)
+*.pt
+*.pth
+*.pkl
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Generated figures (keep structure)
+*.png
+*.jpg
+!.gitkeep
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Agent state
+.swarm/

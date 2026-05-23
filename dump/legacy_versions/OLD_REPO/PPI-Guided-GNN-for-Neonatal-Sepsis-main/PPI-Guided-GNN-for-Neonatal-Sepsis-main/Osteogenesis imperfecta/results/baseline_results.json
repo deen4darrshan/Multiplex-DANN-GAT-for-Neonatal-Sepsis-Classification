@@ -1,0 +1,78 @@
+{
+  "LogisticRegression": {
+    "mean_auc": 1.0,
+    "std_auc": 0.0,
+    "mean_f1": 1.0,
+    "mean_acc": 1.0,
+    "folds": [
+      {
+        "fold": 1,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 2,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 3,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 4,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 5,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      }
+    ]
+  },
+  "RandomForest": {
+    "mean_auc": 1.0,
+    "std_auc": 0.0,
+    "mean_f1": 1.0,
+    "mean_acc": 1.0,
+    "folds": [
+      {
+        "fold": 1,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 2,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 3,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 4,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "fold": 5,
+        "auc": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      }
+    ]
+  }
+}

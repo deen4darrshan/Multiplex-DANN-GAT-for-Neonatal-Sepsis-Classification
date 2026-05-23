@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:100%;height:620px;"></div>
+  <script>
+    const rows = [{"model": "Pathway-HGCN-Classic", "auroc": 0.6841961313540261, "acc": 0.7020337301587302}, {"model": "Interaction-GCN-Baseline", "auroc": 0.6705816140026666, "acc": 0.4137896825396825}, {"model": "Attention-GAT-Baseline", "auroc": 0.6818957621589201, "acc": 0.4169146825396825}, {"model": "Multiplex-Hypergraph-DANN-MLP", "auroc": 0.9795772765246451, "acc": 0.9779265873015873}, {"model": "Multiplex-Hypergraph-DANN-MLP (Robust-XAI Rebuild)", "auroc": 0.990990990990991, "acc": 0.921875}, {"model": "Multiplex-Hypergraph-Pure-NoMLP", "auroc": 0.45, "acc": 0.5}];
+    const x = rows.map(r => r.model);
+    const auroc = rows.map(r => r.auroc);
+    const acc = rows.map(r => r.acc);
+    const traces = [
+      {x, y: auroc, type: "bar", name: "AUROC"},
+      {x, y: acc, type: "bar", name: "Accuracy"}
+    ];
+    Plotly.newPlot("chart", traces, {
+      title: "Interactive Model Metric Comparison",
+      barmode: "group",
+      yaxis: {range:[0,1], title:"Metric"},
+      xaxis: {automargin: true}
+    });
+  </script>
+</body>
+</html>

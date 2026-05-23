@@ -1,0 +1,40 @@
+{
+  "aggregation": "simple mean across disease folders (sepsis, alzheimers, osteogenesis)",
+  "disease_rows": [
+    {
+      "disease": "sepsis",
+      "architecture_accuracy": 0.9779265873015873,
+      "architecture_auroc": 0.9795772765246451,
+      "architecture_f1": 0.9733483709273184,
+      "baseline_accuracy": 0.8808777429467085,
+      "baseline_auroc": 0.9128062090710648,
+      "baseline_f1": 0.8623188405797102
+    },
+    {
+      "disease": "alzheimers",
+      "architecture_accuracy": 0.9052525252525253,
+      "architecture_auroc": 0.9437088685626698,
+      "architecture_f1": 0.9001076433502393,
+      "baseline_accuracy": 0.7072072072072072,
+      "baseline_auroc": 0.8276990185387132,
+      "baseline_f1": 0.7070586085791428
+    },
+    {
+      "disease": "osteogenesis",
+      "architecture_accuracy": 0.5416666666666667,
+      "architecture_auroc": 0.7736607142857143,
+      "architecture_f1": 0.5651629072681704,
+      "baseline_accuracy": 0.375,
+      "baseline_auroc": 0.5034226190476191,
+      "baseline_f1": 0.0
+    }
+  ],
+  "averages": {
+    "architecture_accuracy": 0.8082819264069264,
+    "architecture_auroc": 0.8989822864576764,
+    "architecture_f1": 0.812872973848576,
+    "baseline_accuracy": 0.6543616500513053,
+    "baseline_auroc": 0.747975948885799,
+    "baseline_f1": 0.5231258163862843
+  }
+}

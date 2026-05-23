@@ -1,0 +1,5334 @@
+{
+  "generated_at": "2026-03-03T08:28:01.561883",
+  "seed": 42,
+  "baselines": {
+    "logistic_regression": {
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "metrics": {
+            "accuracy": 0.8577405857740585,
+            "f1": 0.8776978417266187,
+            "precision": 1.0,
+            "recall": 0.782051282051282,
+            "auroc": 0.9986098239110287
+          }
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "accuracy": 0.660377358490566,
+            "f1": 0.7954545454545454,
+            "precision": 0.660377358490566,
+            "recall": 1.0,
+            "auroc": 0.48571428571428577
+          }
+        },
+        {
+          "fold": 3,
+          "metrics": {
+            "accuracy": 0.8867924528301887,
+            "f1": 0.88,
+            "precision": 1.0,
+            "recall": 0.7857142857142857,
+            "auroc": 1.0
+          }
+        }
+      ],
+      "oof_predictions": [
+        {
+          "sample_id": "GSE134347:GSM3942706",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9940172661611496
+        },
+        {
+          "sample_id": "GSE134347:GSM3942707",
+          "y_true": 1,
+          "y_prob_sepsis": 0.974484475700965
+        },
+        {
+          "sample_id": "GSE134347:GSM3942710",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9915993269618567
+        },
+        {
+          "sample_id": "GSE134347:GSM3942711",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9432113015323318
+        },
+        {
+          "sample_id": "GSE134347:GSM3942713",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9459951843676181
+        },
+        {
+          "sample_id": "GSE134347:GSM3942714",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8887045854875948
+        },
+        {
+          "sample_id": "GSE134347:GSM3942715",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9939069368818486
+        },
+        {
+          "sample_id": "GSE134347:GSM3942716",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9661420305960647
+        },
+        {
+          "sample_id": "GSE134347:GSM3942717",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9572611427693142
+        },
+        {
+          "sample_id": "GSE134347:GSM3942718",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9841974107910877
+        },
+        {
+          "sample_id": "GSE134347:GSM3942719",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9646793465557834
+        },
+        {
+          "sample_id": "GSE134347:GSM3942720",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9627344143776797
+        },
+        {
+          "sample_id": "GSE134347:GSM3942721",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9960437743134998
+        },
+        {
+          "sample_id": "GSE134347:GSM3942722",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9442951505902529
+        },
+        {
+          "sample_id": "GSE134347:GSM3942724",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9859154211810385
+        },
+        {
+          "sample_id": "GSE134347:GSM3942725",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9831917773744978
+        },
+        {
+          "sample_id": "GSE134347:GSM3942727",
+          "y_true": 1,
+          "y_prob_sepsis": 0.997587924823313
+        },
+        {
+          "sample_id": "GSE134347:GSM3942728",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5578037050493629
+        },
+        {
+          "sample_id": "GSE134347:GSM3942729",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9902642898774543
+        },
+        {
+          "sample_id": "GSE134347:GSM3942730",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9649360457464936
+        },
+        {
+          "sample_id": "GSE134347:GSM3942731",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9847929041728986
+        },
+        {
+          "sample_id": "GSE134347:GSM3942733",
+          "y_true": 0,
+          "y_prob_sepsis": 0.002368338779360096
+        },
+        {
+          "sample_id": "GSE134347:GSM3942734",
+          "y_true": 0,
+          "y_prob_sepsis": 0.007152086196370562
+        },
+        {
+          "sample_id": "GSE134347:GSM3942735",
+          "y_true": 0,
+          "y_prob_sepsis": 0.006195047807812642
+        },
+        {
+          "sample_id": "GSE134347:GSM3942736",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0014454062615344575
+        },
+        {
+          "sample_id": "GSE134347:GSM3942737",
+          "y_true": 0,
+          "y_prob_sepsis": 0.002130160659540274
+        },
+        {
+          "sample_id": "GSE134347:GSM3942738",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0016077522318381293
+        },
+        {
+          "sample_id": "GSE134347:GSM3942739",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0056149819036241085
+        },
+        {
+          "sample_id": "GSE134347:GSM3942740",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0021891264751788086
+        },
+        {
+          "sample_id": "GSE134347:GSM3942741",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0017631280043343823
+        },
+        {
+          "sample_id": "GSE134347:GSM3942742",
+          "y_true": 0,
+          "y_prob_sepsis": 0.019163292886376564
+        },
+        {
+          "sample_id": "GSE134347:GSM3942743",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00497252255498412
+        },
+        {
+          "sample_id": "GSE134347:GSM3942744",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0019404656131058954
+        },
+        {
+          "sample_id": "GSE134347:GSM3942745",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0029348349896436833
+        },
+        {
+          "sample_id": "GSE134347:GSM3942746",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7483916055737233
+        },
+        {
+          "sample_id": "GSE134347:GSM3942747",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9814977045855898
+        },
+        {
+          "sample_id": "GSE134347:GSM3942748",
+          "y_true": 1,
+          "y_prob_sepsis": 0.3719784933613111
+        },
+        {
+          "sample_id": "GSE134347:GSM3942749",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7908976990885284
+        },
+        {
+          "sample_id": "GSE134347:GSM3942750",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9909090539490983
+        },
+        {
+          "sample_id": "GSE134347:GSM3942751",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9629642293318093
+        },
+        {
+          "sample_id": "GSE134347:GSM3942752",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8628396904673481
+        },
+        {
+          "sample_id": "GSE134347:GSM3942753",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9612920769857523
+        },
+        {
+          "sample_id": "GSE134347:GSM3942754",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9970729534643443
+        },
+        {
+          "sample_id": "GSE134347:GSM3942755",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9646664508751189
+        },
+        {
+          "sample_id": "GSE134347:GSM3942757",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6306249352004589
+        },
+        {
+          "sample_id": "GSE134347:GSM3942759",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9945296390345609
+        },
+        {
+          "sample_id": "GSE134347:GSM3942760",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9883053819858292
+        },
+        {
+          "sample_id": "GSE134347:GSM3942761",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9872420751572639
+        },
+        {
+          "sample_id": "GSE134347:GSM3942762",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9917986284351507
+        },
+        {
+          "sample_id": "GSE134347:GSM3942763",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7990890825996169
+        },
+        {
+          "sample_id": "GSE134347:GSM3942765",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9895761765673086
+        },
+        {
+          "sample_id": "GSE134347:GSM3942766",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9938581369081225
+        },
+        {
+          "sample_id": "GSE134347:GSM3942767",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9898499950922337
+        },
+        {
+          "sample_id": "GSE134347:GSM3942768",
+          "y_true": 1,
+          "y_prob_sepsis": 0.950398469495271
+        },
+        {
+          "sample_id": "GSE134347:GSM3942769",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9694034673450941
+        },
+        {
+          "sample_id": "GSE134347:GSM3942770",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5337141678352293
+        },
+        {
+          "sample_id": "GSE134347:GSM3942773",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0009721952140052145
+        },
+        {
+          "sample_id": "GSE134347:GSM3942774",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004597122533131285
+        },
+        {
+          "sample_id": "GSE134347:GSM3942775",
+          "y_true": 0,
+          "y_prob_sepsis": 0.005394046958189367
+        },
+        {
+          "sample_id": "GSE134347:GSM3942776",
+          "y_true": 0,
+          "y_prob_sepsis": 0.014521609659544958
+        },
+        {
+          "sample_id": "GSE134347:GSM3942777",
+          "y_true": 0,
+          "y_prob_sepsis": 0.003701658226584957
+        },
+        {
+          "sample_id": "GSE134347:GSM3942778",
+          "y_true": 0,
+          "y_prob_sepsis": 0.006798421073566321
+        },
+        {
+          "sample_id": "GSE134347:GSM3942779",
+          "y_true": 0,
+          "y_prob_sepsis": 0.009072307889568575
+        },
+        {
+          "sample_id": "GSE134347:GSM3942780",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0008436733065597255
+        },
+        {
+          "sample_id": "GSE134347:GSM3942781",
+          "y_true": 0,
+          "y_prob_sepsis": 0.002734649407529901
+        },
+        {
+          "sample_id": "GSE134347:GSM3942782",
+          "y_true": 0,
+          "y_prob_sepsis": 0.020788246756774542
+        },
+        {
+          "sample_id": "GSE134347:GSM3942783",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0037247008656982536
+        },
+        {
+          "sample_id": "GSE134347:GSM3942784",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8583881444571242
+        },
+        {
+          "sample_id": "GSE134347:GSM3942785",
+          "y_true": 1,
+          "y_prob_sepsis": 0.99483536290917
+        },
+        {
+          "sample_id": "GSE134347:GSM3942786",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9968930746862364
+        },
+        {
+          "sample_id": "GSE134347:GSM3942787",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8275221209709365
+        },
+        {
+          "sample_id": "GSE134347:GSM3942790",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9935893767215069
+        },
+        {
+          "sample_id": "GSE134347:GSM3942791",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9745432104399552
+        },
+        {
+          "sample_id": "GSE134347:GSM3942792",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9487781645764617
+        },
+        {
+          "sample_id": "GSE134347:GSM3942793",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9925720691865275
+        },
+        {
+          "sample_id": "GSE134347:GSM3942794",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8023248605929948
+        },
+        {
+          "sample_id": "GSE134347:GSM3942796",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8601803622150381
+        },
+        {
+          "sample_id": "GSE134347:GSM3942797",
+          "y_true": 1,
+          "y_prob_sepsis": 0.23774506530925826
+        },
+        {
+          "sample_id": "GSE134347:GSM3942799",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9685116065962042
+        },
+        {
+          "sample_id": "GSE134347:GSM3942800",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9914625433943494
+        },
+        {
+          "sample_id": "GSE134347:GSM3942802",
+          "y_true": 1,
+          "y_prob_sepsis": 0.4123741387039795
+        },
+        {
+          "sample_id": "GSE134347:GSM3942804",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9796297182357022
+        },
+        {
+          "sample_id": "GSE134347:GSM3942806",
+          "y_true": 1,
+          "y_prob_sepsis": 0.006500633826676413
+        },
+        {
+          "sample_id": "GSE134347:GSM3942807",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9605892613386074
+        },
+        {
+          "sample_id": "GSE134347:GSM3942808",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8587710154748998
+        },
+        {
+          "sample_id": "GSE134347:GSM3942809",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7335985195830594
+        },
+        {
+          "sample_id": "GSE134347:GSM3942810",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9965092798456663
+        },
+        {
+          "sample_id": "GSE134347:GSM3942811",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8949652524323706
+        },
+        {
+          "sample_id": "GSE134347:GSM3942813",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004108212779992181
+        },
+        {
+          "sample_id": "GSE134347:GSM3942814",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0010800211632753297
+        },
+        {
+          "sample_id": "GSE134347:GSM3942815",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0006688955163143816
+        },
+        {
+          "sample_id": "GSE134347:GSM3942816",
+          "y_true": 0,
+          "y_prob_sepsis": 0.001985155162972096
+        },
+        {
+          "sample_id": "GSE134347:GSM3942817",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00262699599434121
+        },
+        {
+          "sample_id": "GSE134347:GSM3942818",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0058239538354391196
+        },
+        {
+          "sample_id": "GSE134347:GSM3942819",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00053429932012846
+        },
+        {
+          "sample_id": "GSE134347:GSM3942820",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0022464664926347302
+        },
+        {
+          "sample_id": "GSE134347:GSM3942821",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0046867624184260765
+        },
+        {
+          "sample_id": "GSE134347:GSM3942822",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0018951747694594518
+        },
+        {
+          "sample_id": "GSE134347:GSM3942823",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0008319303873727365
+        },
+        {
+          "sample_id": "GSE134347:GSM3942824",
+          "y_true": 0,
+          "y_prob_sepsis": 0.002283465577797422
+        },
+        {
+          "sample_id": "GSE134347:GSM3942825",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0016288388338921082
+        },
+        {
+          "sample_id": "GSE134347:GSM3942826",
+          "y_true": 1,
+          "y_prob_sepsis": 0.945752991573386
+        },
+        {
+          "sample_id": "GSE134347:GSM3942828",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9806994503243295
+        },
+        {
+          "sample_id": "GSE134347:GSM3942831",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9221002622322974
+        },
+        {
+          "sample_id": "GSE134347:GSM3942832",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9637401213855117
+        },
+        {
+          "sample_id": "GSE134347:GSM3942834",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9514530125825872
+        },
+        {
+          "sample_id": "GSE134347:GSM3942837",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9727617998377759
+        },
+        {
+          "sample_id": "GSE134347:GSM3942838",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9947656623259965
+        },
+        {
+          "sample_id": "GSE134347:GSM3942839",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9934303419288765
+        },
+        {
+          "sample_id": "GSE134347:GSM3942843",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9789507150327692
+        },
+        {
+          "sample_id": "GSE134347:GSM3942847",
+          "y_true": 1,
+          "y_prob_sepsis": 0.30484286371690955
+        },
+        {
+          "sample_id": "GSE134347:GSM3942848",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9354655007887452
+        },
+        {
+          "sample_id": "GSE134347:GSM3942849",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9114534770052962
+        },
+        {
+          "sample_id": "GSE134347:GSM3942855",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9051032183098561
+        },
+        {
+          "sample_id": "GSE134347:GSM3942856",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8552220012462349
+        },
+        {
+          "sample_id": "GSE134347:GSM3942860",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9719691373297217
+        },
+        {
+          "sample_id": "GSE134347:GSM3942861",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9986292176514389
+        },
+        {
+          "sample_id": "GSE134347:GSM3942862",
+          "y_true": 1,
+          "y_prob_sepsis": 0.959947774903648
+        },
+        {
+          "sample_id": "GSE134347:GSM3942863",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9964189922078127
+        },
+        {
+          "sample_id": "GSE134347:GSM3942864",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9956778186927756
+        },
+        {
+          "sample_id": "GSE134347:GSM3942866",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7185564324020014
+        },
+        {
+          "sample_id": "GSE134347:GSM3942867",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9478379118438017
+        },
+        {
+          "sample_id": "GSE134347:GSM3942868",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9494162914371748
+        },
+        {
+          "sample_id": "GSE134347:GSM3942871",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9967008019249674
+        },
+        {
+          "sample_id": "GSE134347:GSM3942872",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7616816440054808
+        },
+        {
+          "sample_id": "GSE134347:GSM3942873",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6245005059755837
+        },
+        {
+          "sample_id": "GSE134347:GSM3942874",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9913138419097377
+        },
+        {
+          "sample_id": "GSE134347:GSM3942875",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7583620811162729
+        },
+        {
+          "sample_id": "GSE134347:GSM3942876",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9348706103118148
+        },
+        {
+          "sample_id": "GSE134347:GSM3942877",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9723051440088577
+        },
+        {
+          "sample_id": "GSE134347:GSM3942878",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9387336535951765
+        },
+        {
+          "sample_id": "GSE134347:GSM3942879",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9693536485169332
+        },
+        {
+          "sample_id": "GSE134347:GSM3942881",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9312915684770717
+        },
+        {
+          "sample_id": "GSE134347:GSM3942882",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7494868024833308
+        },
+        {
+          "sample_id": "GSE134347:GSM3942885",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9809348926642878
+        },
+        {
+          "sample_id": "GSE134347:GSM3942886",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9879066253009714
+        },
+        {
+          "sample_id": "GSE134347:GSM3942887",
+          "y_true": 0,
+          "y_prob_sepsis": 0.002919165831090868
+        },
+        {
+          "sample_id": "GSE134347:GSM3942888",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0036757190020331823
+        },
+        {
+          "sample_id": "GSE134347:GSM3942889",
+          "y_true": 0,
+          "y_prob_sepsis": 0.014300299893157656
+        },
+        {
+          "sample_id": "GSE134347:GSM3942890",
+          "y_true": 0,
+          "y_prob_sepsis": 0.001760037833120242
+        },
+        {
+          "sample_id": "GSE134347:GSM3942891",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0021890812589604406
+        },
+        {
+          "sample_id": "GSE134347:GSM3942892",
+          "y_true": 0,
+          "y_prob_sepsis": 0.013412773032809614
+        },
+        {
+          "sample_id": "GSE134347:GSM3942893",
+          "y_true": 0,
+          "y_prob_sepsis": 0.012975405685708558
+        },
+        {
+          "sample_id": "GSE134347:GSM3942894",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0026800302151977406
+        },
+        {
+          "sample_id": "GSE134347:GSM3942895",
+          "y_true": 0,
+          "y_prob_sepsis": 0.01128893202643125
+        },
+        {
+          "sample_id": "GSE134347:GSM3942896",
+          "y_true": 0,
+          "y_prob_sepsis": 0.010135522471753687
+        },
+        {
+          "sample_id": "GSE134347:GSM3942897",
+          "y_true": 0,
+          "y_prob_sepsis": 0.007317598839074663
+        },
+        {
+          "sample_id": "GSE134347:GSM3942898",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0031969950583966428
+        },
+        {
+          "sample_id": "GSE134347:GSM3942899",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00044148150789659026
+        },
+        {
+          "sample_id": "GSE134347:GSM3942900",
+          "y_true": 0,
+          "y_prob_sepsis": 0.008343934867064792
+        },
+        {
+          "sample_id": "GSE134347:GSM3942901",
+          "y_true": 0,
+          "y_prob_sepsis": 0.005981751655672002
+        },
+        {
+          "sample_id": "GSE134347:GSM3942902",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004232788456612955
+        },
+        {
+          "sample_id": "GSE134347:GSM3942903",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004086499943501863
+        },
+        {
+          "sample_id": "GSE134347:GSM3942904",
+          "y_true": 0,
+          "y_prob_sepsis": 0.001351992602329018
+        },
+        {
+          "sample_id": "GSE134347:GSM3942905",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999637130527124
+        },
+        {
+          "sample_id": "GSE134347:GSM3942906",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9889781455783563
+        },
+        {
+          "sample_id": "GSE134347:GSM3942908",
+          "y_true": 1,
+          "y_prob_sepsis": 0.991020966252062
+        },
+        {
+          "sample_id": "GSE134347:GSM3942910",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9535598697240776
+        },
+        {
+          "sample_id": "GSE134347:GSM3942911",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9390368666994902
+        },
+        {
+          "sample_id": "GSE134347:GSM3942912",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8302893640810519
+        },
+        {
+          "sample_id": "GSE134347:GSM3942913",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9842208767557735
+        },
+        {
+          "sample_id": "GSE134347:GSM3942914",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9832587088018754
+        },
+        {
+          "sample_id": "GSE134347:GSM3942915",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9246021120317836
+        },
+        {
+          "sample_id": "GSE134347:GSM3942916",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8308088378565894
+        },
+        {
+          "sample_id": "GSE134347:GSM3942917",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6033702820238992
+        },
+        {
+          "sample_id": "GSE134347:GSM3942918",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9724512636680653
+        },
+        {
+          "sample_id": "GSE134347:GSM3942919",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9612499028163901
+        },
+        {
+          "sample_id": "GSE134347:GSM3942920",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9897857272833335
+        },
+        {
+          "sample_id": "GSE134347:GSM3942921",
+          "y_true": 1,
+          "y_prob_sepsis": 0.795238786741476
+        },
+        {
+          "sample_id": "GSE134347:GSM3942922",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7079904498763236
+        },
+        {
+          "sample_id": "GSE134347:GSM3942923",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9962810096502595
+        },
+        {
+          "sample_id": "GSE134347:GSM3942924",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9335031119051911
+        },
+        {
+          "sample_id": "GSE134347:GSM3942926",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9546702902589479
+        },
+        {
+          "sample_id": "GSE134347:GSM3942927",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9506233863079907
+        },
+        {
+          "sample_id": "GSE134347:GSM3942929",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9909854931283816
+        },
+        {
+          "sample_id": "GSE134347:GSM3942932",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9319101982117699
+        },
+        {
+          "sample_id": "GSE134347:GSM3942935",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9639969048112097
+        },
+        {
+          "sample_id": "GSE134347:GSM3942936",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9462657109379197
+        },
+        {
+          "sample_id": "GSE134347:GSM3942937",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9713213447995148
+        },
+        {
+          "sample_id": "GSE134347:GSM3942938",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9303877586496158
+        },
+        {
+          "sample_id": "GSE134347:GSM3942939",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9917745299057555
+        },
+        {
+          "sample_id": "GSE134347:GSM3942940",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7222480856414016
+        },
+        {
+          "sample_id": "GSE134347:GSM3942942",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9768788465828195
+        },
+        {
+          "sample_id": "GSE134347:GSM3942943",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9796687672081192
+        },
+        {
+          "sample_id": "GSE134347:GSM3942944",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9104315638007455
+        },
+        {
+          "sample_id": "GSE134347:GSM3942945",
+          "y_true": 0,
+          "y_prob_sepsis": 0.003869096561072054
+        },
+        {
+          "sample_id": "GSE134347:GSM3942946",
+          "y_true": 0,
+          "y_prob_sepsis": 0.008036587339370673
+        },
+        {
+          "sample_id": "GSE134347:GSM3942947",
+          "y_true": 0,
+          "y_prob_sepsis": 0.001309402528048949
+        },
+        {
+          "sample_id": "GSE134347:GSM3942948",
+          "y_true": 0,
+          "y_prob_sepsis": 0.001802418425333363
+        },
+        {
+          "sample_id": "GSE134347:GSM3942949",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0019080056176214492
+        },
+        {
+          "sample_id": "GSE134347:GSM3942950",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004260415909412057
+        },
+        {
+          "sample_id": "GSE134347:GSM3942951",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0009069813154045719
+        },
+        {
+          "sample_id": "GSE134347:GSM3942952",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0028929712718209653
+        },
+        {
+          "sample_id": "GSE134347:GSM3942953",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0025301852850088524
+        },
+        {
+          "sample_id": "GSE134347:GSM3942954",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00353423446954671
+        },
+        {
+          "sample_id": "GSE134347:GSM3942955",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004980909017705979
+        },
+        {
+          "sample_id": "GSE134347:GSM3942956",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0006499250651287356
+        },
+        {
+          "sample_id": "GSE134347:GSM3942957",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0014671723279150745
+        },
+        {
+          "sample_id": "GSE134347:GSM3942958",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00766142394277432
+        },
+        {
+          "sample_id": "GSE134347:GSM3942959",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0021330316553898852
+        },
+        {
+          "sample_id": "GSE134347:GSM3942960",
+          "y_true": 0,
+          "y_prob_sepsis": 0.002014175483883857
+        },
+        {
+          "sample_id": "GSE134347:GSM3942961",
+          "y_true": 0,
+          "y_prob_sepsis": 0.004989296966620773
+        },
+        {
+          "sample_id": "GSE134347:GSM3942962",
+          "y_true": 0,
+          "y_prob_sepsis": 0.005145454250208039
+        },
+        {
+          "sample_id": "GSE134347:GSM3942963",
+          "y_true": 0,
+          "y_prob_sepsis": 0.009611490197913575
+        },
+        {
+          "sample_id": "GSE134347:GSM3942964",
+          "y_true": 0,
+          "y_prob_sepsis": 0.008805518125988825
+        },
+        {
+          "sample_id": "GSE134347:GSM3942965",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0028347815498914164
+        },
+        {
+          "sample_id": "GSE134347:GSM3942966",
+          "y_true": 0,
+          "y_prob_sepsis": 0.005415126667457211
+        },
+        {
+          "sample_id": "GSE134347:GSM3942967",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0018918136852231278
+        },
+        {
+          "sample_id": "GSE134347:GSM3942968",
+          "y_true": 0,
+          "y_prob_sepsis": 0.005498711853270791
+        },
+        {
+          "sample_id": "GSE134347:GSM3942969",
+          "y_true": 0,
+          "y_prob_sepsis": 0.009055949018014866
+        },
+        {
+          "sample_id": "GSE134347:GSM3942970",
+          "y_true": 0,
+          "y_prob_sepsis": 0.005566062881269651
+        },
+        {
+          "sample_id": "GSE134347:GSM3942971",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0025723549713076916
+        },
+        {
+          "sample_id": "GSE134347:GSM3942972",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0024446491528270376
+        },
+        {
+          "sample_id": "GSE134347:GSM3942973",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8739956948082973
+        },
+        {
+          "sample_id": "GSE134347:GSM3942974",
+          "y_true": 1,
+          "y_prob_sepsis": 0.987247221291693
+        },
+        {
+          "sample_id": "GSE134347:GSM3942975",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8892569545984815
+        },
+        {
+          "sample_id": "GSE134347:GSM3942976",
+          "y_true": 1,
+          "y_prob_sepsis": 0.884977997370358
+        },
+        {
+          "sample_id": "GSE134347:GSM3942977",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9995801351131162
+        },
+        {
+          "sample_id": "GSE134347:GSM3942978",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6343706677694981
+        },
+        {
+          "sample_id": "GSE134347:GSM3942979",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9548535400533967
+        },
+        {
+          "sample_id": "GSE134347:GSM3942983",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8189327580989547
+        },
+        {
+          "sample_id": "GSE134347:GSM3942984",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5545553282439682
+        },
+        {
+          "sample_id": "GSE134347:GSM3942985",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9025769505419244
+        },
+        {
+          "sample_id": "GSE134347:GSM3942986",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9703156705145436
+        },
+        {
+          "sample_id": "GSE134347:GSM3942987",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9849784558377986
+        },
+        {
+          "sample_id": "GSE134347:GSM3942988",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9028396452190641
+        },
+        {
+          "sample_id": "GSE134347:GSM3942989",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9665251741923715
+        },
+        {
+          "sample_id": "GSE134347:GSM3942990",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8571271256376749
+        },
+        {
+          "sample_id": "GSE134347:GSM3942991",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9534829720653981
+        },
+        {
+          "sample_id": "GSE134347:GSM3942992",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9974574427354792
+        },
+        {
+          "sample_id": "GSE134347:GSM3942993",
+          "y_true": 1,
+          "y_prob_sepsis": 0.963915460908189
+        },
+        {
+          "sample_id": "GSE134347:GSM3942994",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8943038172464542
+        },
+        {
+          "sample_id": "GSE134347:GSM3942996",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9922312916670747
+        },
+        {
+          "sample_id": "GSE134347:GSM3942997",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9089644835459002
+        },
+        {
+          "sample_id": "GSE134347:GSM3942998",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9572907837445259
+        },
+        {
+          "sample_id": "GSE134347:GSM3942999",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9826264378282991
+        },
+        {
+          "sample_id": "GSE134347:GSM3943001",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9878973029039926
+        },
+        {
+          "sample_id": "GSE134347:GSM3943002",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9998120490196684
+        },
+        {
+          "sample_id": "GSE134347:GSM3943003",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8808701926704902
+        },
+        {
+          "sample_id": "GSE54514:GSM1317896",
+          "y_true": 0,
+          "y_prob_sepsis": 0.999996940413529
+        },
+        {
+          "sample_id": "GSE54514:GSM1317897",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999855509212
+        },
+        {
+          "sample_id": "GSE54514:GSM1317898",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999216000158
+        },
+        {
+          "sample_id": "GSE54514:GSM1317899",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999448695734
+        },
+        {
+          "sample_id": "GSE54514:GSM1317900",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999924823107726
+        },
+        {
+          "sample_id": "GSE54514:GSM1317901",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999942825586
+        },
+        {
+          "sample_id": "GSE54514:GSM1317902",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999885740337
+        },
+        {
+          "sample_id": "GSE54514:GSM1317903",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999502725168
+        },
+        {
+          "sample_id": "GSE54514:GSM1317904",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999528651774009
+        },
+        {
+          "sample_id": "GSE54514:GSM1317905",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999035731507049
+        },
+        {
+          "sample_id": "GSE54514:GSM1317906",
+          "y_true": 0,
+          "y_prob_sepsis": 0.99973520029872
+        },
+        {
+          "sample_id": "GSE54514:GSM1317907",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999968172519789
+        },
+        {
+          "sample_id": "GSE54514:GSM1317908",
+          "y_true": 0,
+          "y_prob_sepsis": 0.999999987490498
+        },
+        {
+          "sample_id": "GSE54514:GSM1317909",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999999261912663
+        },
+        {
+          "sample_id": "GSE54514:GSM1317910",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999991985661464
+        },
+        {
+          "sample_id": "GSE54514:GSM1317911",
+          "y_true": 0,
+          "y_prob_sepsis": 0.999998824424956
+        },
+        {
+          "sample_id": "GSE54514:GSM1317912",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999993159531774
+        },
+        {
+          "sample_id": "GSE54514:GSM1317913",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999819506937807
+        },
+        {
+          "sample_id": "GSE54514:GSM1317914",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999773092224791
+        },
+        {
+          "sample_id": "GSE54514:GSM1317915",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999988678108
+        },
+        {
+          "sample_id": "GSE54514:GSM1317916",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999995835089
+        },
+        {
+          "sample_id": "GSE54514:GSM1317917",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999794514898
+        },
+        {
+          "sample_id": "GSE54514:GSM1317918",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999998924526665
+        },
+        {
+          "sample_id": "GSE54514:GSM1317919",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999677500772227
+        },
+        {
+          "sample_id": "GSE54514:GSM1317920",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999939253442337
+        },
+        {
+          "sample_id": "GSE54514:GSM1317921",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999885192691694
+        },
+        {
+          "sample_id": "GSE54514:GSM1317922",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999980902448
+        },
+        {
+          "sample_id": "GSE54514:GSM1317945",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999999076582377
+        },
+        {
+          "sample_id": "GSE54514:GSM1317946",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999940427200773
+        },
+        {
+          "sample_id": "GSE54514:GSM1317947",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999551727812
+        },
+        {
+          "sample_id": "GSE54514:GSM1317948",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999160756238
+        },
+        {
+          "sample_id": "GSE54514:GSM1317949",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999999988458227
+        },
+        {
+          "sample_id": "GSE54514:GSM1317950",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999998972221681
+        },
+        {
+          "sample_id": "GSE54514:GSM1317951",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999999939549958
+        },
+        {
+          "sample_id": "GSE54514:GSM1317952",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999877119338
+        },
+        {
+          "sample_id": "GSE54514:GSM1317953",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999993098155461
+        },
+        {
+          "sample_id": "GSE54514:GSM1317954",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999426337438
+        },
+        {
+          "sample_id": "GSE54514:GSM1317955",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999997852125333
+        },
+        {
+          "sample_id": "GSE54514:GSM1317956",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999369146051
+        },
+        {
+          "sample_id": "GSE54514:GSM1317957",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9996999729060662
+        },
+        {
+          "sample_id": "GSE54514:GSM1317958",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999407405813
+        },
+        {
+          "sample_id": "GSE54514:GSM1317959",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999543699403342
+        },
+        {
+          "sample_id": "GSE54514:GSM1317960",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999352400943
+        },
+        {
+          "sample_id": "GSE54514:GSM1317961",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999983422958205
+        },
+        {
+          "sample_id": "GSE54514:GSM1317962",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999889465516005
+        },
+        {
+          "sample_id": "GSE54514:GSM1317963",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999994409144172
+        },
+        {
+          "sample_id": "GSE54514:GSM1317964",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999997692798551
+        },
+        {
+          "sample_id": "GSE54514:GSM1317965",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999996039716909
+        },
+        {
+          "sample_id": "GSE54514:GSM1317966",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999976988924513
+        },
+        {
+          "sample_id": "GSE54514:GSM1317967",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9930606021871387
+        },
+        {
+          "sample_id": "GSE54514:GSM1317968",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999953332404174
+        },
+        {
+          "sample_id": "GSE54514:GSM1317969",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999831162002017
+        },
+        {
+          "sample_id": "GSE54514:GSM1317970",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9985417553891481
+        },
+        {
+          "sample_id": "GSE57065:GSM1373914",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997752366712221
+        },
+        {
+          "sample_id": "GSE57065:GSM1373917",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9188298970946692
+        },
+        {
+          "sample_id": "GSE57065:GSM1373920",
+          "y_true": 1,
+          "y_prob_sepsis": 0.995144686109892
+        },
+        {
+          "sample_id": "GSE57065:GSM1373923",
+          "y_true": 1,
+          "y_prob_sepsis": 0.99168322159052
+        },
+        {
+          "sample_id": "GSE57065:GSM1373926",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999987441885278
+        },
+        {
+          "sample_id": "GSE57065:GSM1373929",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999812253665129
+        },
+        {
+          "sample_id": "GSE57065:GSM1373932",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8976702570763
+        },
+        {
+          "sample_id": "GSE57065:GSM1373935",
+          "y_true": 1,
+          "y_prob_sepsis": 0.983516333334689
+        },
+        {
+          "sample_id": "GSE57065:GSM1373938",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999705974318265
+        },
+        {
+          "sample_id": "GSE57065:GSM1373941",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8415460167013536
+        },
+        {
+          "sample_id": "GSE57065:GSM1373944",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8828689547447408
+        },
+        {
+          "sample_id": "GSE57065:GSM1373947",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7881663232815033
+        },
+        {
+          "sample_id": "GSE57065:GSM1373950",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9262220595260022
+        },
+        {
+          "sample_id": "GSE57065:GSM1373953",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9976729140589001
+        },
+        {
+          "sample_id": "GSE57065:GSM1373956",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9992811385466422
+        },
+        {
+          "sample_id": "GSE57065:GSM1373959",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997592235628056
+        },
+        {
+          "sample_id": "GSE57065:GSM1373962",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9973379677549111
+        },
+        {
+          "sample_id": "GSE57065:GSM1373965",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9998288129544638
+        },
+        {
+          "sample_id": "GSE57065:GSM1373967",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9480795449269892
+        },
+        {
+          "sample_id": "GSE57065:GSM1373970",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9998873448170692
+        },
+        {
+          "sample_id": "GSE57065:GSM1373973",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999933338069005
+        },
+        {
+          "sample_id": "GSE57065:GSM1373976",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9836473844211473
+        },
+        {
+          "sample_id": "GSE57065:GSM1373979",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9971062961465808
+        },
+        {
+          "sample_id": "GSE57065:GSM1373981",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999968657696932
+        },
+        {
+          "sample_id": "GSE57065:GSM1373984",
+          "y_true": 1,
+          "y_prob_sepsis": 0.998396743500758
+        },
+        {
+          "sample_id": "GSE57065:GSM1373987",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9876782045921929
+        },
+        {
+          "sample_id": "GSE57065:GSM1373990",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999170659063343
+        },
+        {
+          "sample_id": "GSE57065:GSM1373993",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9998405085459429
+        },
+        {
+          "sample_id": "GSE57065:GSM1373996",
+          "y_true": 0,
+          "y_prob_sepsis": 5.10775331775899e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1373997",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00015383893857798947
+        },
+        {
+          "sample_id": "GSE57065:GSM1373998",
+          "y_true": 0,
+          "y_prob_sepsis": 6.817907409945758e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1373999",
+          "y_true": 0,
+          "y_prob_sepsis": 3.8311354829511835e-06
+        },
+        {
+          "sample_id": "GSE57065:GSM1374000",
+          "y_true": 0,
+          "y_prob_sepsis": 5.197813519089804e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374001",
+          "y_true": 0,
+          "y_prob_sepsis": 3.7714155774472685e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374002",
+          "y_true": 0,
+          "y_prob_sepsis": 5.064263835226645e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374003",
+          "y_true": 0,
+          "y_prob_sepsis": 3.1336781607351405e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374004",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00021231290463871911
+        },
+        {
+          "sample_id": "GSE57065:GSM1374005",
+          "y_true": 0,
+          "y_prob_sepsis": 1.2357699236600935e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374006",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00010990024358455543
+        },
+        {
+          "sample_id": "GSE57065:GSM1374007",
+          "y_true": 0,
+          "y_prob_sepsis": 0.003321205697484075
+        },
+        {
+          "sample_id": "GSE57065:GSM1374008",
+          "y_true": 0,
+          "y_prob_sepsis": 0.000501156882931912
+        },
+        {
+          "sample_id": "GSE57065:GSM1374009",
+          "y_true": 0,
+          "y_prob_sepsis": 0.02855791896541351
+        },
+        {
+          "sample_id": "GSE57065:GSM1374010",
+          "y_true": 0,
+          "y_prob_sepsis": 2.159022799112161e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374011",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00019373311173088745
+        },
+        {
+          "sample_id": "GSE57065:GSM1374012",
+          "y_true": 0,
+          "y_prob_sepsis": 6.932696933280549e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374013",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00010795519453566543
+        },
+        {
+          "sample_id": "GSE57065:GSM1374014",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0018667010075015353
+        },
+        {
+          "sample_id": "GSE57065:GSM1374015",
+          "y_true": 0,
+          "y_prob_sepsis": 8.314022234634493e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374016",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00011955980585174907
+        },
+        {
+          "sample_id": "GSE57065:GSM1374017",
+          "y_true": 0,
+          "y_prob_sepsis": 1.2545777614757084e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374018",
+          "y_true": 0,
+          "y_prob_sepsis": 6.561946990384303e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374019",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0001935289658985804
+        },
+        {
+          "sample_id": "GSE57065:GSM1374020",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00015394294488025868
+        }
+      ],
+      "pooled_metrics": {
+        "accuracy": 0.9449275362318841,
+        "f1": 0.9582417582417583,
+        "precision": 0.923728813559322,
+        "recall": 0.9954337899543378,
+        "auroc": 0.8685946220192795
+      },
+      "optimal_threshold": 0.23774506530925826
+    },
+    "mlp_only": {
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "metrics": {
+            "accuracy": 0.694560669456067,
+            "f1": 0.694560669456067,
+            "precision": 1.0,
+            "recall": 0.532051282051282,
+            "auroc": 0.9999227679950571
+          }
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "accuracy": 0.6415094339622641,
+            "f1": 0.7816091954022989,
+            "precision": 0.6538461538461539,
+            "recall": 0.9714285714285714,
+            "auroc": 0.5142857142857142
+          }
+        },
+        {
+          "fold": 3,
+          "metrics": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "auroc": 1.0
+          }
+        }
+      ],
+      "oof_predictions": [
+        {
+          "sample_id": "GSE134347:GSM3942706",
+          "y_true": 1,
+          "y_prob_sepsis": 0.4743611812591553
+        },
+        {
+          "sample_id": "GSE134347:GSM3942707",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9893359541893005
+        },
+        {
+          "sample_id": "GSE134347:GSM3942710",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9980955719947815
+        },
+        {
+          "sample_id": "GSE134347:GSM3942711",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7674000263214111
+        },
+        {
+          "sample_id": "GSE134347:GSM3942713",
+          "y_true": 1,
+          "y_prob_sepsis": 0.21074561774730682
+        },
+        {
+          "sample_id": "GSE134347:GSM3942714",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9987310767173767
+        },
+        {
+          "sample_id": "GSE134347:GSM3942715",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9990604519844055
+        },
+        {
+          "sample_id": "GSE134347:GSM3942716",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8857967853546143
+        },
+        {
+          "sample_id": "GSE134347:GSM3942717",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9856653213500977
+        },
+        {
+          "sample_id": "GSE134347:GSM3942718",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9849495887756348
+        },
+        {
+          "sample_id": "GSE134347:GSM3942719",
+          "y_true": 1,
+          "y_prob_sepsis": 0.980164110660553
+        },
+        {
+          "sample_id": "GSE134347:GSM3942720",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9543355107307434
+        },
+        {
+          "sample_id": "GSE134347:GSM3942721",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9996166229248047
+        },
+        {
+          "sample_id": "GSE134347:GSM3942722",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9637071490287781
+        },
+        {
+          "sample_id": "GSE134347:GSM3942724",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9982835054397583
+        },
+        {
+          "sample_id": "GSE134347:GSM3942725",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9572449922561646
+        },
+        {
+          "sample_id": "GSE134347:GSM3942727",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9981729984283447
+        },
+        {
+          "sample_id": "GSE134347:GSM3942728",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6063394546508789
+        },
+        {
+          "sample_id": "GSE134347:GSM3942729",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9995875954627991
+        },
+        {
+          "sample_id": "GSE134347:GSM3942730",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9281848669052124
+        },
+        {
+          "sample_id": "GSE134347:GSM3942731",
+          "y_true": 1,
+          "y_prob_sepsis": 0.819190502166748
+        },
+        {
+          "sample_id": "GSE134347:GSM3942733",
+          "y_true": 0,
+          "y_prob_sepsis": 7.806070243532304e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942734",
+          "y_true": 0,
+          "y_prob_sepsis": 3.409016426303424e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942735",
+          "y_true": 0,
+          "y_prob_sepsis": 1.1465015631983988e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942736",
+          "y_true": 0,
+          "y_prob_sepsis": 6.879903594381176e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942737",
+          "y_true": 0,
+          "y_prob_sepsis": 1.1250053830735851e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942738",
+          "y_true": 0,
+          "y_prob_sepsis": 8.846752280078363e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942739",
+          "y_true": 0,
+          "y_prob_sepsis": 1.907272235257551e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942740",
+          "y_true": 0,
+          "y_prob_sepsis": 7.114756044757087e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942741",
+          "y_true": 0,
+          "y_prob_sepsis": 9.222581866197288e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942742",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0001560095843160525
+        },
+        {
+          "sample_id": "GSE134347:GSM3942743",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0897018000832759e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942744",
+          "y_true": 0,
+          "y_prob_sepsis": 1.332215924776392e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942745",
+          "y_true": 0,
+          "y_prob_sepsis": 2.8908541935379617e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942746",
+          "y_true": 1,
+          "y_prob_sepsis": 0.03784480318427086
+        },
+        {
+          "sample_id": "GSE134347:GSM3942747",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997944235801697
+        },
+        {
+          "sample_id": "GSE134347:GSM3942748",
+          "y_true": 1,
+          "y_prob_sepsis": 0.002331096911802888
+        },
+        {
+          "sample_id": "GSE134347:GSM3942749",
+          "y_true": 1,
+          "y_prob_sepsis": 0.011785087175667286
+        },
+        {
+          "sample_id": "GSE134347:GSM3942750",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9743025898933411
+        },
+        {
+          "sample_id": "GSE134347:GSM3942751",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9847144484519958
+        },
+        {
+          "sample_id": "GSE134347:GSM3942752",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9759190678596497
+        },
+        {
+          "sample_id": "GSE134347:GSM3942753",
+          "y_true": 1,
+          "y_prob_sepsis": 0.43970659375190735
+        },
+        {
+          "sample_id": "GSE134347:GSM3942754",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9409688115119934
+        },
+        {
+          "sample_id": "GSE134347:GSM3942755",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5330548882484436
+        },
+        {
+          "sample_id": "GSE134347:GSM3942757",
+          "y_true": 1,
+          "y_prob_sepsis": 0.00419903639703989
+        },
+        {
+          "sample_id": "GSE134347:GSM3942759",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9722752571105957
+        },
+        {
+          "sample_id": "GSE134347:GSM3942760",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9244532585144043
+        },
+        {
+          "sample_id": "GSE134347:GSM3942761",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9970256686210632
+        },
+        {
+          "sample_id": "GSE134347:GSM3942762",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9994556307792664
+        },
+        {
+          "sample_id": "GSE134347:GSM3942763",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9381949305534363
+        },
+        {
+          "sample_id": "GSE134347:GSM3942765",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8224635720252991
+        },
+        {
+          "sample_id": "GSE134347:GSM3942766",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9965686798095703
+        },
+        {
+          "sample_id": "GSE134347:GSM3942767",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9988633394241333
+        },
+        {
+          "sample_id": "GSE134347:GSM3942768",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9497664570808411
+        },
+        {
+          "sample_id": "GSE134347:GSM3942769",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8530247807502747
+        },
+        {
+          "sample_id": "GSE134347:GSM3942770",
+          "y_true": 1,
+          "y_prob_sepsis": 0.13374890387058258
+        },
+        {
+          "sample_id": "GSE134347:GSM3942773",
+          "y_true": 0,
+          "y_prob_sepsis": 3.4893980682682013e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942774",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0016242413257714e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942775",
+          "y_true": 0,
+          "y_prob_sepsis": 8.909652024158277e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942776",
+          "y_true": 0,
+          "y_prob_sepsis": 5.84031076868996e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942777",
+          "y_true": 0,
+          "y_prob_sepsis": 1.5232501027639955e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942778",
+          "y_true": 0,
+          "y_prob_sepsis": 4.306888877181336e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942779",
+          "y_true": 0,
+          "y_prob_sepsis": 2.047853013209533e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942780",
+          "y_true": 0,
+          "y_prob_sepsis": 2.1793019186588936e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942781",
+          "y_true": 0,
+          "y_prob_sepsis": 2.612403841339983e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942782",
+          "y_true": 0,
+          "y_prob_sepsis": 2.2717325919074938e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942783",
+          "y_true": 0,
+          "y_prob_sepsis": 1.8823127902578562e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942784",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8954497575759888
+        },
+        {
+          "sample_id": "GSE134347:GSM3942785",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9991137385368347
+        },
+        {
+          "sample_id": "GSE134347:GSM3942786",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9887211918830872
+        },
+        {
+          "sample_id": "GSE134347:GSM3942787",
+          "y_true": 1,
+          "y_prob_sepsis": 0.08210292458534241
+        },
+        {
+          "sample_id": "GSE134347:GSM3942790",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9955130219459534
+        },
+        {
+          "sample_id": "GSE134347:GSM3942791",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8337028622627258
+        },
+        {
+          "sample_id": "GSE134347:GSM3942792",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6943165063858032
+        },
+        {
+          "sample_id": "GSE134347:GSM3942793",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9809431433677673
+        },
+        {
+          "sample_id": "GSE134347:GSM3942794",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9885650277137756
+        },
+        {
+          "sample_id": "GSE134347:GSM3942796",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9700367450714111
+        },
+        {
+          "sample_id": "GSE134347:GSM3942797",
+          "y_true": 1,
+          "y_prob_sepsis": 0.11138547956943512
+        },
+        {
+          "sample_id": "GSE134347:GSM3942799",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9192488193511963
+        },
+        {
+          "sample_id": "GSE134347:GSM3942800",
+          "y_true": 1,
+          "y_prob_sepsis": 0.4241161048412323
+        },
+        {
+          "sample_id": "GSE134347:GSM3942802",
+          "y_true": 1,
+          "y_prob_sepsis": 0.015195691026747227
+        },
+        {
+          "sample_id": "GSE134347:GSM3942804",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9817883968353271
+        },
+        {
+          "sample_id": "GSE134347:GSM3942806",
+          "y_true": 1,
+          "y_prob_sepsis": 0.00014061038382351398
+        },
+        {
+          "sample_id": "GSE134347:GSM3942807",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8818445205688477
+        },
+        {
+          "sample_id": "GSE134347:GSM3942808",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9909823536872864
+        },
+        {
+          "sample_id": "GSE134347:GSM3942809",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6197329759597778
+        },
+        {
+          "sample_id": "GSE134347:GSM3942810",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9995375871658325
+        },
+        {
+          "sample_id": "GSE134347:GSM3942811",
+          "y_true": 1,
+          "y_prob_sepsis": 0.3675631880760193
+        },
+        {
+          "sample_id": "GSE134347:GSM3942813",
+          "y_true": 0,
+          "y_prob_sepsis": 6.504379143734695e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942814",
+          "y_true": 0,
+          "y_prob_sepsis": 4.355455075710779e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942815",
+          "y_true": 0,
+          "y_prob_sepsis": 3.4494694318709662e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942816",
+          "y_true": 0,
+          "y_prob_sepsis": 1.2725503438559826e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942817",
+          "y_true": 0,
+          "y_prob_sepsis": 4.216503384668613e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942818",
+          "y_true": 0,
+          "y_prob_sepsis": 7.289821041922551e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942819",
+          "y_true": 0,
+          "y_prob_sepsis": 1.8532366539147915e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942820",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0638370440574363e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942821",
+          "y_true": 0,
+          "y_prob_sepsis": 6.998076059971936e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942822",
+          "y_true": 0,
+          "y_prob_sepsis": 4.27740906161489e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942823",
+          "y_true": 0,
+          "y_prob_sepsis": 7.505530902562896e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942824",
+          "y_true": 0,
+          "y_prob_sepsis": 1.719701504043769e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942825",
+          "y_true": 0,
+          "y_prob_sepsis": 5.222913841862464e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942826",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9986024498939514
+        },
+        {
+          "sample_id": "GSE134347:GSM3942828",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9597942233085632
+        },
+        {
+          "sample_id": "GSE134347:GSM3942831",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9936153888702393
+        },
+        {
+          "sample_id": "GSE134347:GSM3942832",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9977586269378662
+        },
+        {
+          "sample_id": "GSE134347:GSM3942834",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6517928838729858
+        },
+        {
+          "sample_id": "GSE134347:GSM3942837",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9973435997962952
+        },
+        {
+          "sample_id": "GSE134347:GSM3942838",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8956068754196167
+        },
+        {
+          "sample_id": "GSE134347:GSM3942839",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997609257698059
+        },
+        {
+          "sample_id": "GSE134347:GSM3942843",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9996188879013062
+        },
+        {
+          "sample_id": "GSE134347:GSM3942847",
+          "y_true": 1,
+          "y_prob_sepsis": 0.04015117883682251
+        },
+        {
+          "sample_id": "GSE134347:GSM3942848",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9993106126785278
+        },
+        {
+          "sample_id": "GSE134347:GSM3942849",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9851647615432739
+        },
+        {
+          "sample_id": "GSE134347:GSM3942855",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9186153411865234
+        },
+        {
+          "sample_id": "GSE134347:GSM3942856",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9954755902290344
+        },
+        {
+          "sample_id": "GSE134347:GSM3942860",
+          "y_true": 1,
+          "y_prob_sepsis": 0.45078250765800476
+        },
+        {
+          "sample_id": "GSE134347:GSM3942861",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9928404092788696
+        },
+        {
+          "sample_id": "GSE134347:GSM3942862",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9604113101959229
+        },
+        {
+          "sample_id": "GSE134347:GSM3942863",
+          "y_true": 1,
+          "y_prob_sepsis": 0.998237133026123
+        },
+        {
+          "sample_id": "GSE134347:GSM3942864",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999223947525024
+        },
+        {
+          "sample_id": "GSE134347:GSM3942866",
+          "y_true": 1,
+          "y_prob_sepsis": 0.14929573237895966
+        },
+        {
+          "sample_id": "GSE134347:GSM3942867",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9770281314849854
+        },
+        {
+          "sample_id": "GSE134347:GSM3942868",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7482100129127502
+        },
+        {
+          "sample_id": "GSE134347:GSM3942871",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9995341300964355
+        },
+        {
+          "sample_id": "GSE134347:GSM3942872",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5948442816734314
+        },
+        {
+          "sample_id": "GSE134347:GSM3942873",
+          "y_true": 1,
+          "y_prob_sepsis": 0.11327766627073288
+        },
+        {
+          "sample_id": "GSE134347:GSM3942874",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9562247395515442
+        },
+        {
+          "sample_id": "GSE134347:GSM3942875",
+          "y_true": 1,
+          "y_prob_sepsis": 0.06497010588645935
+        },
+        {
+          "sample_id": "GSE134347:GSM3942876",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9353005886077881
+        },
+        {
+          "sample_id": "GSE134347:GSM3942877",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9994432330131531
+        },
+        {
+          "sample_id": "GSE134347:GSM3942878",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7995284795761108
+        },
+        {
+          "sample_id": "GSE134347:GSM3942879",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9977701902389526
+        },
+        {
+          "sample_id": "GSE134347:GSM3942881",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6135678887367249
+        },
+        {
+          "sample_id": "GSE134347:GSM3942882",
+          "y_true": 1,
+          "y_prob_sepsis": 0.09098551422357559
+        },
+        {
+          "sample_id": "GSE134347:GSM3942885",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9986339211463928
+        },
+        {
+          "sample_id": "GSE134347:GSM3942886",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9633857011795044
+        },
+        {
+          "sample_id": "GSE134347:GSM3942887",
+          "y_true": 0,
+          "y_prob_sepsis": 1.7335725715383887e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942888",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3913059774495196e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942889",
+          "y_true": 0,
+          "y_prob_sepsis": 2.6789841285790317e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942890",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3237143321020994e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942891",
+          "y_true": 0,
+          "y_prob_sepsis": 6.527283403556794e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942892",
+          "y_true": 0,
+          "y_prob_sepsis": 2.6127227101824246e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942893",
+          "y_true": 0,
+          "y_prob_sepsis": 2.6639072530088015e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942894",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0891905731114093e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942895",
+          "y_true": 0,
+          "y_prob_sepsis": 5.072529165772721e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942896",
+          "y_true": 0,
+          "y_prob_sepsis": 1.352832441625651e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942897",
+          "y_true": 0,
+          "y_prob_sepsis": 1.584002711751964e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942898",
+          "y_true": 0,
+          "y_prob_sepsis": 4.376227025204571e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942899",
+          "y_true": 0,
+          "y_prob_sepsis": 4.446104412636487e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942900",
+          "y_true": 0,
+          "y_prob_sepsis": 2.3246304408530705e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942901",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0292625120200682e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942902",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0182836376770865e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942903",
+          "y_true": 0,
+          "y_prob_sepsis": 1.5772586266393773e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942904",
+          "y_true": 0,
+          "y_prob_sepsis": 9.870573194348253e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942905",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9984006285667419
+        },
+        {
+          "sample_id": "GSE134347:GSM3942906",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9787499308586121
+        },
+        {
+          "sample_id": "GSE134347:GSM3942908",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9988651275634766
+        },
+        {
+          "sample_id": "GSE134347:GSM3942910",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9657878279685974
+        },
+        {
+          "sample_id": "GSE134347:GSM3942911",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9875485897064209
+        },
+        {
+          "sample_id": "GSE134347:GSM3942912",
+          "y_true": 1,
+          "y_prob_sepsis": 0.877529501914978
+        },
+        {
+          "sample_id": "GSE134347:GSM3942913",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9968481659889221
+        },
+        {
+          "sample_id": "GSE134347:GSM3942914",
+          "y_true": 1,
+          "y_prob_sepsis": 0.820659339427948
+        },
+        {
+          "sample_id": "GSE134347:GSM3942915",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8563859462738037
+        },
+        {
+          "sample_id": "GSE134347:GSM3942916",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7347487807273865
+        },
+        {
+          "sample_id": "GSE134347:GSM3942917",
+          "y_true": 1,
+          "y_prob_sepsis": 0.008030380122363567
+        },
+        {
+          "sample_id": "GSE134347:GSM3942918",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997428059577942
+        },
+        {
+          "sample_id": "GSE134347:GSM3942919",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9311357140541077
+        },
+        {
+          "sample_id": "GSE134347:GSM3942920",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9719024896621704
+        },
+        {
+          "sample_id": "GSE134347:GSM3942921",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8399056196212769
+        },
+        {
+          "sample_id": "GSE134347:GSM3942922",
+          "y_true": 1,
+          "y_prob_sepsis": 0.08665495365858078
+        },
+        {
+          "sample_id": "GSE134347:GSM3942923",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9739961624145508
+        },
+        {
+          "sample_id": "GSE134347:GSM3942924",
+          "y_true": 1,
+          "y_prob_sepsis": 0.24924978613853455
+        },
+        {
+          "sample_id": "GSE134347:GSM3942926",
+          "y_true": 1,
+          "y_prob_sepsis": 0.947380781173706
+        },
+        {
+          "sample_id": "GSE134347:GSM3942927",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9982343912124634
+        },
+        {
+          "sample_id": "GSE134347:GSM3942929",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9994869232177734
+        },
+        {
+          "sample_id": "GSE134347:GSM3942932",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9924054741859436
+        },
+        {
+          "sample_id": "GSE134347:GSM3942935",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9221011996269226
+        },
+        {
+          "sample_id": "GSE134347:GSM3942936",
+          "y_true": 1,
+          "y_prob_sepsis": 0.4838908612728119
+        },
+        {
+          "sample_id": "GSE134347:GSM3942937",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8672180771827698
+        },
+        {
+          "sample_id": "GSE134347:GSM3942938",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9975626468658447
+        },
+        {
+          "sample_id": "GSE134347:GSM3942939",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9987248778343201
+        },
+        {
+          "sample_id": "GSE134347:GSM3942940",
+          "y_true": 1,
+          "y_prob_sepsis": 0.673592746257782
+        },
+        {
+          "sample_id": "GSE134347:GSM3942942",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6818783283233643
+        },
+        {
+          "sample_id": "GSE134347:GSM3942943",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9992702603340149
+        },
+        {
+          "sample_id": "GSE134347:GSM3942944",
+          "y_true": 1,
+          "y_prob_sepsis": 0.05071217194199562
+        },
+        {
+          "sample_id": "GSE134347:GSM3942945",
+          "y_true": 0,
+          "y_prob_sepsis": 1.148140654549934e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942946",
+          "y_true": 0,
+          "y_prob_sepsis": 8.765442544245161e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942947",
+          "y_true": 0,
+          "y_prob_sepsis": 5.086355486128014e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942948",
+          "y_true": 0,
+          "y_prob_sepsis": 4.7425937736989e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942949",
+          "y_true": 0,
+          "y_prob_sepsis": 6.2435442487185355e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942950",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3016422599321231e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942951",
+          "y_true": 0,
+          "y_prob_sepsis": 5.907551440031966e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942952",
+          "y_true": 0,
+          "y_prob_sepsis": 5.136088930157712e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942953",
+          "y_true": 0,
+          "y_prob_sepsis": 7.430593541357666e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942954",
+          "y_true": 0,
+          "y_prob_sepsis": 6.820469025115017e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942955",
+          "y_true": 0,
+          "y_prob_sepsis": 1.4083814676268958e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942956",
+          "y_true": 0,
+          "y_prob_sepsis": 5.808929472550517e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942957",
+          "y_true": 0,
+          "y_prob_sepsis": 4.166807684669038e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942958",
+          "y_true": 0,
+          "y_prob_sepsis": 1.7614833268453367e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942959",
+          "y_true": 0,
+          "y_prob_sepsis": 7.190662927314406e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942960",
+          "y_true": 0,
+          "y_prob_sepsis": 7.990240192157216e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942961",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3537977793021128e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942962",
+          "y_true": 0,
+          "y_prob_sepsis": 4.508421625359915e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942963",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3559608305513393e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942964",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3530040632758755e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942965",
+          "y_true": 0,
+          "y_prob_sepsis": 4.856042323808651e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942966",
+          "y_true": 0,
+          "y_prob_sepsis": 1.7177724657813087e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942967",
+          "y_true": 0,
+          "y_prob_sepsis": 7.706751603109296e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942968",
+          "y_true": 0,
+          "y_prob_sepsis": 6.99945803717128e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942969",
+          "y_true": 0,
+          "y_prob_sepsis": 3.3752639865269884e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942970",
+          "y_true": 0,
+          "y_prob_sepsis": 1.2117271580791567e-05
+        },
+        {
+          "sample_id": "GSE134347:GSM3942971",
+          "y_true": 0,
+          "y_prob_sepsis": 9.700147529656533e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942972",
+          "y_true": 0,
+          "y_prob_sepsis": 6.915603080415167e-06
+        },
+        {
+          "sample_id": "GSE134347:GSM3942973",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8097409605979919
+        },
+        {
+          "sample_id": "GSE134347:GSM3942974",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9954272508621216
+        },
+        {
+          "sample_id": "GSE134347:GSM3942975",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8685480356216431
+        },
+        {
+          "sample_id": "GSE134347:GSM3942976",
+          "y_true": 1,
+          "y_prob_sepsis": 0.6865273714065552
+        },
+        {
+          "sample_id": "GSE134347:GSM3942977",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9987697005271912
+        },
+        {
+          "sample_id": "GSE134347:GSM3942978",
+          "y_true": 1,
+          "y_prob_sepsis": 0.020022163167595863
+        },
+        {
+          "sample_id": "GSE134347:GSM3942979",
+          "y_true": 1,
+          "y_prob_sepsis": 0.15860076248645782
+        },
+        {
+          "sample_id": "GSE134347:GSM3942983",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9508598446846008
+        },
+        {
+          "sample_id": "GSE134347:GSM3942984",
+          "y_true": 1,
+          "y_prob_sepsis": 0.35911256074905396
+        },
+        {
+          "sample_id": "GSE134347:GSM3942985",
+          "y_true": 1,
+          "y_prob_sepsis": 0.8483208417892456
+        },
+        {
+          "sample_id": "GSE134347:GSM3942986",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7024471163749695
+        },
+        {
+          "sample_id": "GSE134347:GSM3942987",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5469434857368469
+        },
+        {
+          "sample_id": "GSE134347:GSM3942988",
+          "y_true": 1,
+          "y_prob_sepsis": 0.7811276316642761
+        },
+        {
+          "sample_id": "GSE134347:GSM3942989",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9874803423881531
+        },
+        {
+          "sample_id": "GSE134347:GSM3942990",
+          "y_true": 1,
+          "y_prob_sepsis": 0.46989500522613525
+        },
+        {
+          "sample_id": "GSE134347:GSM3942991",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9355039596557617
+        },
+        {
+          "sample_id": "GSE134347:GSM3942992",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9996583461761475
+        },
+        {
+          "sample_id": "GSE134347:GSM3942993",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9156046509742737
+        },
+        {
+          "sample_id": "GSE134347:GSM3942994",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9174160957336426
+        },
+        {
+          "sample_id": "GSE134347:GSM3942996",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9995375871658325
+        },
+        {
+          "sample_id": "GSE134347:GSM3942997",
+          "y_true": 1,
+          "y_prob_sepsis": 0.40224489569664
+        },
+        {
+          "sample_id": "GSE134347:GSM3942998",
+          "y_true": 1,
+          "y_prob_sepsis": 0.5401241779327393
+        },
+        {
+          "sample_id": "GSE134347:GSM3942999",
+          "y_true": 1,
+          "y_prob_sepsis": 0.995715320110321
+        },
+        {
+          "sample_id": "GSE134347:GSM3943001",
+          "y_true": 1,
+          "y_prob_sepsis": 0.953825056552887
+        },
+        {
+          "sample_id": "GSE134347:GSM3943002",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999266862869263
+        },
+        {
+          "sample_id": "GSE134347:GSM3943003",
+          "y_true": 1,
+          "y_prob_sepsis": 0.15960244834423065
+        },
+        {
+          "sample_id": "GSE54514:GSM1317896",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999958276748657
+        },
+        {
+          "sample_id": "GSE54514:GSM1317897",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317898",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999998807907104
+        },
+        {
+          "sample_id": "GSE54514:GSM1317899",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317900",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999595880508423
+        },
+        {
+          "sample_id": "GSE54514:GSM1317901",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317902",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317903",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317904",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9998015761375427
+        },
+        {
+          "sample_id": "GSE54514:GSM1317905",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9998000264167786
+        },
+        {
+          "sample_id": "GSE54514:GSM1317906",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9991974234580994
+        },
+        {
+          "sample_id": "GSE54514:GSM1317907",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999957084655762
+        },
+        {
+          "sample_id": "GSE54514:GSM1317908",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317909",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317910",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317911",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999998807907104
+        },
+        {
+          "sample_id": "GSE54514:GSM1317912",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999991655349731
+        },
+        {
+          "sample_id": "GSE54514:GSM1317913",
+          "y_true": 0,
+          "y_prob_sepsis": 0.9999821186065674
+        },
+        {
+          "sample_id": "GSE54514:GSM1317914",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999346733093262
+        },
+        {
+          "sample_id": "GSE54514:GSM1317915",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317916",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317917",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317918",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317919",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999635219573975
+        },
+        {
+          "sample_id": "GSE54514:GSM1317920",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999991774559021
+        },
+        {
+          "sample_id": "GSE54514:GSM1317921",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999756813049316
+        },
+        {
+          "sample_id": "GSE54514:GSM1317922",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317945",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999996423721313
+        },
+        {
+          "sample_id": "GSE54514:GSM1317946",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999940395355225
+        },
+        {
+          "sample_id": "GSE54514:GSM1317947",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317948",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317949",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317950",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317951",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317952",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317953",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999997615814209
+        },
+        {
+          "sample_id": "GSE54514:GSM1317954",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317955",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317956",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317957",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9995998740196228
+        },
+        {
+          "sample_id": "GSE54514:GSM1317958",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317959",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997960925102234
+        },
+        {
+          "sample_id": "GSE54514:GSM1317960",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317961",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999985694885254
+        },
+        {
+          "sample_id": "GSE54514:GSM1317962",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999861717224121
+        },
+        {
+          "sample_id": "GSE54514:GSM1317963",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999998807907104
+        },
+        {
+          "sample_id": "GSE54514:GSM1317964",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317965",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999971389770508
+        },
+        {
+          "sample_id": "GSE54514:GSM1317966",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999980926513672
+        },
+        {
+          "sample_id": "GSE54514:GSM1317967",
+          "y_true": 1,
+          "y_prob_sepsis": 0.973872184753418
+        },
+        {
+          "sample_id": "GSE54514:GSM1317968",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999988079071045
+        },
+        {
+          "sample_id": "GSE54514:GSM1317969",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999915361404419
+        },
+        {
+          "sample_id": "GSE54514:GSM1317970",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9917148947715759
+        },
+        {
+          "sample_id": "GSE57065:GSM1373914",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999998807907104
+        },
+        {
+          "sample_id": "GSE57065:GSM1373917",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9667837023735046
+        },
+        {
+          "sample_id": "GSE57065:GSM1373920",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999958276748657
+        },
+        {
+          "sample_id": "GSE57065:GSM1373923",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999872446060181
+        },
+        {
+          "sample_id": "GSE57065:GSM1373926",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373929",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373932",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9994245767593384
+        },
+        {
+          "sample_id": "GSE57065:GSM1373935",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999573230743408
+        },
+        {
+          "sample_id": "GSE57065:GSM1373938",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999994039535522
+        },
+        {
+          "sample_id": "GSE57065:GSM1373941",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9993280172348022
+        },
+        {
+          "sample_id": "GSE57065:GSM1373944",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9935675263404846
+        },
+        {
+          "sample_id": "GSE57065:GSM1373947",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9693973064422607
+        },
+        {
+          "sample_id": "GSE57065:GSM1373950",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9992420673370361
+        },
+        {
+          "sample_id": "GSE57065:GSM1373953",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999822378158569
+        },
+        {
+          "sample_id": "GSE57065:GSM1373956",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999953508377075
+        },
+        {
+          "sample_id": "GSE57065:GSM1373959",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999973773956299
+        },
+        {
+          "sample_id": "GSE57065:GSM1373962",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999986886978149
+        },
+        {
+          "sample_id": "GSE57065:GSM1373965",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373967",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9965736865997314
+        },
+        {
+          "sample_id": "GSE57065:GSM1373970",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999997615814209
+        },
+        {
+          "sample_id": "GSE57065:GSM1373973",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373976",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9998694658279419
+        },
+        {
+          "sample_id": "GSE57065:GSM1373979",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999853372573853
+        },
+        {
+          "sample_id": "GSE57065:GSM1373981",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373984",
+          "y_true": 1,
+          "y_prob_sepsis": 0.999998927116394
+        },
+        {
+          "sample_id": "GSE57065:GSM1373987",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9997853636741638
+        },
+        {
+          "sample_id": "GSE57065:GSM1373990",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373993",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999986886978149
+        },
+        {
+          "sample_id": "GSE57065:GSM1373996",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0002230543177574873
+        },
+        {
+          "sample_id": "GSE57065:GSM1373997",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0003302500117570162
+        },
+        {
+          "sample_id": "GSE57065:GSM1373998",
+          "y_true": 0,
+          "y_prob_sepsis": 1.7738633687258698e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1373999",
+          "y_true": 0,
+          "y_prob_sepsis": 3.0606290692958282e-06
+        },
+        {
+          "sample_id": "GSE57065:GSM1374000",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0007960071670822799
+        },
+        {
+          "sample_id": "GSE57065:GSM1374001",
+          "y_true": 0,
+          "y_prob_sepsis": 1.5478603017982095e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374002",
+          "y_true": 0,
+          "y_prob_sepsis": 1.3494757695298176e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374003",
+          "y_true": 0,
+          "y_prob_sepsis": 1.4432695934374351e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374004",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0011449722805991769
+        },
+        {
+          "sample_id": "GSE57065:GSM1374005",
+          "y_true": 0,
+          "y_prob_sepsis": 1.417786279489519e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374006",
+          "y_true": 0,
+          "y_prob_sepsis": 8.769345004111528e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374007",
+          "y_true": 0,
+          "y_prob_sepsis": 0.006475127302110195
+        },
+        {
+          "sample_id": "GSE57065:GSM1374008",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00047866784734651446
+        },
+        {
+          "sample_id": "GSE57065:GSM1374009",
+          "y_true": 0,
+          "y_prob_sepsis": 0.8214791417121887
+        },
+        {
+          "sample_id": "GSE57065:GSM1374010",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00020622889860533178
+        },
+        {
+          "sample_id": "GSE57065:GSM1374011",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00018528861983213574
+        },
+        {
+          "sample_id": "GSE57065:GSM1374012",
+          "y_true": 0,
+          "y_prob_sepsis": 1.4143832231638953e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374013",
+          "y_true": 0,
+          "y_prob_sepsis": 4.753636312671006e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374014",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0066403355449438095
+        },
+        {
+          "sample_id": "GSE57065:GSM1374015",
+          "y_true": 0,
+          "y_prob_sepsis": 5.872903329873225e-06
+        },
+        {
+          "sample_id": "GSE57065:GSM1374016",
+          "y_true": 0,
+          "y_prob_sepsis": 2.8904820283059962e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374017",
+          "y_true": 0,
+          "y_prob_sepsis": 5.528194014914334e-05
+        },
+        {
+          "sample_id": "GSE57065:GSM1374018",
+          "y_true": 0,
+          "y_prob_sepsis": 8.851629900163971e-06
+        },
+        {
+          "sample_id": "GSE57065:GSM1374019",
+          "y_true": 0,
+          "y_prob_sepsis": 7.446505151165184e-06
+        },
+        {
+          "sample_id": "GSE57065:GSM1374020",
+          "y_true": 0,
+          "y_prob_sepsis": 0.00022757523402106017
+        }
+      ],
+      "pooled_metrics": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9492273730684326,
+        "precision": 0.9188034188034188,
+        "recall": 0.9817351598173516,
+        "auroc": 0.8735051098064797
+      },
+      "optimal_threshold": 0.01
+    },
+    "v12_no_mlp_ablation": {
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "metrics": {
+            "accuracy": 0.9079497907949791,
+            "f1": 0.9241379310344827,
+            "precision": 1.0,
+            "recall": 0.8589743589743589,
+            "auroc": 0.9775641025641026
+          }
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "accuracy": 0.660377358490566,
+            "f1": 0.7954545454545454,
+            "precision": 0.660377358490566,
+            "recall": 1.0,
+            "auroc": 0.5
+          }
+        },
+        {
+          "fold": 3,
+          "metrics": {
+            "accuracy": 0.7924528301886793,
+            "f1": 0.7555555555555555,
+            "precision": 1.0,
+            "recall": 0.6071428571428571,
+            "auroc": 0.9821428571428572
+          }
+        }
+      ],
+      "oof_predictions": [
+        {
+          "sample_id": "GSE134347:GSM3942706",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942707",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942710",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942711",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942713",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942714",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942715",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942716",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942717",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942718",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942719",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942720",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942721",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942722",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942724",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942725",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942727",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942728",
+          "y_true": 1,
+          "y_prob_sepsis": 1.9211686924347047e-259
+        },
+        {
+          "sample_id": "GSE134347:GSM3942729",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942730",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942731",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942733",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942734",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942735",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942736",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942737",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942738",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942739",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942740",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942741",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942742",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942743",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942744",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942745",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942746",
+          "y_true": 1,
+          "y_prob_sepsis": 1.2745742139055696e-89
+        },
+        {
+          "sample_id": "GSE134347:GSM3942747",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942748",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942749",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942750",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942751",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942752",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942753",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942754",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942755",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942757",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942759",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942760",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942761",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942762",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942763",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942765",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942766",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942767",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942768",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942769",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942770",
+          "y_true": 1,
+          "y_prob_sepsis": 2.7260435367711544e-223
+        },
+        {
+          "sample_id": "GSE134347:GSM3942773",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942774",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942775",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942776",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942777",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942778",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942779",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942780",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942781",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942782",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942783",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942784",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942785",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942786",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942787",
+          "y_true": 1,
+          "y_prob_sepsis": 5.725232615154406e-139
+        },
+        {
+          "sample_id": "GSE134347:GSM3942790",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942791",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942792",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942793",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942794",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942796",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942797",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942799",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942800",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942802",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942804",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942806",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942807",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942808",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942809",
+          "y_true": 1,
+          "y_prob_sepsis": 7.566165661724724e-202
+        },
+        {
+          "sample_id": "GSE134347:GSM3942810",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942811",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942813",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942814",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942815",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942816",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942817",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942818",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942819",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942820",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942821",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942822",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942823",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942824",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942825",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942826",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942828",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942831",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942832",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942834",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942837",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942838",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942839",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942843",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942847",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942848",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942849",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942855",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942856",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942860",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942861",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942862",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942863",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942864",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942866",
+          "y_true": 1,
+          "y_prob_sepsis": 1.079803803596551e-292
+        },
+        {
+          "sample_id": "GSE134347:GSM3942867",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942868",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942871",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942872",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942873",
+          "y_true": 1,
+          "y_prob_sepsis": 1.4867721133743213e-247
+        },
+        {
+          "sample_id": "GSE134347:GSM3942874",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942875",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942876",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942877",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942878",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942879",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942881",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999999469635
+        },
+        {
+          "sample_id": "GSE134347:GSM3942882",
+          "y_true": 1,
+          "y_prob_sepsis": 3.397852908920943e-108
+        },
+        {
+          "sample_id": "GSE134347:GSM3942885",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942886",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942887",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942888",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942889",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942890",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942891",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942892",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942893",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942894",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942895",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942896",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942897",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942898",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942899",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942900",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942901",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942902",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942903",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942904",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942905",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942906",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942908",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942910",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942911",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942912",
+          "y_true": 1,
+          "y_prob_sepsis": 2.2782038440098277e-226
+        },
+        {
+          "sample_id": "GSE134347:GSM3942913",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942914",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942915",
+          "y_true": 1,
+          "y_prob_sepsis": 0.00017074603512389196
+        },
+        {
+          "sample_id": "GSE134347:GSM3942916",
+          "y_true": 1,
+          "y_prob_sepsis": 1.2276015769303675e-85
+        },
+        {
+          "sample_id": "GSE134347:GSM3942917",
+          "y_true": 1,
+          "y_prob_sepsis": 1.1008795701646237e-185
+        },
+        {
+          "sample_id": "GSE134347:GSM3942918",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942919",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942920",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942921",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942922",
+          "y_true": 1,
+          "y_prob_sepsis": 8.810587810297576e-59
+        },
+        {
+          "sample_id": "GSE134347:GSM3942923",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942924",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942926",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942927",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942929",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942932",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942935",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942936",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942937",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942938",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942939",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942940",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942942",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942943",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942944",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942945",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942946",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942947",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942948",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942949",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942950",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942951",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942952",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942953",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942954",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942955",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942956",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942957",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942958",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942959",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942960",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942961",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942962",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942963",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942964",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942965",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942966",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942967",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942968",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942969",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942970",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942971",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942972",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942973",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942974",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942975",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9999999834358317
+        },
+        {
+          "sample_id": "GSE134347:GSM3942976",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942977",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942978",
+          "y_true": 1,
+          "y_prob_sepsis": 1.3109337733869992e-243
+        },
+        {
+          "sample_id": "GSE134347:GSM3942979",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942983",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942984",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942985",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942986",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942987",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942988",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942989",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942990",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942991",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942992",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942993",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942994",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942996",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942997",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942998",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3942999",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3943001",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3943002",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE134347:GSM3943003",
+          "y_true": 1,
+          "y_prob_sepsis": 1.4248683377496922e-48
+        },
+        {
+          "sample_id": "GSE54514:GSM1317896",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317897",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317898",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317899",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317900",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317901",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317902",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317903",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317904",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317905",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317906",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317907",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317908",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317909",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317910",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317911",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317912",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317913",
+          "y_true": 0,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317914",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317915",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317916",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317917",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317918",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317919",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317920",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317921",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317922",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317945",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317946",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317947",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317948",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317949",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317950",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317951",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317952",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317953",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317954",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317955",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317956",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317957",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317958",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317959",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317960",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317961",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317962",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317963",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317964",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317965",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317966",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317967",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317968",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317969",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE54514:GSM1317970",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373914",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373917",
+          "y_true": 1,
+          "y_prob_sepsis": 2.441993547803662e-173
+        },
+        {
+          "sample_id": "GSE57065:GSM1373920",
+          "y_true": 1,
+          "y_prob_sepsis": 8.476090646365281e-225
+        },
+        {
+          "sample_id": "GSE57065:GSM1373923",
+          "y_true": 1,
+          "y_prob_sepsis": 0.9994566162654437
+        },
+        {
+          "sample_id": "GSE57065:GSM1373926",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373929",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373932",
+          "y_true": 1,
+          "y_prob_sepsis": 6.278637289752209e-146
+        },
+        {
+          "sample_id": "GSE57065:GSM1373935",
+          "y_true": 1,
+          "y_prob_sepsis": 3.9650573616265555e-273
+        },
+        {
+          "sample_id": "GSE57065:GSM1373938",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373941",
+          "y_true": 1,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373944",
+          "y_true": 1,
+          "y_prob_sepsis": 1.2989101267306315e-283
+        },
+        {
+          "sample_id": "GSE57065:GSM1373947",
+          "y_true": 1,
+          "y_prob_sepsis": 1.3423983948827588e-118
+        },
+        {
+          "sample_id": "GSE57065:GSM1373950",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373953",
+          "y_true": 1,
+          "y_prob_sepsis": 3.986567526061815e-211
+        },
+        {
+          "sample_id": "GSE57065:GSM1373956",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373959",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373962",
+          "y_true": 1,
+          "y_prob_sepsis": 8.579933308999933e-22
+        },
+        {
+          "sample_id": "GSE57065:GSM1373965",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373967",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373970",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373973",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373976",
+          "y_true": 1,
+          "y_prob_sepsis": 4.350268562892363e-136
+        },
+        {
+          "sample_id": "GSE57065:GSM1373979",
+          "y_true": 1,
+          "y_prob_sepsis": 2.035929745350171e-226
+        },
+        {
+          "sample_id": "GSE57065:GSM1373981",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373984",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373987",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373990",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373993",
+          "y_true": 1,
+          "y_prob_sepsis": 1.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373996",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373997",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373998",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1373999",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374000",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374001",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374002",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374003",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374004",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374005",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374006",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374007",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374008",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374009",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374010",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374011",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374012",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374013",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374014",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374015",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374016",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374017",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374018",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374019",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        },
+        {
+          "sample_id": "GSE57065:GSM1374020",
+          "y_true": 0,
+          "y_prob_sepsis": 0.0
+        }
+      ],
+      "pooled_metrics": {
+        "accuracy": 0.8521739130434782,
+        "f1": 0.8794326241134752,
+        "precision": 0.9117647058823529,
+        "recall": 0.8493150684931506,
+        "auroc": 0.901174168297456
+      },
+      "optimal_threshold": 0.01
+    }
+  },
+  "model_oof_metrics": {
+    "accuracy": 0.8782608695652174,
+    "f1": 0.9032258064516129,
+    "precision": 0.9116279069767442,
+    "recall": 0.8949771689497716,
+    "auroc": 0.8477386388345293
+  },
+  "best_baseline": {
+    "name": "v12_no_mlp_ablation",
+    "metrics": {
+      "accuracy": 0.8521739130434782,
+      "f1": 0.8794326241134752,
+      "precision": 0.9117647058823529,
+      "recall": 0.8493150684931506,
+      "auroc": 0.901174168297456
+    }
+  },
+  "model_vs_best_baseline_permutation": {
+    "delta_auc": -0.053435529462926734,
+    "p_value": 0.999000999000999
+  }
+}

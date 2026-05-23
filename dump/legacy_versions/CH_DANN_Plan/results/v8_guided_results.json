@@ -1,0 +1,60 @@
+{
+  "method": "GNN-Guided Feature Selection (LOBO)",
+  "architecture": "GNN produces per-gene attention \u2192 masks MLP input",
+  "n_folds": 4,
+  "seed": 42,
+  "epochs": 150,
+  "folds": [
+    {
+      "fold": 1,
+      "held_out": "GSE25504_Illu",
+      "auroc": 0.8571428571428571,
+      "acc": 0.8795180722891566,
+      "f1": 0.868421052631579,
+      "prec": 0.9705882352941176,
+      "rec": 0.7857142857142857,
+      "n_val": 83,
+      "skipped": false
+    },
+    {
+      "fold": 2,
+      "held_out": "GSE25504_Affy",
+      "auroc": 1.0,
+      "acc": 1.0,
+      "f1": 1.0,
+      "prec": 1.0,
+      "rec": 1.0,
+      "n_val": 5,
+      "skipped": false
+    },
+    {
+      "fold": 3,
+      "held_out": "GSE25504_NCode",
+      "auroc": 0.9536842105263158,
+      "acc": 0.9146341463414634,
+      "f1": 0.8727272727272727,
+      "prec": 0.8,
+      "rec": 0.96,
+      "n_val": 82,
+      "skipped": false
+    },
+    {
+      "fold": 4,
+      "held_out": "GSE69686",
+      "auroc": 0.7136029411764706,
+      "acc": 0.7046979865771812,
+      "f1": 0.6857142857142857,
+      "prec": 0.631578947368421,
+      "rec": 0.75,
+      "n_val": 149,
+      "skipped": false
+    }
+  ],
+  "mean_auroc": 0.881107502211411,
+  "std_auroc": 0.10958431320335754,
+  "mean_acc": 0.8747125513019502,
+  "std_acc": 0.10749270184793536,
+  "best_fold": "Fold 2/4 \u2014 Test on GSE25504_Affy",
+  "best_auroc": 1.0,
+  "total_time_min": 16.56985140244166
+}

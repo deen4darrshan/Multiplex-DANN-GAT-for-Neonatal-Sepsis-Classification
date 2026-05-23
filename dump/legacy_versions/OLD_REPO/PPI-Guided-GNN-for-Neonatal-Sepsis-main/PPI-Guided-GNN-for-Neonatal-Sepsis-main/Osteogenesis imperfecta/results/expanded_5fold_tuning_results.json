@@ -1,0 +1,184 @@
+{
+  "n_samples": 45,
+  "label_counts": {
+    "OI": 28,
+    "Control": 17
+  },
+  "dataset_counts": {
+    "Control": {
+      "GSE154748": 4,
+      "GSE160207": 5,
+      "GSE163812": 4,
+      "GSE180838": 2,
+      "GSE186141": 2
+    },
+    "OI": {
+      "GSE154748": 7,
+      "GSE160207": 7,
+      "GSE163812": 4,
+      "GSE180838": 4,
+      "GSE186141": 6
+    }
+  },
+  "tabular_5fold": {
+    "500": {
+      "LR": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "RF": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "SVM": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      }
+    },
+    "1000": {
+      "LR": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "RF": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "SVM": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      }
+    },
+    "1500": {
+      "LR": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "RF": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "SVM": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      }
+    },
+    "2000": {
+      "LR": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "RF": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      },
+      "SVM": {
+        "auc": 1.0,
+        "accuracy": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "best_tabular": {
+    "top_k": 500,
+    "model": "LR",
+    "metrics": {
+      "auc": 1.0,
+      "accuracy": 1.0,
+      "f1": 1.0
+    }
+  },
+  "graph_info": {
+    "top_k": 500,
+    "n_nodes": 237,
+    "n_edges": 498
+  },
+  "gat_5fold": [
+    {
+      "config": {
+        "hidden": 64,
+        "heads": 4,
+        "dropout": 0.5,
+        "lr": 0.001,
+        "batch_size": 8,
+        "epochs": 90
+      },
+      "metrics": {
+        "auc": 0.5966386554621849,
+        "accuracy": 0.5333333333333333,
+        "f1": 0.6181818181818182
+      }
+    },
+    {
+      "config": {
+        "hidden": 64,
+        "heads": 2,
+        "dropout": 0.4,
+        "lr": 0.0005,
+        "batch_size": 8,
+        "epochs": 110
+      },
+      "metrics": {
+        "auc": 0.5819327731092436,
+        "accuracy": 0.5333333333333333,
+        "f1": 0.5116279069767442
+      }
+    },
+    {
+      "config": {
+        "hidden": 32,
+        "heads": 4,
+        "dropout": 0.3,
+        "lr": 0.001,
+        "batch_size": 8,
+        "epochs": 100
+      },
+      "metrics": {
+        "auc": 0.5987394957983193,
+        "accuracy": 0.4666666666666667,
+        "f1": 0.4782608695652174
+      }
+    },
+    {
+      "config": {
+        "hidden": 96,
+        "heads": 2,
+        "dropout": 0.5,
+        "lr": 0.0008,
+        "batch_size": 6,
+        "epochs": 90
+      },
+      "metrics": {
+        "auc": 0.6365546218487395,
+        "accuracy": 0.5333333333333333,
+        "f1": 0.6181818181818182
+      }
+    }
+  ],
+  "best_gat": {
+    "config": {
+      "hidden": 64,
+      "heads": 4,
+      "dropout": 0.5,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 90
+    },
+    "metrics": {
+      "auc": 0.5966386554621849,
+      "accuracy": 0.5333333333333333,
+      "f1": 0.6181818181818182
+    }
+  }
+}

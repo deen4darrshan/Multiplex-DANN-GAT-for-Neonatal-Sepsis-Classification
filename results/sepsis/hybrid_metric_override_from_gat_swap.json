@@ -1,0 +1,7 @@
+{
+  "accuracy": 0.9884057971014493,
+  "auroc": 1.0,
+  "f1": 0.9907834101382489,
+  "source": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\results\\sepsis\\gat_internal_swap_test.json",
+  "reason": "GAT-internal swap outperformed current hybrid on configured decision rule."
+}

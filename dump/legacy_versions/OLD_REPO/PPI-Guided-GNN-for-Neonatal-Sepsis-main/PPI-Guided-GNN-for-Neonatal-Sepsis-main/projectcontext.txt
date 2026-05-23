@@ -1,0 +1,115 @@
+Project Scope & Context: PPI-Guided Graph Neural Networks for Neonatal Sepsis
+
+Part 1: The Simplified Explanation (For General Audience)
+
+What is this project really doing?
+
+Imagine your immune system is like a massive city. In this city, the "citizens" are proteins and genes that need to talk to each other to fight off an invasion (an infection). In a healthy baby, the communication lines are clear, and the police (immune cells) respond quickly. In a baby with sepsis, this communication breaks down—messages get lost, or the police overreact and burn down the city.
+
+Traditional medical tests only look at one or two "citizens" at a time (like checking if the Mayor is awake). This project does something different. We are using Artificial Intelligence to build a complete map of the entire city for every single patient.
+
+Instead of just looking at a list of numbers, we are building a "social network" of the patient's immune system. We then teach an AI to look at the shape of this network to predict if the baby is about to get sick, long before traditional tests can tell.
+
+How are we using the data?
+
+We use two types of information to build this map:
+
+The "Activity Logs" (Patient Data): We have combined data from over 300 babies across multiple different hospitals. This gives us a massive library of examples—some healthy, some sick—to teach the AI. We carefully "translate" the data from different hospitals so they speak the same language (a process called batch correction).
+
+The "City Map" (Interaction Networks): We use a massive database that tells us which genes talk to which other genes. This draws the roads and telephone lines between the citizens.
+
+By combining these, we create a unique Patient-Specific Graph for every baby. It’s a digital twin of their immune system.
+
+How do we test if it works?
+
+We test the AI in two specific ways:
+
+The "Final Exam" (Generalization):
+
+We teach the AI using data from newborn babies (neonates).
+
+Then, we give it a "Final Exam" using data from older children (pediatric patients) that it has never seen before.
+
+If the AI can correctly identify sepsis in these older children, we know it didn't just memorize the specific pattern of a newborn; it learned the fundamental "shape" of sepsis itself.
+
+The "Sanity Check" (Biological Validation):
+
+We don't just want the AI to guess right; we want it to guess right for the right reasons.
+
+We ask the AI: "Which part of the map made you think this baby is sick?"
+
+If the AI points to genes known to be involved in fighting bacteria (like the "Fire Department" or "Police"), we know it's smart. If it points to random things (like the "Ice Cream Shop"), we know it's cheating or confused.
+
+Part 2: Technical Scope & Methodology (For Judges & Experts)
+
+Project Objectives
+
+The primary objective is to develop a Graph Neural Network (GNN) framework that classifies neonatal sepsis susceptibility by integrating high-dimensional transcriptomic data with prior biological knowledge from Protein-Protein Interaction (PPI) networks. This represents a shift from reductionist biomarker discovery to systems-biology network modeling.
+
+Dataset Utilization & Strategy
+
+The project employs a rigorous Multi-Cohort Integration Strategy to overcome the "small N, large P" problem typical in omics:
+
+Transcriptomic Cohorts (Node Features - $X$):
+
+Combined Training Set (Discovery Phase): We merge GSE25504 and GSE69686 to create a robust training cohort of $N=320$ samples.
+
+Technique: We utilize ComBat (Empirical Bayes) to harmonize these datasets, removing technical batch effects (e.g., hospital or scanner differences) while preserving biological variance (Sepsis vs. Control).
+
+Validation: We use Stratified 5-Fold Cross-Validation on this combined set.
+
+External Validation Set (Generalization Phase): We utilize GSE26440, a cohort of pediatric septic shock ($N=130$).
+
+Challenge: This is a strictly held-out test set. Since it contains older children, it tests the model's ability to generalize across age groups, proving the GNN has learned a robust, fundamental immune signature rather than a dataset-specific artifact.
+
+Interactome Topology (Adjacency Matrix - $A$):
+
+STRING v12 & BioGRID: These databases define the edges ($E$) of our graph. We filter for high-confidence interactions (score > 900) to construct the scaffold of the graph.
+
+Strategy: We employ a PPI-Guided approach, where the graph structure is static (based on human biology), but the node attributes (gene expression) are dynamic and patient-specific.
+
+Architectural Implementation
+
+The core innovation is the use of Geometric Deep Learning combined with rigorous feature selection.
+
+Feature Selection (Curse of Dimensionality Mitigation):
+
+Input: ~20,000 genes. Samples: 320.
+
+Solution: Multi-stage filtering (Variance Filtering + PPI Intersection) to reduce the feature space to ~2,000 highly informative, connected genes.
+
+Graph Construction: For patient $k$, we construct $G_k = (V, E, X_k)$.
+
+$V$: ~2,000 genes (nodes).
+
+$E$: Biological interactions from STRING.
+
+$X_k$: Normalized expression values (Log2 + Z-score).
+
+Model Architectures:
+
+GCN (Graph Convolutional Network): Aggregates information from neighbors equally. Used as a baseline.
+
+GAT (Graph Attention Network): The advanced model. It uses Attention Mechanisms to learn which neighbors are most important. This is critical because not all protein interactions are relevant during sepsis. The GAT learns to "attend" to the inflammatory pathways while ignoring homeostatic ones.
+
+Validation Methodologies
+
+Statistical Validation (Accuracy):
+
+Metric: Area Under the Receiver Operating Characteristic Curve (AUROC).
+
+Target: AUROC > 0.78 on the Combined Training Set (CV) and AUROC > 0.70 on the External Pediatric Set.
+
+Biological Validation (Explainability):
+
+Tool: GNNExplainer. This algorithm works backward from the prediction to highlight the subgraph (cluster of genes) that maximized the probability of sepsis.
+
+Enrichment Analysis: We extract the top-ranked genes from the GNN and run a Hypergeometric Test against the Gene Ontology (GO) database.
+
+Success Criteria: The top genes must show statistically significant enrichment ($p < 0.05$) for terms like Innate Immune Response (GO:0045087) or Neutrophil Degranulation (GO:0043312). This proves the model has "re-discovered" the known pathophysiology of sepsis.
+
+Why is this Novel?
+
+Patient-Specific Graphs: Most GNN studies in biology try to predict missing links in a network (Link Prediction). We are performing Graph Classification, treating the entire patient's immune state as a single graph instance.
+
+Cross-Age Generalization: By training on neonates and testing on pediatric patients, we are adhering to a much higher standard of validation than typical high school projects, which often simply split one dataset 80/20.

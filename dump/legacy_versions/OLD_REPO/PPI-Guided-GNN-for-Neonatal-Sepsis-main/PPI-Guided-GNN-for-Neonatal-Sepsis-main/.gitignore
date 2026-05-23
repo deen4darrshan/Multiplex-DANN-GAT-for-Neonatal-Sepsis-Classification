@@ -1,0 +1,51 @@
+# Data files
+data/raw/
+data/processed/
+*.pkl
+*.csv
+*.gz
+*.pt
+*.txt.gz
+
+# Project-specific data caches (avoid large raw artifacts)
+Osteogenesis imperfecta/data/raw/
+Osteogenesis imperfecta/data/processed/
+Osteogenesis imperfecta/data/datasets/
+Osteogenesis imperfecta/data/expanded_datasets/
+Osteogenesis imperfecta/models/
+CH_DANN_Plan/data/
+ALZHEIMERS_STRATEGIC_PATHWAY/data/
+
+# Allow publication tables
+!docs/publication/tables/*.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs (keep structure but not files)
+logs/*.log
+
+# Models (keep structure)
+models/*.pt
+gnn_optimized/models/*.pt
+gnn_optimized/data/*.pkl
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Codex / agent state
+.swarm/

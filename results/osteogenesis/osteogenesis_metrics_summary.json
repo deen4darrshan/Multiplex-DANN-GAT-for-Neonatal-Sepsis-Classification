@@ -1,0 +1,53 @@
+{
+  "disease": "osteogenesis",
+  "architecture_source": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\Osteogenesis imperfecta\\results\\real_world_results.json",
+  "comparison_protocol": "cross-cohort external holdout average (GAT external vs LR external)",
+  "architecture_metrics": {
+    "accuracy": 0.5416666666666667,
+    "auroc": 0.7736607142857143,
+    "f1": 0.5651629072681704
+  },
+  "baseline_metrics": {
+    "accuracy": 0.375,
+    "auroc": 0.5034226190476191,
+    "f1": 0.0
+  },
+  "holdout_rows": [
+    {
+      "holdout": "GSE160207",
+      "gat_accuracy": 0.5833333333333334,
+      "gat_auroc": 0.657142857142857,
+      "gat_f1": 0.7368421052631579,
+      "lr_accuracy": 0.4166666666666667,
+      "lr_auroc": 0.7428571428571429,
+      "lr_f1": 0.0
+    },
+    {
+      "holdout": "GSE163812",
+      "gat_accuracy": 0.5,
+      "gat_auroc": 0.8125,
+      "gat_f1": 0.6666666666666666,
+      "lr_accuracy": 0.5,
+      "lr_auroc": 0.8125,
+      "lr_f1": 0.0
+    },
+    {
+      "holdout": "GSE180838",
+      "gat_accuracy": 0.3333333333333333,
+      "gat_auroc": 0.625,
+      "gat_f1": 0.0,
+      "lr_accuracy": 0.3333333333333333,
+      "lr_auroc": 0.375,
+      "lr_f1": 0.0
+    },
+    {
+      "holdout": "GSE186141",
+      "gat_accuracy": 0.75,
+      "gat_auroc": 1.0,
+      "gat_f1": 0.8571428571428571,
+      "lr_accuracy": 0.25,
+      "lr_auroc": 0.08333333333333333,
+      "lr_f1": 0.0
+    }
+  ]
+}

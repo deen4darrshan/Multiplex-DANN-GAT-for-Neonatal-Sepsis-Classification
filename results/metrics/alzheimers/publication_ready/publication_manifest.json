@@ -1,0 +1,14 @@
+{
+  "summary_table_csv": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\table_summary_main.csv",
+  "summary_table_md": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\table_summary_main.md",
+  "loco_table_csv": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\table_loco_per_cohort.csv",
+  "seed_table_csv": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\table_seed_stability_per_seed.csv",
+  "figures": [
+    "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\figure_loco_cohort_performance.png",
+    "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\figure_loco_cohort_performance.pdf",
+    "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\figure_seed_stability.png",
+    "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\figure_seed_stability.pdf",
+    "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\figure_model_lineage_neonatal.png",
+    "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\results\\publication_ready\\figure_model_lineage_neonatal.pdf"
+  ]
+}

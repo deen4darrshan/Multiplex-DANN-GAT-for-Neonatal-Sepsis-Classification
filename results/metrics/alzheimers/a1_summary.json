@@ -1,0 +1,13 @@
+{
+  "experiment": "A1_HGCN_ComBat_Fixed",
+  "mean_auroc": 0.8437603258255433,
+  "std_auroc": 0.02618944361000605,
+  "mean_accuracy": 0.39268817204301076,
+  "mean_f1": 0.16585365853658535,
+  "best_fold_auroc": 0.8695652173913043,
+  "worst_fold_auroc": 0.7936507936507937,
+  "num_genes": 2000,
+  "num_pathway_hedges": 276,
+  "num_samples": 152,
+  "elapsed_minutes": 8.869254962603252
+}

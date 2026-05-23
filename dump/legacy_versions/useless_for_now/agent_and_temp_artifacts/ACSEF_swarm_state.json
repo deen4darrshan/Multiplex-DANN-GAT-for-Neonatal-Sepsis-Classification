@@ -1,0 +1,107 @@
+{
+  "created_at": "2026-02-25T03:18:15.491783+00:00",
+  "goal": "Complete ACSEF science fair final submission package with full implementation, XAI biomarker extraction, aggregated results, scaling narrative, and publication-ready deliverables in ACSEF_Final_Submission",
+  "groups": {
+    "implementation": {
+      "created_at": "2026-02-25T03:18:15.491800+00:00",
+      "members": [],
+      "tasks": [
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    "research": {
+      "created_at": "2026-02-25T03:18:15.491798+00:00",
+      "members": [],
+      "tasks": [
+        "R1"
+      ]
+    },
+    "verification": {
+      "created_at": "2026-02-25T03:18:15.491802+00:00",
+      "members": [],
+      "tasks": [
+        "V1"
+      ]
+    }
+  },
+  "messages": [],
+  "tasks": {
+    "I1": {
+      "acceptance": "All required subfolders and artifacts exist with dated logs",
+      "created_at": "2026-02-25T03:18:30.176422+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I1",
+      "owner": "",
+      "status": "done",
+      "summary": "ACSEF_Final_Submission structure finalized with dated logs, notebooks, scripts, models, figures, and docs",
+      "title": "Create ACSEF_Final_Submission structure and copy reproducible assets",
+      "updated_at": "2026-02-25T03:57:47.959064+00:00"
+    },
+    "I2": {
+      "acceptance": "top_100_biomarkers.csv + required and proactive figures generated",
+      "created_at": "2026-02-25T03:18:30.254390+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I2",
+      "owner": "",
+      "status": "done",
+      "summary": "Robust XAI completed; top_100_biomarkers.csv and required/proactive figures generated",
+      "title": "Rebuild and run robust XAI biomarker pipeline",
+      "updated_at": "2026-02-25T03:57:48.000072+00:00"
+    },
+    "I3": {
+      "acceptance": "compiled_model_metrics.json and model_justification_and_architecture.md completed",
+      "created_at": "2026-02-25T03:18:30.330375+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I3",
+      "owner": "",
+      "status": "done",
+      "summary": "Compiled model metrics, baseline comparison, external validation narrative, and osteogenesis scaling docs completed",
+      "title": "Aggregate baseline/final metrics and external validation narrative",
+      "updated_at": "2026-02-25T03:58:49.000000+00:00"
+    },
+    "I4": {
+      "acceptance": "Abstract, quad chart, and 12-slide outline completed within constraints",
+      "created_at": "2026-02-25T03:18:30.410532+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I4",
+      "owner": "",
+      "status": "done",
+      "summary": "ACSEF abstract, quad chart content, and 12-slide presentation completed with citation and formatting constraints",
+      "title": "Generate ACSEF documents and presentation content",
+      "updated_at": "2026-02-25T03:58:49.000000+00:00"
+    },
+    "R1": {
+      "acceptance": "Inventory includes old and unused scripts plus key outputs",
+      "created_at": "2026-02-25T03:18:30.090410+00:00",
+      "depends_on": [],
+      "group": "research",
+      "id": "R1",
+      "owner": "",
+      "status": "done",
+      "summary": "Repository-wide inventory completed; identified core sepsis scripts, metrics JSONs, external validation, and osteogenesis scaling assets",
+      "title": "Scan full repository and map prior models/results",
+      "updated_at": "2026-02-25T03:41:00.558211+00:00"
+    },
+    "V1": {
+      "acceptance": "failure_analysis_log.md and final validation checklist completed",
+      "created_at": "2026-02-25T03:18:30.490592+00:00",
+      "depends_on": [],
+      "group": "verification",
+      "id": "V1",
+      "owner": "",
+      "status": "done",
+      "summary": "Failure analysis log and final validation checklist completed; required artifacts verified present",
+      "title": "Verify outputs and document failures/workarounds",
+      "updated_at": "2026-02-25T03:58:49.000000+00:00"
+    }
+  },
+  "updated_at": "2026-02-25T03:58:49.000000+00:00",
+  "version": 1
+}

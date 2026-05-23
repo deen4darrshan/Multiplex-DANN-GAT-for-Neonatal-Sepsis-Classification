@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:100%;height:600px;"></div>
+  <script>
+    const data = {"x": ["LogisticRegression", "RandomForest", "GAT_v2", "GCN", "GAT_v2", "LogisticRegression", "LR (top_k=2000)", "GAT_v2", "LR (tuned threshold)", "L2 LR fixed (feat=diff, top_k=5000, C=50)", "L2 LR tuned (feat=diff, top_k=8000, C=100)"], "y1": [1.0, 1.0, 1.0, 1.0, 0.5416666666666667, 0.375, 0.7352941176470589, 0.6176470588235294, 0.8235294117647058, 0.7941176470588235, 0.8235294117647058], "y2": null, "y1_label": "Accuracy", "y2_label": "Series 2", "y_label": "Accuracy", "title": "Key Evaluation Accuracies"};
+    const traces = [];
+    traces.push({x: data.x, y: data.y1, type: 'bar', name: data.y1_label});
+    if (data.y2) {
+      traces.push({x: data.x, y: data.y2, type: 'bar', name: data.y2_label});
+    }
+    const layout = {title: data.title, barmode: data.y2 ? 'group' : 'overlay', yaxis: {title: data.y_label}};
+    Plotly.newPlot('chart', traces, layout);
+  </script>
+</body>
+</html>

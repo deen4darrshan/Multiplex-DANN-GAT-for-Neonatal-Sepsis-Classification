@@ -1,0 +1,159 @@
+{
+  "cross_disease_rows": [
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "architecture_label": "hybrid GCN+MLP DANN model",
+      "baseline_label": "GAT only",
+      "architecture_accuracy": 0.9884057971014493,
+      "architecture_auroc": 0.999,
+      "architecture_f1": 0.9907834101382489,
+      "baseline_accuracy": 0.4169146825396825,
+      "baseline_auroc": 0.6818957621589201,
+      "baseline_f1": 0.5884534441837812
+    },
+    {
+      "disease": "alzheimers",
+      "disease_short": "ALZ",
+      "architecture_label": "hybrid GCN+MLP DANN model",
+      "baseline_label": "Logistic Regression",
+      "architecture_accuracy": 0.9052525252525253,
+      "architecture_auroc": 0.9437088685626698,
+      "architecture_f1": 0.9001076433502393,
+      "baseline_accuracy": 0.7072072072072072,
+      "baseline_auroc": 0.8276990185387132,
+      "baseline_f1": 0.7136563876651982
+    },
+    {
+      "disease": "osteogenesis",
+      "disease_short": "OI",
+      "architecture_label": "hybrid GCN+MLP DANN model",
+      "baseline_label": "Logistic Regression",
+      "architecture_accuracy": 0.5416666666666667,
+      "architecture_auroc": 0.7736607142857143,
+      "architecture_f1": 0.5651629072681704,
+      "baseline_accuracy": 0.375,
+      "baseline_auroc": 0.5034226190476191,
+      "baseline_f1": 0.001
+    }
+  ],
+  "model_landscape_rows": [
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "cv_oof",
+      "model": "hybrid_gcn_mlp_dann",
+      "accuracy": 0.9884057971014493,
+      "auroc": 0.999,
+      "f1": 0.9907834101382489
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "cv_oof",
+      "model": "logistic_regression",
+      "accuracy": 0.7739130434782608,
+      "auroc": 0.7975284482133798,
+      "f1": 0.7958115183246073
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "cv_oof",
+      "model": "gat_only",
+      "accuracy": 0.4169146825396825,
+      "auroc": 0.6818957621589201,
+      "f1": 0.5884534441837812
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "cv_oof",
+      "model": "gcn_only",
+      "accuracy": 0.4137896825396825,
+      "auroc": 0.6705816140026666,
+      "f1": 0.5852574391900235
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "cv_oof",
+      "model": "mlp_only",
+      "accuracy": 0.7594202898550725,
+      "auroc": 0.8014785823005001,
+      "f1": 0.7798408488063661
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "external",
+      "model": "hybrid_gcn_mlp_dann",
+      "accuracy": 0.7961165048543689,
+      "auroc": 0.9912891986062716,
+      "f1": 0.8864864864864865
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "external",
+      "model": "logistic_regression",
+      "accuracy": 0.7961165048543689,
+      "auroc": 0.8809523809523809,
+      "f1": 0.8864864864864865
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "external",
+      "model": "mlp_only",
+      "accuracy": 0.7961165048543689,
+      "auroc": 0.5,
+      "f1": 0.8864864864864865
+    },
+    {
+      "disease": "sepsis",
+      "disease_short": "SEP",
+      "split": "external",
+      "model": "gcn_only",
+      "accuracy": 0.7961165048543689,
+      "auroc": 0.781068524970964,
+      "f1": 0.8864864864864865
+    },
+    {
+      "disease": "alzheimers",
+      "disease_short": "ALZ",
+      "split": "cv",
+      "model": "hybrid_gcn_mlp_dann",
+      "accuracy": 0.9052525252525253,
+      "auroc": 0.9437088685626698,
+      "f1": 0.9001076433502393
+    },
+    {
+      "disease": "alzheimers",
+      "disease_short": "ALZ",
+      "split": "cv",
+      "model": "logistic_regression",
+      "accuracy": 0.7072072072072072,
+      "auroc": 0.8276990185387132,
+      "f1": 0.7136563876651982
+    },
+    {
+      "disease": "osteogenesis",
+      "disease_short": "OI",
+      "split": "external_avg",
+      "model": "hybrid_gcn_mlp_dann",
+      "accuracy": 0.5416666666666667,
+      "auroc": 0.7736607142857143,
+      "f1": 0.5651629072681704
+    },
+    {
+      "disease": "osteogenesis",
+      "disease_short": "OI",
+      "split": "external_avg",
+      "model": "logistic_regression",
+      "accuracy": 0.375,
+      "auroc": 0.5034226190476191,
+      "f1": 0.001
+    }
+  ]
+}

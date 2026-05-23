@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:100%;height:600px;"></div>
+  <script>
+    const data = {"x": ["GSE160207", "GSE163812", "GSE180838", "GSE186141"], "y1": [5, 4, 2, 2], "y2": [7, 4, 4, 6], "y1_label": "Control", "y2_label": "OI", "y_label": "Samples", "title": "Human Multicohort Composition"};
+    const traces = [];
+    traces.push({x: data.x, y: data.y1, type: 'bar', name: data.y1_label});
+    if (data.y2) {
+      traces.push({x: data.x, y: data.y2, type: 'bar', name: data.y2_label});
+    }
+    const layout = {title: data.title, barmode: data.y2 ? 'group' : 'overlay', yaxis: {title: data.y_label}};
+    Plotly.newPlot('chart', traces, layout);
+  </script>
+</body>
+</html>

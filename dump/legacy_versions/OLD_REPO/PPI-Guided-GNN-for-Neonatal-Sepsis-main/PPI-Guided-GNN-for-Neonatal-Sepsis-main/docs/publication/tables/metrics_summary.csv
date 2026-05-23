@@ -1,0 +1,12 @@
+Evaluation,Model,Accuracy,AUC,F1,Notes
+Baseline CV (2 cohorts),LogisticRegression,1.0,1.0,1.0,"Combined CV on early cohorts, optimistic"
+Baseline CV (2 cohorts),RandomForest,1.0,1.0,1.0,"Combined CV on early cohorts, optimistic"
+Baseline CV (2 cohorts),GAT_v2,1.0,1.0,1.0,"Combined CV on early cohorts, optimistic"
+Baseline CV (2 cohorts),GCN,1.0,1.0,1.0,"Combined CV on early cohorts, optimistic"
+External holdout mean (human multicohort),GAT_v2,0.5416666666666667,0.7736607142857143,0.5651629072681704,Leave one dataset out external test
+External holdout mean (human multicohort),LogisticRegression,0.375,0.5034226190476191,0.0,Leave one dataset out external test
+Human grouped 5-fold,LR (top_k=2000),0.7352941176470589,0.7802197802197802,0.7692307692307693,"Human only, StratifiedGroupKFold"
+Human grouped 5-fold,GAT_v2,0.6176470588235294,0.4358974358974359,0.7636363636363637,"Human only, StratifiedGroupKFold"
+Human grouped 5-fold,LR (tuned threshold),0.8235294117647058,0.8021978021978022,0.875,"Threshold tuned from OOF, top_k=12000, C=10.0, thr=0.19"
+Human grouped 5-fold,"L2 LR fixed (feat=diff, top_k=5000, C=50)",0.7941176470588235,0.8351648351648351,0.8292682926829268,Fixed threshold 0.5
+Human grouped 5-fold,"L2 LR tuned (feat=diff, top_k=8000, C=100)",0.8235294117647058,0.8461538461538461,0.8571428571428571,Tuned threshold 0.18

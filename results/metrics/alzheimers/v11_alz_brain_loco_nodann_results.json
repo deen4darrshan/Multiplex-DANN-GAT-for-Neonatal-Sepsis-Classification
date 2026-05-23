@@ -1,0 +1,96 @@
+{
+  "method": "V11 transfer to Alzheimer brain (LOCO)",
+  "dataset_path": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\data\\alz\\alz_brain_true_domains_2000.pt",
+  "n_samples": 222,
+  "n_genes": 2000,
+  "node_feature_dim": 1,
+  "n_classes": 2,
+  "n_domains": 3,
+  "cohorts": [
+    "GSE1297",
+    "GSE28146",
+    "GSE5281"
+  ],
+  "label_map_original_to_mapped": {
+    "0": 0,
+    "1": 1
+  },
+  "gene_count": 2000,
+  "kegg_hyperedges": 268,
+  "string_pair_hyperedges": 15000,
+  "coexpr_threshold": 0.7,
+  "max_coexpr_edges": 20000,
+  "domain_loss_weight": 0.0,
+  "seed": 42,
+  "folds": [
+    {
+      "holdout_batch": "GSE1297",
+      "n_train": 191,
+      "n_val": 31,
+      "train_class_counts": {
+        "0": 82,
+        "1": 109
+      },
+      "val_class_counts": {
+        "0": 9,
+        "1": 22
+      },
+      "n_coexpr_edges": 20000,
+      "acc": 0.6774193548387096,
+      "f1_macro": 0.6477272727272727,
+      "auroc_macro_ovr": 0.7828282828282829,
+      "attn_kegg": 0.5023771524429321,
+      "attn_string": 0.2148181051015854,
+      "attn_coexpr": 0.2828047573566437
+    },
+    {
+      "holdout_batch": "GSE28146",
+      "n_train": 192,
+      "n_val": 30,
+      "train_class_counts": {
+        "0": 83,
+        "1": 109
+      },
+      "val_class_counts": {
+        "0": 8,
+        "1": 22
+      },
+      "n_coexpr_edges": 20000,
+      "acc": 0.7666666666666667,
+      "f1_macro": 0.6103896103896104,
+      "auroc_macro_ovr": 0.7670454545454546,
+      "attn_kegg": 0.3511021137237549,
+      "attn_string": 0.364846408367157,
+      "attn_coexpr": 0.28405147790908813
+    },
+    {
+      "holdout_batch": "GSE5281",
+      "n_train": 61,
+      "n_val": 161,
+      "train_class_counts": {
+        "0": 17,
+        "1": 44
+      },
+      "val_class_counts": {
+        "0": 74,
+        "1": 87
+      },
+      "n_coexpr_edges": 20000,
+      "acc": 0.7391304347826086,
+      "f1_macro": 0.737906976744186,
+      "auroc_macro_ovr": 0.833488661074868,
+      "attn_kegg": 0.02027519792318344,
+      "attn_string": 0.02514287829399109,
+      "attn_coexpr": 0.9545819759368896
+    }
+  ],
+  "mean_acc": 0.7277388187626617,
+  "std_acc": 0.037314852751405274,
+  "mean_f1_macro": 0.6653412866203564,
+  "std_f1_macro": 0.05352793535199526,
+  "mean_auroc_macro_ovr": 0.7944541328162019,
+  "std_auroc_macro_ovr": 0.028343667304870368,
+  "best_holdout_batch": "GSE28146",
+  "best_acc": 0.7666666666666667,
+  "elapsed_minutes": 1.750248086452484
+}

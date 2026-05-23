@@ -1,0 +1,427 @@
+{
+  "method": "V11 transfer to Alzheimer brain (5-seed stability)",
+  "dataset_path": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\CH_DANN_Plan\\data\\alz\\alz_brain_true_domains_2000.pt",
+  "seeds": [
+    7,
+    21,
+    42,
+    77,
+    123
+  ],
+  "n_seeds": 5,
+  "n_samples": 222,
+  "n_genes": 2000,
+  "node_feature_dim": 1,
+  "n_classes": 2,
+  "n_domains": 3,
+  "class_counts_mapped": {
+    "0": 91,
+    "1": 131
+  },
+  "label_map_original_to_mapped": {
+    "0": 0,
+    "1": 1
+  },
+  "gene_count": 2000,
+  "kegg_hyperedges": 268,
+  "string_pair_hyperedges": 15000,
+  "coexpr_threshold": 0.7,
+  "max_coexpr_edges": 20000,
+  "domain_loss_weight": 0.0,
+  "per_seed": [
+    {
+      "seed": 7,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9555555555555556,
+          "f1_macro": 0.955,
+          "auroc_macro_ovr": 0.9919028340080972,
+          "attn_kegg": 0.17157840728759766,
+          "attn_string": 0.29867422580718994,
+          "attn_coexpr": 0.5297474265098572
+        },
+        {
+          "fold": 2,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9777777777777777,
+          "f1_macro": 0.9766233766233766,
+          "auroc_macro_ovr": 0.9979423868312757,
+          "attn_kegg": 0.09005443006753922,
+          "attn_string": 0.8084756731987,
+          "attn_coexpr": 0.10146993398666382
+        },
+        {
+          "fold": 3,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9318181818181818,
+          "f1_macro": 0.9272727272727272,
+          "auroc_macro_ovr": 0.967948717948718,
+          "attn_kegg": 0.06134316325187683,
+          "attn_string": 0.27806004881858826,
+          "attn_coexpr": 0.6605967879295349
+        },
+        {
+          "fold": 4,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8863636363636364,
+          "f1_macro": 0.8787878787878788,
+          "auroc_macro_ovr": 0.9252136752136753,
+          "attn_kegg": 0.11199969053268433,
+          "attn_string": 0.24599702656269073,
+          "attn_coexpr": 0.6420033574104309
+        },
+        {
+          "fold": 5,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8636363636363636,
+          "f1_macro": 0.858974358974359,
+          "auroc_macro_ovr": 0.9444444444444445,
+          "attn_kegg": 0.044856563210487366,
+          "attn_string": 0.6249997615814209,
+          "attn_coexpr": 0.3301437199115753
+        }
+      ],
+      "mean_acc": 0.9230303030303031,
+      "std_acc": 0.04243698702269677,
+      "mean_f1_macro": 0.9193316683316685,
+      "std_f1_macro": 0.04450715403958045,
+      "mean_auroc_macro_ovr": 0.9654904116892421,
+      "std_auroc_macro_ovr": 0.027647561380438047,
+      "best_fold": "seed7_fold2",
+      "best_acc": 0.9777777777777777,
+      "elapsed_minutes": 2.8320889910062155
+    },
+    {
+      "seed": 21,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9777777777777777,
+          "f1_macro": 0.9770525242223356,
+          "auroc_macro_ovr": 0.9898785425101215,
+          "attn_kegg": 0.05858418345451355,
+          "attn_string": 0.7114164233207703,
+          "attn_coexpr": 0.22999943792819977
+        },
+        {
+          "fold": 2,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9777777777777777,
+          "f1_macro": 0.9770525242223356,
+          "auroc_macro_ovr": 0.9979423868312757,
+          "attn_kegg": 0.5533538460731506,
+          "attn_string": 0.3063315153121948,
+          "attn_coexpr": 0.14031462371349335
+        },
+        {
+          "fold": 3,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9545454545454546,
+          "f1_macro": 0.9529914529914529,
+          "auroc_macro_ovr": 0.9871794871794872,
+          "attn_kegg": 0.6672582626342773,
+          "attn_string": 0.05984010919928551,
+          "attn_coexpr": 0.2729016840457916
+        },
+        {
+          "fold": 4,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8636363636363636,
+          "f1_macro": 0.8526785714285714,
+          "auroc_macro_ovr": 0.8632478632478633,
+          "attn_kegg": 0.1076190397143364,
+          "attn_string": 0.7873045802116394,
+          "attn_coexpr": 0.10507642477750778
+        },
+        {
+          "fold": 5,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8636363636363636,
+          "f1_macro": 0.858974358974359,
+          "auroc_macro_ovr": 0.9294871794871795,
+          "attn_kegg": 0.0770392045378685,
+          "attn_string": 0.6627235412597656,
+          "attn_coexpr": 0.26023727655410767
+        }
+      ],
+      "mean_acc": 0.9274747474747475,
+      "std_acc": 0.05280964192046155,
+      "mean_f1_macro": 0.9237498863678109,
+      "std_f1_macro": 0.056186141315093904,
+      "mean_auroc_macro_ovr": 0.9535470918511855,
+      "std_auroc_macro_ovr": 0.051293049447639176,
+      "best_fold": "seed21_fold1",
+      "best_acc": 0.9777777777777777,
+      "elapsed_minutes": 3.6071216543515523
+    },
+    {
+      "seed": 42,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9555555555555556,
+          "f1_macro": 0.9537037037037037,
+          "auroc_macro_ovr": 0.9878542510121457,
+          "attn_kegg": 0.666505753993988,
+          "attn_string": 0.20820337533950806,
+          "attn_coexpr": 0.1252908706665039
+        },
+        {
+          "fold": 2,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8888888888888888,
+          "f1_macro": 0.8803827751196172,
+          "auroc_macro_ovr": 0.9444444444444444,
+          "attn_kegg": 0.11414896696805954,
+          "attn_string": 0.6696842312812805,
+          "attn_coexpr": 0.21616680920124054
+        },
+        {
+          "fold": 3,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8863636363636364,
+          "f1_macro": 0.8814016172506738,
+          "auroc_macro_ovr": 0.9401709401709402,
+          "attn_kegg": 0.06364535540342331,
+          "attn_string": 0.7036082744598389,
+          "attn_coexpr": 0.232746422290802
+        },
+        {
+          "fold": 4,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9545454545454546,
+          "f1_macro": 0.9520697167755992,
+          "auroc_macro_ovr": 0.9807692307692307,
+          "attn_kegg": 0.6447581648826599,
+          "attn_string": 0.1306760162115097,
+          "attn_coexpr": 0.22456587851047516
+        },
+        {
+          "fold": 5,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8409090909090909,
+          "f1_macro": 0.8367779544250133,
+          "auroc_macro_ovr": 0.858974358974359,
+          "attn_kegg": 0.1592227965593338,
+          "attn_string": 0.7691280245780945,
+          "attn_coexpr": 0.0716492235660553
+        }
+      ],
+      "mean_acc": 0.9052525252525253,
+      "std_acc": 0.044101755061564794,
+      "mean_f1_macro": 0.9008671534549215,
+      "std_f1_macro": 0.04542982681146394,
+      "mean_auroc_macro_ovr": 0.942442645074224,
+      "std_auroc_macro_ovr": 0.045841605018220974,
+      "best_fold": "seed42_fold1",
+      "best_acc": 0.9555555555555556,
+      "elapsed_minutes": 2.997924792766571
+    },
+    {
+      "seed": 77,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9555555555555556,
+          "f1_macro": 0.9544534412955465,
+          "auroc_macro_ovr": 0.9979757085020243,
+          "attn_kegg": 0.24286462366580963,
+          "attn_string": 0.4978167712688446,
+          "attn_coexpr": 0.25931867957115173
+        },
+        {
+          "fold": 2,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9111111111111111,
+          "f1_macro": 0.9030172413793103,
+          "auroc_macro_ovr": 0.9691358024691358,
+          "attn_kegg": 0.08891306072473526,
+          "attn_string": 0.8615254759788513,
+          "attn_coexpr": 0.04956148564815521
+        },
+        {
+          "fold": 3,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8863636363636364,
+          "f1_macro": 0.8787878787878788,
+          "auroc_macro_ovr": 0.9166666666666667,
+          "attn_kegg": 0.07864762842655182,
+          "attn_string": 0.7284718155860901,
+          "attn_coexpr": 0.1928805559873581
+        },
+        {
+          "fold": 4,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9090909090909091,
+          "f1_macro": 0.905982905982906,
+          "auroc_macro_ovr": 0.920940170940171,
+          "attn_kegg": 0.08984941989183426,
+          "attn_string": 0.04811333492398262,
+          "attn_coexpr": 0.8620372414588928
+        },
+        {
+          "fold": 5,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9318181818181818,
+          "f1_macro": 0.9288409703504044,
+          "auroc_macro_ovr": 0.9487179487179487,
+          "attn_kegg": 0.15970395505428314,
+          "attn_string": 0.7474660873413086,
+          "attn_coexpr": 0.09282997995615005
+        }
+      ],
+      "mean_acc": 0.9187878787878787,
+      "std_acc": 0.023349288348928073,
+      "mean_f1_macro": 0.9142164875592093,
+      "std_f1_macro": 0.02561753010316852,
+      "mean_auroc_macro_ovr": 0.9506872594591893,
+      "std_auroc_macro_ovr": 0.030406296539286608,
+      "best_fold": "seed77_fold1",
+      "best_acc": 0.9555555555555556,
+      "elapsed_minutes": 2.7740715940793357
+    },
+    {
+      "seed": 123,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9777777777777777,
+          "f1_macro": 0.9770525242223356,
+          "auroc_macro_ovr": 0.979757085020243,
+          "attn_kegg": 0.06954953819513321,
+          "attn_string": 0.8975922465324402,
+          "attn_coexpr": 0.03285829722881317
+        },
+        {
+          "fold": 2,
+          "n_train": 177,
+          "n_val": 45,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8888888888888888,
+          "f1_macro": 0.8831168831168831,
+          "auroc_macro_ovr": 0.9485596707818931,
+          "attn_kegg": 0.05272849276661873,
+          "attn_string": 0.10331699252128601,
+          "attn_coexpr": 0.8439545631408691
+        },
+        {
+          "fold": 3,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8863636363636364,
+          "f1_macro": 0.8814016172506738,
+          "auroc_macro_ovr": 0.9230769230769231,
+          "attn_kegg": 0.16538496315479279,
+          "attn_string": 0.7342286109924316,
+          "attn_coexpr": 0.10038641095161438
+        },
+        {
+          "fold": 4,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.8863636363636364,
+          "f1_macro": 0.8754951895868703,
+          "auroc_macro_ovr": 0.9594017094017094,
+          "attn_kegg": 0.4911562502384186,
+          "attn_string": 0.26149073243141174,
+          "attn_coexpr": 0.24735303223133087
+        },
+        {
+          "fold": 5,
+          "n_train": 178,
+          "n_val": 44,
+          "n_coexpr_edges": 20000,
+          "acc": 0.9318181818181818,
+          "f1_macro": 0.9288409703504044,
+          "auroc_macro_ovr": 0.9337606837606838,
+          "attn_kegg": 0.5373178124427795,
+          "attn_string": 0.33323538303375244,
+          "attn_coexpr": 0.12944680452346802
+        }
+      ],
+      "mean_acc": 0.9142424242424243,
+      "std_acc": 0.0361743107338012,
+      "mean_f1_macro": 0.9091814369054335,
+      "std_f1_macro": 0.03893282510043958,
+      "mean_auroc_macro_ovr": 0.9489112144082906,
+      "std_auroc_macro_ovr": 0.019791872015731883,
+      "best_fold": "seed123_fold1",
+      "best_acc": 0.9777777777777777,
+      "elapsed_minutes": 2.5066805879275003
+    }
+  ],
+  "seed_mean_acc": 0.9177575757575758,
+  "seed_std_acc": 0.007642240269922814,
+  "seed_ci95_acc": {
+    "low": 0.9102681802930515,
+    "high": 0.9252469712221001
+  },
+  "seed_mean_f1_macro": 0.9134693265238087,
+  "seed_std_f1_macro": 0.007972652949033538,
+  "seed_ci95_f1_macro": {
+    "low": 0.9056561266337558,
+    "high": 0.9212825264138617
+  },
+  "seed_mean_auroc_macro_ovr": 0.9522157244964264,
+  "seed_std_auroc_macro_ovr": 0.007573096233189512,
+  "seed_ci95_auroc_macro_ovr": {
+    "low": 0.9447940901879007,
+    "high": 0.9596373588049522
+  },
+  "elapsed_minutes": 14.886764883995056
+}

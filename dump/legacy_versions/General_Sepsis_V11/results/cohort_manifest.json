@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-03-03T08:06:16.025761",
+  "seed": 42,
+  "policy": {
+    "scope": "sepsis_vs_healthy_only",
+    "holdout_dataset": "GSE26378",
+    "fallback_dataset": "GSE134347",
+    "gse95233_qc_min": {
+      "sepsis": 1,
+      "control": 1
+    },
+    "gse95233_fallback_triggered": true
+  },
+  "datasets": {
+    "GSE54514": {
+      "included_samples": 53,
+      "condition_counts": {
+        "control": 18,
+        "sepsis": 35
+      },
+      "timepoint_counts": {
+        "DAY_1": 53
+      },
+      "excluded_reasons": {
+        "not_day_1": 110
+      }
+    },
+    "GSE57065": {
+      "included_samples": 53,
+      "condition_counts": {
+        "sepsis": 28,
+        "control": 25
+      },
+      "timepoint_counts": {
+        "H00": 28,
+        "HV": 25
+      },
+      "excluded_reasons": {
+        "sepsis_not_h00": 54
+      }
+    },
+    "GSE95233": {
+      "included_samples": 22,
+      "condition_counts": {
+        "control": 22
+      },
+      "timepoint_counts": {
+        "D00": 22
+      },
+      "excluded_reasons": {
+        "non_admission_or_non_target_group": 102
+      }
+    },
+    "GSE26378": {
+      "included_samples": 103,
+      "condition_counts": {
+        "sepsis": 82,
+        "control": 21
+      },
+      "timepoint_counts": {
+        "single": 103
+      },
+      "excluded_reasons": {}
+    },
+    "GSE134347": {
+      "included_samples": 239,
+      "condition_counts": {
+        "sepsis": 156,
+        "control": 83
+      },
+      "timepoint_counts": {
+        "single": 239
+      },
+      "excluded_reasons": {
+        "noninfectious_excluded": 59
+      }
+    }
+  },
+  "active_train_datasets": [
+    "GSE134347",
+    "GSE54514",
+    "GSE57065"
+  ],
+  "active_holdout_dataset": "GSE26378",
+  "n_train_samples": 345,
+  "n_holdout_samples": 103,
+  "n_selected_genes": 2000,
+  "artifacts": {
+    "expression_combat_csv": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\General_Sepsis_V11\\results\\expression_combat.csv",
+    "expression_raw_selected_csv": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\General_Sepsis_V11\\results\\expression_raw_selected.csv",
+    "metadata_csv": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\General_Sepsis_V11\\results\\metadata.csv",
+    "gene_list_json": "C:\\Users\\terry\\Downloads\\Projects\\ISEF\\General_Sepsis_V11\\results\\gene_list.json"
+  }
+}

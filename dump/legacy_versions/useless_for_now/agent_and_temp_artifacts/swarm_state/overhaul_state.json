@@ -1,0 +1,145 @@
+{
+  "created_at": "2026-03-03T15:44:56.041330+00:00",
+  "goal": "Overhaul sepsis pipeline: remove optimistic validation leakage, run robust cohort-level validation, regenerate comparative visuals (including 3D GNN graph, heatmaps, SHAP), and update poster + engineering notebook.",
+  "groups": {
+    "implementation": {
+      "created_at": "2026-03-03T15:44:56.041358+00:00",
+      "members": [],
+      "tasks": [
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    "research": {
+      "created_at": "2026-03-03T15:44:56.041354+00:00",
+      "members": [],
+      "tasks": [
+        "R1"
+      ]
+    },
+    "verification": {
+      "created_at": "2026-03-03T15:44:56.041361+00:00",
+      "members": [],
+      "tasks": [
+        "V1",
+        "V2"
+      ]
+    }
+  },
+  "messages": [
+    {
+      "body": "Required implementation changes: fold-internal feature selection for both hybrid and baselines; add Leave-One-Dataset-Out CV track and threshold calibration from train folds only; rebuild plots and docs from new JSON schema.",
+      "priority": "normal",
+      "sender": "agent-research-1",
+      "target": "group:implementation",
+      "task": "R1",
+      "ts": "2026-03-03T15:45:20.380784+00:00"
+    },
+    {
+      "body": "Initial audit complete: optimistic CV likely from pre-CV global feature selection (MAD top-2000 before fold split). Secondary risk: sample-level SGKF can overstate cohort generalization relative to leave-one-dataset-out.",
+      "priority": "normal",
+      "sender": "agent-research-1",
+      "target": "orchestrator",
+      "task": "R1",
+      "ts": "2026-03-03T15:45:31.430182+00:00"
+    },
+    {
+      "body": "Mission complete. Outputs regenerated with robust validation and expanded visualization package. Residual risk: hybrid model does not beat strongest tabular baseline on pooled CV AUROC; claim language updated to stay evidence-bounded.",
+      "priority": "normal",
+      "sender": "orchestrator",
+      "target": "orchestrator",
+      "task": "V1",
+      "ts": "2026-03-03T16:31:39.140614+00:00"
+    }
+  ],
+  "tasks": {
+    "I1": {
+      "acceptance": "CV protocol updated; results regenerate without near-perfect leakage signatures",
+      "created_at": "2026-03-03T15:44:56.125844+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I1",
+      "owner": "",
+      "status": "done",
+      "summary": "Training/evaluation pipeline rebuilt for robust CV: fold-internal feature selection, LODO support, threshold calibration, normalization persistence.",
+      "title": "Implement fold-safe feature selection and cohort-aware validation",
+      "updated_at": "2026-03-03T16:30:59.142892+00:00"
+    },
+    "I2": {
+      "acceptance": "All requested visual types produced in publication folders",
+      "created_at": "2026-03-03T15:44:56.171609+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I2",
+      "owner": "",
+      "status": "done",
+      "summary": "Generated comprehensive comparison visuals including ROC/PR overlays, metric heatmaps, relation-attention heatmap, and 3D GNN topology plot.",
+      "title": "Generate model-by-model comparative visuals, heatmaps, and 3D GNN topology",
+      "updated_at": "2026-03-03T16:31:05.965550+00:00"
+    },
+    "I3": {
+      "acceptance": "SHAP artifacts and summaries generated and linked into reports",
+      "created_at": "2026-03-03T15:44:56.226545+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I3",
+      "owner": "",
+      "status": "done",
+      "summary": "Added SHAP explainability workflow and artifacts (summary bar, heatmap, top-feature table, JSON summary).",
+      "title": "Add SHAP analysis and biomarker explainability outputs",
+      "updated_at": "2026-03-03T16:31:14.238315+00:00"
+    },
+    "I4": {
+      "acceptance": "Poster + engineering notebook regenerated using new results and file manifest",
+      "created_at": "2026-03-03T15:44:56.286489+00:00",
+      "depends_on": [],
+      "group": "implementation",
+      "id": "I4",
+      "owner": "",
+      "status": "done",
+      "summary": "Poster and engineering notebook regenerated from robust outputs; detailed execution trace captured in overhaul_execution_log.md and included in notebook TeX.",
+      "title": "Update poster and engineering notebook with full execution trace",
+      "updated_at": "2026-03-03T16:31:19.689424+00:00"
+    },
+    "R1": {
+      "acceptance": "Leakage vectors documented and mitigation encoded in train/eval design",
+      "created_at": "2026-03-03T15:45:03.515930+00:00",
+      "depends_on": [],
+      "group": "research",
+      "id": "R1",
+      "owner": "",
+      "status": "done",
+      "summary": "Leakage vectors documented: global pre-CV feature selection and split protocol weakness. Mitigations implemented via fold-internal selection + LODO mode.",
+      "title": "Diagnose overfitting/leakage and define robust validation protocol",
+      "updated_at": "2026-03-03T16:30:52.464998+00:00"
+    },
+    "V1": {
+      "acceptance": "Independent checks confirm metrics and claim language are aligned with outputs",
+      "created_at": "2026-03-03T15:44:56.151556+00:00",
+      "depends_on": [],
+      "group": "verification",
+      "id": "V1",
+      "owner": "",
+      "status": "done",
+      "summary": "Validated regenerated metrics and checks. Robust CV no longer shows near-perfect saturation, but strongest tabular baseline remains ahead on pooled CV AUROC.",
+      "title": "Verify robustness claims and baseline comparisons",
+      "updated_at": "2026-03-03T16:31:26.022071+00:00"
+    },
+    "V2": {
+      "acceptance": "No stale metric text or missing files in publication artifacts",
+      "created_at": "2026-03-03T15:45:11.221718+00:00",
+      "depends_on": [],
+      "group": "verification",
+      "id": "V2",
+      "owner": "",
+      "status": "done",
+      "summary": "Verified required artifacts exist in results, figures, poster package, and notebook outputs.",
+      "title": "Verify regenerated poster/notebook/figure manifests reference current outputs",
+      "updated_at": "2026-03-03T16:31:33.102823+00:00"
+    }
+  },
+  "updated_at": "2026-03-03T16:31:39.140629+00:00",
+  "version": 1
+}
