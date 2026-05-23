@@ -152,7 +152,7 @@ Detailed results and per-fold metrics available in `results/metrics/` and `resul
 ## Documentation
 
 - [Pipeline Overview](docs/pipeline_overview.md) - Detailed pipeline documentation
-- [Model Architectures](docs/model_architectures.md) - Architecture deep-dive
+- [Model Architectures](docs/model_architectures.md) - Deep-dive into underlying architecture
 - [Results Summary](docs/results_summary.md) - Performance metrics and findings
 
 ## Data Sources
